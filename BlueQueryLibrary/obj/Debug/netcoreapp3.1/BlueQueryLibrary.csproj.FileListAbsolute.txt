@@ -1,0 +1,7 @@
+C:\Users\Chase Roth\Desktop\BlueQuery\BlueQueryLibrary\bin\Debug\netcoreapp3.1\BlueQueryLibrary.deps.json
+C:\Users\Chase Roth\Desktop\BlueQuery\BlueQueryLibrary\bin\Debug\netcoreapp3.1\BlueQueryLibrary.dll
+C:\Users\Chase Roth\Desktop\BlueQuery\BlueQueryLibrary\obj\Debug\netcoreapp3.1\BlueQueryLibrary.AssemblyInfoInputs.cache
+C:\Users\Chase Roth\Desktop\BlueQuery\BlueQueryLibrary\obj\Debug\netcoreapp3.1\BlueQueryLibrary.AssemblyInfo.cs
+C:\Users\Chase Roth\Desktop\BlueQuery\BlueQueryLibrary\bin\Debug\netcoreapp3.1\BlueQueryLibrary.pdb
+C:\Users\Chase Roth\Desktop\BlueQuery\BlueQueryLibrary\obj\Debug\netcoreapp3.1\BlueQueryLibrary.dll
+C:\Users\Chase Roth\Desktop\BlueQuery\BlueQueryLibrary\obj\Debug\netcoreapp3.1\BlueQueryLibrary.pdb
