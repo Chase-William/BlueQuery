@@ -2,15 +2,15 @@
 using BlueQueryLibrary.ArkBlueprints;
 namespace BlueQueryLibrary
 {
-    public class BlueprintContext : DbContext
+    public class BlueQueryContext : DbContext
     {
         private readonly string connectionString;
 
-        public BlueprintContext(string _connectionString)
+        public BlueQueryContext(string _connectionString)
         {
             this.connectionString = _connectionString;
         }
-        public BlueprintContext(DbContextOptions<BlueprintContext> options) : base(options) { }
+        public BlueQueryContext(DbContextOptions<BlueQueryContext> options) : base(options) { }
 
         public DbSet<Blueprint> Blueprints { get; set; }
     }

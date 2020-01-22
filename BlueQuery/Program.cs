@@ -14,15 +14,26 @@ namespace BlueQuery
     {
         public DiscordClient Client { get; set; }           // Our bot client
         public CommandsNextModule Commands { get; set; }    // Commands module
-
-        
+        public BlueQueryContext BlueQueryDb { get; set; }   // Bluequery database module
 
         static void Main(string[] args)
         {
-            var prog = new Program();            
+            var prog = new Program();   
+            
             prog.RunBotAsync().GetAwaiter().GetResult();
         }
 
+        /// <summary>
+        ///     Connects to the database.
+        /// </summary>
+        public void ConnectToDatabase()
+        {
+            BlueQueryDb = new BlueQueryContext("Data Source = BlueQueryDB.db");
+        }
+
+        /// <summary>
+        ///     Initializes the bot and connects to discord.
+        /// </summary>
         public async Task RunBotAsync()
         {
             // first, let's load our configuration file
@@ -61,7 +72,7 @@ namespace BlueQuery
             Commands = Client.UseCommandsNext(ccfg);
 
             // Binding command classes
-            Commands.RegisterCommands<BlueQuery.Commands.TestCommands>();
+            Commands.RegisterCommands<Commands.TestCommands>();
 
             // connecting and logging in
             await Client.ConnectAsync();
@@ -118,6 +129,9 @@ namespace BlueQuery
 
         [JsonProperty("prefix")]
         public string CommandPrefix { get; private set; }
+
+        //[JsonProperty("databaseFilePath")]
+        //public string DatabaseFilePath { get; private set; }
     }
 }
 

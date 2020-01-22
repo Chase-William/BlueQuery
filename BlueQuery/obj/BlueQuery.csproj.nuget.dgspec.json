@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQuery\\BlueQuery.csproj": {}
+    "C:\\Dev\\BlueQuery\\BlueQuery\\BlueQuery.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj": {
+    "C:\\Dev\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj",
+        "projectUniqueName": "C:\\Dev\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj",
         "projectName": "BlueQueryLibrary",
-        "projectPath": "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj",
-        "packagesPath": "C:\\Users\\Chase Roth\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQueryLibrary\\obj\\",
+        "projectPath": "C:\\Dev\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj",
+        "packagesPath": "C:\\Users\\cxr69\\.nuget\\packages\\",
+        "outputPath": "C:\\Dev\\BlueQuery\\BlueQueryLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Chase Roth\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\cxr69\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -63,25 +63,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQuery\\BlueQuery.csproj": {
+    "C:\\Dev\\BlueQuery\\BlueQuery\\BlueQuery.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQuery\\BlueQuery.csproj",
+        "projectUniqueName": "C:\\Dev\\BlueQuery\\BlueQuery\\BlueQuery.csproj",
         "projectName": "BlueQuery",
-        "projectPath": "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQuery\\BlueQuery.csproj",
-        "packagesPath": "C:\\Users\\Chase Roth\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQuery\\obj\\",
+        "projectPath": "C:\\Dev\\BlueQuery\\BlueQuery\\BlueQuery.csproj",
+        "packagesPath": "C:\\Users\\cxr69\\.nuget\\packages\\",
+        "outputPath": "C:\\Dev\\BlueQuery\\BlueQuery\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Chase Roth\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\cxr69\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -95,8 +95,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj": {
-                "projectPath": "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj"
+              "C:\\Dev\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj": {
+                "projectPath": "C:\\Dev\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj"
               }
             }
           }
@@ -142,7 +142,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
