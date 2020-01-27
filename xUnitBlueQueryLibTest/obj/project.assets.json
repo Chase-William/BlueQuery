@@ -7473,7 +7473,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\cxr69\\.nuget\\packages\\": {},
+    "C:\\Users\\Chase Roth\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
@@ -7483,7 +7483,7 @@
       "projectUniqueName": "C:\\Dev\\BlueQuery\\xUnitBlueQueryLibTest\\xUnitBlueQueryLibTest.csproj",
       "projectName": "xUnitBlueQueryLibTest",
       "projectPath": "C:\\Dev\\BlueQuery\\xUnitBlueQueryLibTest\\xUnitBlueQueryLibTest.csproj",
-      "packagesPath": "C:\\Users\\cxr69\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\Chase Roth\\.nuget\\packages\\",
       "outputPath": "C:\\Dev\\BlueQuery\\xUnitBlueQueryLibTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
@@ -7491,7 +7491,7 @@
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\cxr69\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Chase Roth\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -7556,7 +7556,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
