@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Dev\\BlueQuery\\BlueQuery\\BlueQuery.csproj": {}
+    "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQuery\\BlueQuery.csproj": {}
   },
   "projects": {
-    "C:\\Dev\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj": {
+    "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Dev\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj",
         "projectName": "BlueQueryLibrary",
-        "projectPath": "C:\\Dev\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj",
+        "projectPath": "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj",
         "packagesPath": "C:\\Users\\Chase Roth\\.nuget\\packages\\",
-        "outputPath": "C:\\Dev\\BlueQuery\\BlueQueryLibrary\\obj\\",
+        "outputPath": "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQueryLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -67,14 +67,14 @@
         }
       }
     },
-    "C:\\Dev\\BlueQuery\\BlueQuery\\BlueQuery.csproj": {
+    "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQuery\\BlueQuery.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Dev\\BlueQuery\\BlueQuery\\BlueQuery.csproj",
+        "projectUniqueName": "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQuery\\BlueQuery.csproj",
         "projectName": "BlueQuery",
-        "projectPath": "C:\\Dev\\BlueQuery\\BlueQuery\\BlueQuery.csproj",
+        "projectPath": "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQuery\\BlueQuery.csproj",
         "packagesPath": "C:\\Users\\Chase Roth\\.nuget\\packages\\",
-        "outputPath": "C:\\Dev\\BlueQuery\\BlueQuery\\obj\\",
+        "outputPath": "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQuery\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -95,8 +95,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Dev\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj": {
-                "projectPath": "C:\\Dev\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj"
+              "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj": {
+                "projectPath": "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj"
               }
             }
           }

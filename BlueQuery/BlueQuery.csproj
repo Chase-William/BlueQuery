@@ -20,10 +20,4 @@
     <ProjectReference Include="..\BlueQueryLibrary\BlueQueryLibrary.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="BlueQueryDB.db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
 </Project>

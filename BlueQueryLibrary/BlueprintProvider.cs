@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using BlueQueryLibrary.ArkBlueprints;
 
 namespace BlueQueryLibrary
@@ -18,9 +19,17 @@ namespace BlueQueryLibrary
         /// <summary>
         ///     Gets a blueprint by ID
         /// </summary>
-        public Blueprint GetBlueprint(int _id)
+        //public Blueprint GetBlueprint(int _id)
+        //{
+        //    return blueprintContext.Giganotosaurus.Where(e => e.Id == _id).FirstOrDefault();
+        //}       
+
+        /// <summary>
+        ///     Gets all the giganotosaurus blueprints.
+        /// </summary>
+        public Giganotosaurus[] GetAllGiganotosaurus()
         {
-            return blueprintContext.Blueprints.Where(e => e.Id == _id).FirstOrDefault();
-        }       
+            return blueprintContext.Saddles.Where(e => e is Giganotosaurus).Cast<Giganotosaurus>().ToArray();
+        }
     }
 }

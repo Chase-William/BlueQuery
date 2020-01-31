@@ -4912,11 +4912,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Dev\\BlueQuery\\BlueQuery\\BlueQuery.csproj",
+      "projectUniqueName": "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQuery\\BlueQuery.csproj",
       "projectName": "BlueQuery",
-      "projectPath": "C:\\Dev\\BlueQuery\\BlueQuery\\BlueQuery.csproj",
+      "projectPath": "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQuery\\BlueQuery.csproj",
       "packagesPath": "C:\\Users\\Chase Roth\\.nuget\\packages\\",
-      "outputPath": "C:\\Dev\\BlueQuery\\BlueQuery\\obj\\",
+      "outputPath": "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQuery\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -4937,8 +4937,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Dev\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj": {
-              "projectPath": "C:\\Dev\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj"
+            "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj": {
+              "projectPath": "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj"
             }
           }
         }

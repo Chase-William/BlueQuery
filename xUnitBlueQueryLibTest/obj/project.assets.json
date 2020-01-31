@@ -7480,11 +7480,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Dev\\BlueQuery\\xUnitBlueQueryLibTest\\xUnitBlueQueryLibTest.csproj",
+      "projectUniqueName": "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\xUnitBlueQueryLibTest\\xUnitBlueQueryLibTest.csproj",
       "projectName": "xUnitBlueQueryLibTest",
-      "projectPath": "C:\\Dev\\BlueQuery\\xUnitBlueQueryLibTest\\xUnitBlueQueryLibTest.csproj",
+      "projectPath": "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\xUnitBlueQueryLibTest\\xUnitBlueQueryLibTest.csproj",
       "packagesPath": "C:\\Users\\Chase Roth\\.nuget\\packages\\",
-      "outputPath": "C:\\Dev\\BlueQuery\\xUnitBlueQueryLibTest\\obj\\",
+      "outputPath": "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\xUnitBlueQueryLibTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -7505,8 +7505,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Dev\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj": {
-              "projectPath": "C:\\Dev\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj"
+            "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj": {
+              "projectPath": "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj"
             }
           }
         }

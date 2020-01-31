@@ -10,7 +10,5 @@ namespace BlueQueryLibrary.ArkBlueprints
         public int Hide { get; set; }
         [Column("metal")]
         public int Metal { get; set; }
-        [Column("giganotosaurus_id")]
-        public int GiganotosaurusId { get; private set; }
     }
 }
