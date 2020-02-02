@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BlueQueryLibrary.ArkBlueprints
 {
-    public class Managarmr : Saddle
+    public class Managarmr : Blueprint
     {
         [Column("fiber")]
         public int Fiber { get; set; }

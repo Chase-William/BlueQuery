@@ -5,7 +5,7 @@ namespace BlueQueryLibrary
     public class BlueQueryContext : DbContext
     {
         private readonly string connectionString;
-        public DbSet<Saddle> Saddles { get; set; }
+        public DbSet<Blueprint> Saddles { get; set; }
         
         public BlueQueryContext(string _connectionString)
         {
@@ -15,8 +15,8 @@ namespace BlueQueryLibrary
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Saddle>()
-                .HasDiscriminator<int>("Discriminator")
+            modelBuilder.Entity<Blueprint>()
+                .HasDiscriminator<int>("discriminator")
                 .HasValue<Giganotosaurus>(0)
                 .HasValue<Managarmr>(1);
         }

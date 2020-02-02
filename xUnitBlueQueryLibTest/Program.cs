@@ -74,7 +74,7 @@ namespace xUnitBlueQueryLibTest
         //}
 
         [Fact]
-        public void AddGigaSaddle()
+        public void TestAddSaddles()
         {
             var connection = new SqliteConnection("Data Source=BlueQueryDB.db");
             connection.Open();
@@ -88,14 +88,8 @@ namespace xUnitBlueQueryLibTest
 
             using (var context = new BlueQueryContext(options))
             {
-                context.Saddles.Add(new Giganotosaurus { Comment = "giger", 
-                                                                Armor = 124,  
-                                                                Fiber = 100,
-                                                                Hide = 100,
-                                                                Metal = 100,
-                                                                Discriminator = 0
-                });
-
+                context.Saddles.Add(new Giganotosaurus { Comment = "Worst Giga Saddle Ever", Armor = 124, Fiber = 100, Hide = 100, Metal = 100, Discriminator = BlueprintType.Giganotosaurus });
+                context.Saddles.Add(new Managarmr { Comment = "A Mana Saddle", Armor = 120, Fiber = 12000, Chitin = 3000, Hide = 2000, Discriminator = BlueprintType.Managarmr });
                 context.SaveChanges();
             }
 
@@ -104,7 +98,7 @@ namespace xUnitBlueQueryLibTest
                 var provider = new BlueprintProvider(context);
                 var blueprint = provider.GetAllGiganotosaurus();
 
-                Assert.Equal("giger", blueprint[0].Comment);
+                Assert.Equal("Worst Giga Saddle Ever", blueprint[0].Comment);
             }
         }
     }

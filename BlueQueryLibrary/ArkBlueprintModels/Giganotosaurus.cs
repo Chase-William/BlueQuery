@@ -2,7 +2,7 @@
 
 namespace BlueQueryLibrary.ArkBlueprints
 {
-    public class Giganotosaurus : Saddle
+    public class Giganotosaurus : Blueprint
     {
         [Column("fiber")]
         public int Fiber { get; set; }
