@@ -76,7 +76,7 @@ namespace xUnitBlueQueryLibTest
         [Fact]
         public void TestAddSaddles()
         {
-            var connection = new SqliteConnection("Data Source=BlueQueryDB.db");
+            var connection = new SqliteConnection("Data Source=../../../BlueQueryDB.db");
             connection.Open();
 
             var options = new DbContextOptionsBuilder<BlueQueryContext>().UseSqlite(connection).Options;
