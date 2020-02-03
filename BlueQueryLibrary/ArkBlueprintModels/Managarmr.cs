@@ -13,5 +13,10 @@ namespace BlueQueryLibrary.ArkBlueprints
         public int Hide { get; set; }
         [Column("chitin")]
         public int Chitin { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Id,-9}{Armor,-12}{Hide,-10}{Fiber,-10}{Chitin}";
+        }
     }
 }

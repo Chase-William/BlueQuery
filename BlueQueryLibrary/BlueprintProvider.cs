@@ -31,5 +31,10 @@ namespace BlueQueryLibrary
         {
             return blueprintContext.Saddles.Where(e => e is Giganotosaurus).Cast<Giganotosaurus>().ToArray();
         }
+
+        public Managarmr[] GetAllManagarmr()
+        {
+            return blueprintContext.Saddles.Where(e => e is Managarmr).Cast<Managarmr>().ToArray();
+        }
     }
 }
