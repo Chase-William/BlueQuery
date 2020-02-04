@@ -27,14 +27,20 @@ namespace BlueQueryLibrary
         /// <summary>
         ///     Gets all the giganotosaurus blueprints.
         /// </summary>
-        public Giganotosaurus[] GetAllGiganotosaurus()
+        public Giganotosaurus[] GetGiganotosauruses()
         {
             return blueprintContext.Saddles.Where(e => e is Giganotosaurus).Cast<Giganotosaurus>().ToArray();
         }
 
-        public Managarmr[] GetAllManagarmr()
+        public Managarmr[] GetManagarmrs()
         {
             return blueprintContext.Saddles.Where(e => e is Managarmr).Cast<Managarmr>().ToArray();
         }
+
+        public Blueprint[] GetBlueprints()
+        {
+            return blueprintContext.Saddles.ToArray();
+        }
+
     }
 }

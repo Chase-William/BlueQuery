@@ -72,7 +72,7 @@ namespace BlueQuery
             Commands = Client.UseCommandsNext(ccfg);
 
             // Binding command classes
-            Commands.RegisterCommands<Commands.TestCommands>();
+            Commands.RegisterCommands<Commands.GetQuery>();
 
             // connecting and logging in
             await Client.ConnectAsync();

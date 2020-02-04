@@ -21,7 +21,7 @@ namespace BlueQueryLibrary.ArkBlueprints
         private int discriminator;
 
         /// <summary>
-        ///     Property converts the BlueprintType enum to an integer when getting and setting for the database.
+        ///     Property converts the BlueprintType enum to an integer whe and setting and reversed for getting.
         /// </summary>
         public BlueprintType Discriminator 
         { 
@@ -29,6 +29,25 @@ namespace BlueQueryLibrary.ArkBlueprints
             set {
                 discriminator = (int)value;
             } 
+        }
+
+        /// <summary>
+        ///     Prints the important information about the <see cref="Blueprint"/> class to the console.
+        ///     The formatting matches the formatting returned by <see cref="GetQueryHeader"/>.
+        /// </summary>
+        public override string ToString()
+        {
+            return $"{Id,-10}{Discriminator,-10}";
+        }
+
+        /// <summary>
+        ///     When querying data, use this method to add a header to the console that will 
+        ///         align nicely with the ToString calls for the intances.
+        /// </summary>
+        /// <returns> A header formatted to match ToString formatting. </returns>
+        public static string GetQueryHeader()
+        {            
+            return $"--{nameof(Blueprint)}--\n\n{nameof(Id),-10}{nameof(Discriminator),-10}\n";
         }
     }
 

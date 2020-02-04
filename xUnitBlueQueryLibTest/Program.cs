@@ -74,7 +74,7 @@ namespace xUnitBlueQueryLibTest
         //}
 
         [Fact]
-        public void TestAddSaddles()
+        public void TestAddingBlueprints()
         {
             var connection = new SqliteConnection("Data Source=../../../BlueQueryDB.db");
             connection.Open();
@@ -88,17 +88,25 @@ namespace xUnitBlueQueryLibTest
 
             using (var context = new BlueQueryContext(options))
             {
-                context.Saddles.Add(new Giganotosaurus { Comment = "Worst Giga Saddle Ever", Armor = 124, Fiber = 100, Hide = 100, Metal = 100, Discriminator = BlueprintType.Giganotosaurus });
-                context.Saddles.Add(new Managarmr { Comment = "A Mana Saddle", Armor = 120, Fiber = 12000, Chitin = 3000, Hide = 2000, Discriminator = BlueprintType.Managarmr });
+                context.Saddles.Add(new Giganotosaurus { Comment = "Meow", Armor = 134, Fiber = 342, Hide = 352, Metal = 532, Discriminator = BlueprintType.Giganotosaurus });
+                context.Saddles.Add(new Managarmr { Comment = "Test", Armor = 100, Fiber = 4325, Chitin = 2945, Hide = 5322, Discriminator = BlueprintType.Managarmr });
+                context.Saddles.Add(new Giganotosaurus { Comment = "Giger SAddler", Armor = 124, Fiber = 325, Hide = 947, Metal = 937, Discriminator = BlueprintType.Giganotosaurus });
+                context.Saddles.Add(new Managarmr { Comment = "A Mana", Armor = 120.9f, Fiber = 9204, Chitin = 5973, Hide = 9073, Discriminator = BlueprintType.Managarmr });
+                context.Saddles.Add(new Giganotosaurus { Comment = "Best Saddle Ever", Armor = 124.7f, Fiber = 532, Hide = 392, Metal = 90, Discriminator = BlueprintType.Giganotosaurus });
+                context.Saddles.Add(new Managarmr { Comment = "some bp", Armor = 150.8f, Fiber = 7593, Chitin = 9753, Hide = 9732, Discriminator = BlueprintType.Managarmr });
+                context.Saddles.Add(new Giganotosaurus { Comment = "bark", Armor = 124.9f, Fiber = 481, Hide = 937, Metal = 9320, Discriminator = BlueprintType.Giganotosaurus });
+                context.Saddles.Add(new Giganotosaurus { Comment = "horrid", Armor = 26.2f, Fiber = 9731, Hide = 123, Metal = 862, Discriminator = BlueprintType.Giganotosaurus });
+                context.Saddles.Add(new Managarmr { Comment = "mixer", Armor = 39.2f, Fiber = 5713, Chitin = 7342, Hide = 9382, Discriminator = BlueprintType.Managarmr });
+                context.Saddles.Add(new Managarmr { Comment = "just another saddle", Armor = 157.5f, Fiber = 9733, Chitin = 3275, Hide = 1394, Discriminator = BlueprintType.Managarmr });
                 context.SaveChanges();
             }
 
             using (var context = new BlueQueryContext(options))
             {
                 var provider = new BlueprintProvider(context);
-                var blueprint = provider.GetAllGiganotosaurus();
+                var blueprints = provider.GetBlueprints();
 
-                Assert.Equal("Worst Giga Saddle Ever", blueprint[0].Comment);
+                Assert.Equal(10, blueprints.Length);
             }
         }
     }

@@ -6,7 +6,7 @@ using BlueQueryLibrary;
 
 namespace BlueQuery.Commands
 {
-    public class TestCommands
+    public class GetQuery
     {
         /// <summary>
         ///     Test the bot connection.
@@ -28,16 +28,15 @@ namespace BlueQuery.Commands
         }
 
         /// <summary>
-        ///     Test method to write to the database. 
+        ///     Gets all of a specific type from the database and returns the information back to the user.
         /// </summary>
-        //[Command("add")]
-        //[Description("Test command.")]        
-        //public async Task WriteToDatabase(CommandContext ctx)
-        //{
-        //    await ctx.TriggerTypingAsync();
+        [Command("get")]
+        [Description("Gets all of a specified type from the database and returns the information back to the user.")]
+        public async Task WriteToDatabase(CommandContext ctx)
+        {
+            await ctx.TriggerTypingAsync();
 
-        //    new BlueprintCreator(BlueprintContext)
-            
-        //}
+            ctx.Message
+        }
     }
 }
