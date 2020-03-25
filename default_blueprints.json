@@ -1,0 +1,40 @@
+{
+    "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.Object, System.Private.CoreLib]], System.Private.CoreLib",
+    "AdvancedRifleBullet": {
+        "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedRifleBullet, BlueQueryLibrary",
+        "MetalIngots": 1,
+        "GunPowder": 9,
+        "Yield": 2
+    },
+    "SimpleRifleBullet": {
+        "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.SimpleRifleBullet, BlueQueryLibrary",
+        "MetalIngots": 2,
+        "GunPowder": 12,
+        "Yield": 2
+    },
+    "SimpleBullet": {
+        "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.SimpleBullet, BlueQueryLibrary",
+        "MetalIngots": 1,
+        "GunPowder": 6,
+        "Yield": 2
+    },
+    "SimpleShotgunBullet": {
+        "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.SimpleShotgunBullet, BlueQueryLibrary",
+        "MetalIngots": 1,
+        "GunPowder": 3,
+        "SimpleBullets": 3,
+        "Yield": 1
+    },
+    "AdvancedBullet": {
+        "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBullet, BlueQueryLibrary",
+        "MetalIngots": 1,
+        "GunPowder": 3,
+        "Yield": 3
+    },
+    "AdvancedSniperBullet": {
+        "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedSniperBullet, BlueQueryLibrary",
+        "MetalIngots": 2,
+        "GunPowder": 12,
+        "Yield": 2
+    }
+}

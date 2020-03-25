@@ -6,7 +6,6 @@ using DSharpPlus;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.EventArgs;
 using Newtonsoft.Json;
-using BlueQueryLibrary;
 
 namespace BlueQuery
 {
@@ -14,21 +13,16 @@ namespace BlueQuery
     {
         public DiscordClient Client { get; set; }           // Our bot client
         public CommandsNextModule Commands { get; set; }    // Commands module
-        public BlueQueryContext BlueQueryDb { get; set; }   // Bluequery database module
+        
+        /// <summary>
+        ///     The bluequery Library.
+        /// </summary>
+        public static BlueQueryLibrary.BlueQueryLibrary BQL { get; set; } = new BlueQueryLibrary.BlueQueryLibrary();
 
         static void Main(string[] args)
-        {
-            var prog = new Program();   
-            
+        {          
+            var prog = new Program();                       
             prog.RunBotAsync().GetAwaiter().GetResult();
-        }
-
-        /// <summary>
-        ///     Connects to the database.
-        /// </summary>
-        public void ConnectToDatabase()
-        {
-            BlueQueryDb = new BlueQueryContext("Data Source = BlueQueryDB.db");
         }
 
         /// <summary>
@@ -72,7 +66,7 @@ namespace BlueQuery
             Commands = Client.UseCommandsNext(ccfg);
 
             // Binding command classes
-            Commands.RegisterCommands<Commands.GetQuery>();
+            Commands.RegisterCommands<Commands.Commands>();
 
             // connecting and logging in
             await Client.ConnectAsync();

@@ -12,7 +12,6 @@ C:\Users\Chase Roth\Desktop\BlueQuery\BlueQuery\bin\Debug\netcoreapp3.1\BlueQuer
 C:\Users\Chase Roth\Desktop\BlueQuery\BlueQuery\bin\Debug\netcoreapp3.1\BlueQuery.pdb
 C:\Users\Chase Roth\Desktop\BlueQuery\BlueQuery\obj\Debug\netcoreapp3.1\BlueQuery.dll
 C:\Users\Chase Roth\Desktop\BlueQuery\BlueQuery\obj\Debug\netcoreapp3.1\BlueQuery.pdb
-C:\Users\Chase Roth\Desktop\BlueQuery\BlueQuery\bin\Debug\netcoreapp3.1\BlueQueryDB.db
 C:\Users\Chase Roth\Desktop\BlueQuery\BlueQuery\obj\Debug\netcoreapp3.1\BlueQuery.csprojAssemblyReference.cache
 C:\Users\Chase Roth\Desktop\BlueQuery\BlueQuery\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\Chase Roth\Desktop\BlueQuery\BlueQuery\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll

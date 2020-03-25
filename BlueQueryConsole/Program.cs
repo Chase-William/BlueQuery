@@ -105,7 +105,7 @@ namespace BlueQueryConsole
         /// <returns> Returns the provider which raps the bluequerycontext </returns>
         private static BlueprintProvider Connect()
         {
-            var connection = new SqliteConnection("Data Source=../../../../xUnitBlueQueryLibTest/BlueQueryDB.db");
+            var connection = new SqliteConnection("Data Source=../../../../BlueQueryDB.db");
             connection.Open();
 
             var option = new DbContextOptionsBuilder<BlueQueryContext>().UseSqlite(connection).Options;
