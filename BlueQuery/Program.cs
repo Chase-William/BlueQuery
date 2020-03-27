@@ -17,7 +17,7 @@ namespace BlueQuery
         /// <summary>
         ///     The bluequery Library.
         /// </summary>
-        public static BlueQueryLibrary.BlueQueryLibrary BQL { get; set; } = new BlueQueryLibrary.BlueQueryLibrary();
+        //public static BlueQueryLibrary.BlueQueryLibrary BQL { get; set; } = new BlueQueryLibrary.BlueQueryLibrary();
 
         static void Main(string[] args)
         {          
@@ -67,6 +67,9 @@ namespace BlueQuery
 
             // Binding command classes
             Commands.RegisterCommands<Commands.Commands>();
+
+            // Commands for crafting blueprints.
+            Commands.RegisterCommands<Commands.Crafting.CraftingCommands>();
 
             // connecting and logging in
             await Client.ConnectAsync();

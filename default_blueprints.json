@@ -1,40 +1,59 @@
 {
-    "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.Object, System.Private.CoreLib]], System.Private.CoreLib",
-    "AdvancedRifleBullet": {
-        "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedRifleBullet, BlueQueryLibrary",
-        "MetalIngots": 1,
-        "GunPowder": 9,
-        "Yield": 2
+  "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary]], System.Private.CoreLib",
+  "Advanced Rifle Bullet": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedRifleBullet, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Gun Powder": 9.0,
+      "Metal Ingots": 1.0
     },
-    "SimpleRifleBullet": {
-        "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.SimpleRifleBullet, BlueQueryLibrary",
-        "MetalIngots": 2,
-        "GunPowder": 12,
-        "Yield": 2
+    "Yield": 2
+  },
+  "Simple Rifle Bullet": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.SimpleRifleBullet, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Gun Powder": 12.0,
+      "Metal Ingots": 2.0
     },
-    "SimpleBullet": {
-        "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.SimpleBullet, BlueQueryLibrary",
-        "MetalIngots": 1,
-        "GunPowder": 6,
-        "Yield": 2
+    "Yield": 2
+  },
+  "Simple Bullet": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.SimpleBullet, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Gun Powder": 6.0,
+      "Metal Ingots": 1.0
     },
-    "SimpleShotgunBullet": {
-        "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.SimpleShotgunBullet, BlueQueryLibrary",
-        "MetalIngots": 1,
-        "GunPowder": 3,
-        "SimpleBullets": 3,
-        "Yield": 1
+    "Yield": 2
+  },
+  "Simple Shotgun Bullet": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.SimpleShotgunBullet, BlueQueryLibrary",
+    "SimpleBullets": 0.0,
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Gun Powder": 3.0,
+      "Metal Ingots": 1.0,
+      "SimpleBullet": 3.0
     },
-    "AdvancedBullet": {
-        "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBullet, BlueQueryLibrary",
-        "MetalIngots": 1,
-        "GunPowder": 3,
-        "Yield": 3
+    "Yield": 1
+  },
+  "Advanced Bullet": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBullet, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Gun Powder": 3.0,
+      "Metal Ingots": 1.0
     },
-    "AdvancedSniperBullet": {
-        "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedSniperBullet, BlueQueryLibrary",
-        "MetalIngots": 2,
-        "GunPowder": 12,
-        "Yield": 2
-    }
+    "Yield": 3
+  },
+  "Advanced Sniper Bullet": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedSniperBullet, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Gun Powder": 12.0,
+      "Metal Ingots": 2.0
+    },
+    "Yield": 2
+  }
 }

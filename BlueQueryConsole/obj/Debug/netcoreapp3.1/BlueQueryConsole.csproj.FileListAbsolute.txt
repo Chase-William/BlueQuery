@@ -98,3 +98,4 @@ C:\Users\Chase Roth\Desktop\BlueQuery\BlueQueryConsole\obj\Debug\netcoreapp3.1\B
 C:\Users\Chase Roth\Desktop\BlueQuery\BlueQueryConsole\obj\Debug\netcoreapp3.1\BlueQueryConsole.csproj.CopyComplete
 C:\Users\Chase Roth\Desktop\BlueQuery\BlueQueryConsole\obj\Debug\netcoreapp3.1\BlueQueryConsole.dll
 C:\Users\Chase Roth\Desktop\BlueQuery\BlueQueryConsole\obj\Debug\netcoreapp3.1\BlueQueryConsole.pdb
+C:\Users\Chase Roth\Desktop\BlueQuery\BlueQueryConsole\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll

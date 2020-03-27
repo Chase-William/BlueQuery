@@ -1,30 +1,91 @@
 ﻿using BlueQueryLibrary.ArkBlueprints.DefaultBlueprints;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Newtonsoft.Json;
 
 namespace BlueQueryLibrary.Data
 {
-    public class Blueprints
+    public static class Blueprints
     {
-        public Dictionary<string, object> DefaultBlueprints = new Dictionary<string, object>();
+        public static Dictionary<string, Blueprint> DefaultBlueprints = new Dictionary<string, Blueprint>();
 
-        public Blueprints()
+        static Blueprints()
         {
-            //StaticBlueprints = new Dictionary<string, object>()
+            //var test = new Dictionary<string, Blueprint>()
             //{
-            //    { nameof(AdvancedRifleBullet),  new AdvancedRifleBullet() },
-            //    { nameof(SimpleRifleBullet),  new SimpleRifleBullet() },
-            //    { nameof(SimpleBullet),  new SimpleBullet() },
-            //    { nameof(SimpleShotgunBullet),  new SimpleShotgunBullet() },
-            //    { nameof(AdvancedBullet),  new AdvancedBullet() },
-            //    { nameof(AdvancedSniperBullet),  new AdvancedSniperBullet() }
+            //    { nameof(AdvancedRifleBullet),
+            //        new AdvancedRifleBullet() {
+            //            Resources = new SortedList<string, double>()
+            //            {
+            //                { "Metal Ingots", 1 },
+            //                { "Gun Powder", 9 }
+            //            },
+            //            Yield = 2
+            //        }
+            //    },
+            //    { nameof(SimpleRifleBullet),
+            //        new SimpleRifleBullet() {
+            //            Resources = new SortedList<string, double>()
+            //            {
+            //                { "Metal Ingots", 2 },
+            //                { "Gun Powder", 12 }
+            //            },
+            //            Yield = 2
+            //        }
+            //    },
+            //    { nameof(SimpleBullet),
+            //        new SimpleBullet() {
+            //            Resources = new SortedList<string, double>()
+            //            {
+            //                { "Metal Ingots", 1 },
+            //                { "Gun Powder", 6 }
+            //            },
+            //            Yield = 2
+            //        }
+            //    },
+            //    { nameof(SimpleShotgunBullet),
+            //        new SimpleShotgunBullet() {
+            //            Resources = new SortedList<string, double>()
+            //            {
+            //                { "Metal Ingots", 1 },
+            //                { "Gun Powder", 3 },
+            //                { nameof(SimpleBullet), 3 }
+            //            },
+            //            Yield = 1
+            //        }
+            //    },
+            //    { nameof(AdvancedBullet),
+            //        new AdvancedBullet() {
+            //            Resources = new SortedList<string, double>()
+            //            {
+            //                { "Metal Ingots", 1 },
+            //                { "Gun Powder", 3 }
+            //            },
+            //            Yield = 3
+            //        }
+            //    },
+            //    { nameof(AdvancedSniperBullet),
+            //        new AdvancedSniperBullet() {
+            //            Resources = new SortedList<string, double>()
+            //            {
+            //                { "Metal Ingots", 2 },
+            //                { "Gun Powder", 12 }
+            //            },
+            //            Yield = 2
+            //        }
+            //    },
             //};
 
             JsonSerializerSettings settings = new JsonSerializerSettings()
             {
                 TypeNameHandling = TypeNameHandling.All
             };
+
+            //using StreamWriter writer = new StreamWriter("../../../../default_blueprints.json");
+            //writer.Write(JsonConvert.SerializeObject(test, settings));
+            //writer.Close();
+
 
             //using StreamWriter writer = new StreamWriter("../../../../default_blueprints.json");
 
@@ -36,7 +97,7 @@ namespace BlueQueryLibrary.Data
 
             // read from json file and populate data
 
-            DefaultBlueprints = JsonConvert.DeserializeObject<Dictionary<string, object>>(new StreamReader("../../../../default_blueprints.json").ReadToEnd(), settings);
+            DefaultBlueprints = JsonConvert.DeserializeObject<Dictionary<string, Blueprint>>(new StreamReader("../../../../default_blueprints.json").ReadToEnd(), settings);
         }
     }
 }
