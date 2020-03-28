@@ -24,19 +24,29 @@ namespace BlueQuery.Commands.Crafting
             // Default value of amount
             int amount = 1;
 
-            if (string.IsNullOrWhiteSpace(_ctx.RawArgumentString))
+            string args = _ctx.RawArgumentString;
+
+            // If the command aguments are empty inform the user
+            if (string.IsNullOrWhiteSpace(args))
             {
                 await _ctx.RespondAsync("No blueprint type was provided.");
                 return;
+            }     
+            // If the arugments arn't empty trim the front and rear because this protects our logic.
+            // ?c -a 300 would pass if we didn't trim the space before the "-a"
+            else
+            {
+                args = args.Trim();
             }
-            // Removing all spaces from the request and making all chars lower case.
-            string args = Regex.Replace(_ctx.RawArgumentString.ToLower(), @"\s+", "");           
 
             // splits the arguments into their individual segments
             // indices:
             // 0 == item identifier
             // 1 == quantity to be crafted
             string[] parameters = args.Split(new string[] { "-amount", "-amt", "-a" }, System.StringSplitOptions.RemoveEmptyEntries);
+
+            // We want to remove only the first and trailing white spaces on the blueprint type, because our dictionary contains the inner spaces.
+            parameters[0] = parameters[0].Trim();            
 
             // If the parameter.length doesn't equal 2 or 1 then we cannot accept this request.
             if (parameters.Length < 1 || parameters.Length > 2)
@@ -46,11 +56,14 @@ namespace BlueQuery.Commands.Crafting
             }
             // We only want to parse the parameters[1] index if it was provided, other we use the default value of 1.
             else if (parameters.Length == 2)
-            {                
+            {
+                // We want to remove spaces from the number for parsing.
+                parameters[1] = parameters[1].Trim();
                 // If the user enters a non-numeric string report an error and return.
-                if (!int.TryParse(parameters[1], out amount))
+                if (!int.TryParse(parameters[1], out amount) || amount < 0)
                 {
-                    await _ctx.RespondAsync("Your choosen quantity was not a number.");
+                    await _ctx.RespondAsync("Invalid amount.");
+                    return;
                 }
             }            
 
@@ -71,8 +84,9 @@ namespace BlueQuery.Commands.Crafting
                         case 0:
                             await _ctx.RespondAsync("No blueprint matched your search.");
                             break;
-                        // Only one blueprint was found.
+                        // Only one blueprint was found so we can calculate immediately.
                         case 1:
+                            await _ctx.RespondAsync(GetCalculatedBlueprintCostFormatted(keys[0], amount).GetResponce());
                             break;
                         // Multiple blueprints were found.
                         default:
@@ -86,7 +100,7 @@ namespace BlueQuery.Commands.Crafting
                             // Saving the options
                             SavedCraftInstructions.Content = new SavedCraftInstructions.SCIContent(keys, amount);
                             // Responding with the blueprint options
-                            await _ctx.RespondAsync(new DiscordResponse() 
+                            await _ctx.RespondAsync(new CraftingResponce() 
                             { 
                                Header = "Blueprint Search Results:",
                                Content = blueprints
@@ -115,22 +129,10 @@ namespace BlueQuery.Commands.Crafting
                 return;
             }
 
-            string blueprint = SavedCraftInstructions.Content.Keys[--selectedIndex];
-            int amount = SavedCraftInstructions.Content.Amount;
-
-            var response = new DiscordResponse
-            {
-                //Header =  "```cs\nMeow!! x 300```",
-                //Header = $"```fix\n= {blueprint} x {amount}```",
-                Header = $"{blueprint} x {amount}:",
-                Content = GetCalculatedBlueprintCostFormatted(blueprint, amount)
-            };
-                          
-            
-
             // Getting the cost based off the user provided parameters and forwarding them to the user.
-            await _ctx.RespondAsync(response.GetResponce());           
-
+            await _ctx.RespondAsync(GetCalculatedBlueprintCostFormatted(SavedCraftInstructions.Content.Keys[--selectedIndex],
+                                                                        SavedCraftInstructions.Content.Amount)
+                                                                        .GetResponce());           
 
             // Reseting the keyOptions to null so this cannot be called again.
             SavedCraftInstructions.Content = null;
@@ -139,23 +141,32 @@ namespace BlueQuery.Commands.Crafting
         /// <summary>
         ///     Calculates the cost a for a amount of a blueprint type.
         /// </summary>
-        public static string GetCalculatedBlueprintCostFormatted(string _blueprintKey, int _amount)
-        {
-            string content = "#Resources:\n";
+        public static CraftingResponce GetCalculatedBlueprintCostFormatted(string _blueprintKey, int _amount)
+        {          
+            string content = "#Resources:\n\n";
 
             // Getting the calculated cost for the blueprint
             CalculatedResourceCost[] costs = BlueQueryLibrary.Data.Blueprints.DefaultBlueprints[_blueprintKey].GetResourceCost(_amount).ToArray();
 
+            // https://www.youtube.com/watch?v=5cg9jv83SMo
+            // Using this to find the largest string inside our collection so we will know how to format.
+            int offset = costs.Aggregate(string.Empty, (longest, bp) => bp.Type.Length > longest.Length ? bp.Type : longest).Length;          
+
             // Adding each resource cost to the responce body.
             for (int i = 0; i < costs.Length; i++)
             {
-                content += $"\t{costs[i].Type} x {costs[i].Amount}\n";
+                // Padding right allows the text after to be formatted neatly vertically.
+                content += $"\t{costs[i].Type.PadRight(offset)} x {costs[i].Amount}\n";
             }
 
-            return content;
+            return new CraftingResponce
+            {
+                Header = $"{_blueprintKey} x {_amount}:",
+                Content = content
+            };
         }
 
-        public struct DiscordResponse
+        public struct CraftingResponce
         {
             public string Header { get; set; }
             public string Content { get; set; }

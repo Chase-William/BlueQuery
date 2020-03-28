@@ -66,7 +66,7 @@ namespace BlueQuery
             Commands = Client.UseCommandsNext(ccfg);
 
             // Binding command classes
-            Commands.RegisterCommands<Commands.Commands>();
+            Commands.RegisterCommands<Commands.General.Commands>();
 
             // Commands for crafting blueprints.
             Commands.RegisterCommands<Commands.Crafting.CraftingCommands>();

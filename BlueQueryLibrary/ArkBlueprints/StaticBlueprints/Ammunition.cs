@@ -46,6 +46,7 @@ namespace BlueQueryLibrary.ArkBlueprints.DefaultBlueprints
         }
     }
 
+
     public struct CalculatedResourceCost
     {
         public string Type { get; set; }
