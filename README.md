@@ -1,4 +1,6 @@
-<img style="align:middle;" src="https://raw.githubusercontent.com/ChaseRoth/BlueQuery/master/Icons/bluequery512.png?token=ALEXLHU3OSPS3TBCRO2XXHK6P3UNM" alt="Blue Query Icon">
+<p align="center">
+  <img style="align:middle;" src="https://raw.githubusercontent.com/ChaseRoth/BlueQuery/master/Icons/bluequery512.png?token=ALEXLHU3OSPS3TBCRO2XXHK6P3UNM" alt="Blue Query Icon">
+</p>
 
 # Blue Query (Early Development)
 
