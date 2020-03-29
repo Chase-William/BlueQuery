@@ -1,7 +1,7 @@
 {
   "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary]], System.Private.CoreLib",
   "Advanced Rifle Bullet": {
-    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedRifleBullet, BlueQueryLibrary",
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
     "Resources": {
       "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
       "Gun Powder": 9.0,
@@ -10,7 +10,7 @@
     "Yield": 2
   },
   "Simple Rifle Bullet": {
-    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.SimpleRifleBullet, BlueQueryLibrary",
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
     "Resources": {
       "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
       "Gun Powder": 12.0,
@@ -19,7 +19,7 @@
     "Yield": 2
   },
   "Simple Bullet": {
-    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.SimpleBullet, BlueQueryLibrary",
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
     "Resources": {
       "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
       "Gun Powder": 6.0,
@@ -28,18 +28,20 @@
     "Yield": 2
   },
   "Simple Shotgun Bullet": {
-    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.SimpleShotgunBullet, BlueQueryLibrary",
-    "SimpleBullets": 0.0,
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
     "Resources": {
       "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
       "Gun Powder": 3.0,
-      "Metal Ingots": 1.0,
-      "SimpleBullet": 3.0
+      "Metal Ingots": 1.0
+    },
+    "CraftedResources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Simple Bullet": 3.0
     },
     "Yield": 1
   },
   "Advanced Bullet": {
-    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBullet, BlueQueryLibrary",
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
     "Resources": {
       "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
       "Gun Powder": 3.0,
@@ -48,12 +50,661 @@
     "Yield": 3
   },
   "Advanced Sniper Bullet": {
-    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedSniperBullet, BlueQueryLibrary",
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
     "Resources": {
       "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
       "Gun Powder": 12.0,
       "Metal Ingots": 2.0
     },
     "Yield": 2
+  },
+
+
+
+  "Note": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 1.0,
+      "Thatch": 3.0
+    },
+    "Yield": 1
+  },
+  "Stone Pick": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Stone": 1,
+      "Thatch": 10,
+      "Wood": 1
+    },
+    "Yield": 1
+  },
+  "Torch": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Flint": 1,
+      "Stone": 1,
+      "Wood": 1
+    },
+    "Yield": 1
+  },
+  "Campfire": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Flint": 1,
+      "Stone": 16,
+      "Thatch": 12,
+      "Wood": 2
+    },
+    "Yield": 1
+  },
+  "Stone Hatchet": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Flint": 1,
+      "Thatch": 10,
+      "Wood": 1
+    },
+    "Yield": 1
+  },
+  "Spear": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 12,
+      "Flint": 2,
+      "Wood": 8
+    },
+    "Yield": 1
+  },
+  "Cloth Pants": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 50
+    },
+    "Yield": 1
+  },
+  "Cloth Shirt": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 40
+    },
+    "Yield": 1
+  },
+  "Waterskin": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 12,
+      "Hide": 4
+    },
+    "Yield": 1
+  },
+  "Cloth Gloves": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 20,
+      "Hide": 4
+    },
+    "Yield": 1
+  },
+  "Cloth Boots": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 25,
+      "Hide": 6
+    },
+    "Yield": 1
+  },
+  "Cloth Hat": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 10
+    },
+    "Yield": 1
+  },
+  "Thatch Foundation": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 15,
+      "Thatch": 20,
+      "Wood": 6
+    },
+    "Yield": 1
+  },
+  "Thatch Doorframe": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 6,
+      "Thatch": 8,
+      "Wood": 6
+    },
+    "Yield": 1
+  },
+  "Hide Sleeping Bag": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 15,
+      "Hide": 25
+    },
+    "Yield": 1
+  },
+  "Thatch Ceiling": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 10,
+      "Thatch": 15,
+      "Wood": 4
+    },
+    "Yield": 1
+  },
+  "Thatch Wall": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 7,
+      "Thatch": 10,
+      "Wood": 2
+    },
+    "Yield": 1
+  },
+  "Thatch Door": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 4,
+      "Thatch": 7
+    },
+    "Yield": 1
+  },
+  "Storage Box": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 10,
+      "Thatch": 20,
+      "Wood": 25
+    },
+    "Yield": 1
+  },
+  "Wooden Sign": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 4,
+      "Thatch": 3,
+      "Wood": 5
+    },
+    "Yield": 1
+  },
+  "Slingshot": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 20,
+      "Hide": 1,
+      "Wood": 5
+    },
+    "Yield": 1
+  },
+  "Phiomia Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 15,
+      "Hide": 20,
+      "Wood": 5
+    },
+    "Yield": 1
+  },
+  "Sloped Thatch Wall Left": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 7,
+      "Thatch": 10,
+      "Wood": 2
+    },
+    "Yield": 1
+  },
+  "Sloped Thatch Wall Right": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 7,
+      "Thatch": 10,
+      "Wood": 2
+    },
+    "Yield": 1
+  },
+  "Sloped Thatch Roof": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 10,
+      "Thatch": 15,
+      "Wood": 4
+    },
+    "Yield": 1
+  },
+  "Mortar And Pestle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Hide": 15,
+      "Stone": 65
+    },
+    "Yield": 1
+  },
+  "Blood Extraction Syringe": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Chitin/Keratin": 1,
+      "Hide": 10
+    },
+    "Yield": 1
+  },
+  "Fish Net": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 15,
+      "Hide": 3,
+      "Stone": 3,
+      "Thatch": 10
+    },
+    "Yield": 1
+  },
+  "Simple Bed": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 30,
+      "Hide": 40,
+      "Thatch": 80,
+      "Wood": 15
+    },
+    "Yield": 1
+  },
+  "Single Panel Flag": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 100,
+      "Hide": 20,
+      "Thatch": 30,
+      "Wood": 10
+    },
+    "Yield": 1
+  },
+  "Standing Torch": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Flint": 1,
+      "Stone": 1,
+      "Thatch": 8,
+      "Wood": 3
+    },
+    "Yield": 1
+  },
+  "Tent": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 10,
+      "Hide": 50,
+      "Silk": 10,
+      "Thatch": 25,
+      "Wood": 15
+    },
+    "Yield": 1
+  },
+  "Spyglass": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Crystal": 2,
+      "Fiber": 10,
+      "Hide": 10,
+      "Wood": 5
+    },
+    "Yield": 1
+  },
+  "Wooden Club": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 15,
+      "Wood": 4
+    },
+    "Yield": 1
+  },
+  "Multi-Panel Flag": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 100,
+      "Hide": 20,
+      "Thatch": 30,
+      "Wood": 10
+    },
+    "Yield": 1
+  },
+  "Cooking Pot": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Flint": 5,
+      "Stone": 75,
+      "Thatch": 15,
+      "Wood": 10
+    },
+    "Yield": 1
+  },
+  "Compass": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 30,
+      "Flint": 5,
+      "Metal": 5
+    },
+    "Yield": 1
+  },
+  "Paintbrush": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Hide": 3,
+      "Thatch": 10,
+      "Wood": 1
+    },
+    "Yield": 1
+  },
+  "Boomerang": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 15,
+      "Sand": 5,
+      "Wood": 3
+    },
+    "Yield": 1
+  },
+  "Bola": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 15,
+      "Hide": 3,
+      "Stone": 3,
+      "Thatch": 10
+    },
+    "Yield": 1
+  },
+  "Parasaur Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 50,
+      "Hide": 80,
+      "Wood": 15
+    },
+    "Yield": 1
+  },
+  "Training Dummy": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 500,
+      "Hide": 10,
+      "Thatch": 500,
+      "Wood": 80
+    },
+    "Yield": 1
+  },
+  "Small Crop Plot": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 15,
+      "Stone": 25,
+      "Thatch": 10,
+      "Wood": 20
+    },
+    "Yield": 1
+  },
+  "Bow": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 50,
+      "Wood": 15
+    },
+    "Yield": 1
+  },
+  "Stone Arrow": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 2,
+      "Flint": 1,
+      "Thatch": 2
+    },
+    "Yield": 1
+  },
+  "Carbonemys Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 10,
+      "Fiber": 95,
+      "Hide": 170
+    },
+    "Yield": 1
+  },
+  "Glow Stick": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Crystal": 2,
+      "Green Gem": 1
+    },
+    "Yield": 1
+  },
+  "Small Taxidermy base": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Stone": 10,
+      "Thatch": 100,
+      "Wood": 50
+    },
+    "Yield": 1
+  },
+  "Taxidermy Tool": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Flint": 4,
+      "Stone": 2,
+      "Wood": 10
+    },
+    "Yield": 1
+  },
+  "Wooden Foundation": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 15,
+      "Thatch": 20,
+      "Wood": 80
+    },
+    "Yield": 1
+  },
+  "Wooden Wall": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 7,
+      "Thatch": 10,
+      "Wood": 40
+    },
+    "Yield": 1
+  },
+  "Wooden Ceiling": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 10,
+      "Thatch": 15,
+      "Wood": 60
+    },
+    "Yield": 1
+  },
+  "Wooden Doorframe": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 6,
+      "Thatch": 8,
+      "Wood": 30
+    },
+    "Yield": 1
+  },
+  "Wooden Door": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 4,
+      "Thatch": 7,
+      "Wood": 20
+    },
+    "Yield": 1
+  },
+  "Wooden Fence Foundation": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 2,
+      "thatch": 3,
+      "Wood": 10
+    },
+    "Yield": 1
+  },
+  "Morellatops Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 80,
+      "Hide": 140,
+      "Wood": 30
+    },
+    "Yield": 1
+  },
+  "Wooden Fence Support": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 2,
+      "Thatch": 3,
+      "Wood": 10
+    },
+    "Yield": 1
+  },
+  "Wooden Triangle Ceiling": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 5,
+      "Thatch": 8,
+      "Wood": 30
+    },
+    "Yield": 1
+  },
+  "Wooden Triangle Foundation": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 8,
+      "Thatch": 10,
+      "Wood": 40
+    },
+    "Yield": 1
+  },
+  "Wooden Shield": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 20,
+      "Hide": 12,
+      "Wood": 40
+    },
+    "Yield": 1
+  },
+  "Wooden Cage": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 25,
+      "Thatch": 30,
+      "Wood": 110
+    },
+    "Yield": 1
+  },
+  "Sloped Wood Wall Left": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 5,
+      "Thatch": 5,
+      "Wood": 20
+    },
+    "Yield": 1
+  },
+  "Sloped Wood Wall Right": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 5,
+      "Thatch": 5,
+      "Wood": 20
+    },
+    "Yield": 1
+  },
+  "Wooden Ramp": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 10,
+      "Thatch": 15,
+      "Wood": 60
+    },
+    "Yield": 1
+  },
+  "Wooden Pillar": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 7,
+      "Thatch": 10,
+      "Wood": 40
+    },
+    "Yield": 1
   }
 }

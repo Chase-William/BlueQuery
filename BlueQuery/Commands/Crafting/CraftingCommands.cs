@@ -65,18 +65,23 @@ namespace BlueQuery.Commands.Crafting
                     await _ctx.RespondAsync("Invalid amount.");
                     return;
                 }
-            }            
-
+            }
+            string[] keys;
             // All switches contain abbreviations
             switch (parameters[0])
             {
+                // Wildcard will fetch all blueprints.
+                case "*":
+                    keys = BlueQueryLibrary.Data.Blueprints.DefaultBlueprints.Keys.ToArray();
+                    PrepareForSelection();
+                    break;
                 // Advanced Rifle Bullets
                 case "arb":
                     // do something
                     break;
                 // No abbreviations detected, therefore use contains search.
                 default:
-                    string[] keys = BlueQueryLibrary.Data.Blueprints.DefaultBlueprints.Keys.Where(x => x.ToLower().Contains(parameters[0])).ToArray();
+                    keys = BlueQueryLibrary.Data.Blueprints.DefaultBlueprints.Keys.Where(x => x.ToLower().Contains(parameters[0])).ToArray();
 
                     switch (keys.Length)
                     {
@@ -90,24 +95,30 @@ namespace BlueQuery.Commands.Crafting
                             break;
                         // Multiple blueprints were found.
                         default:
-                            // Contains all the found blueprints.
-                            string blueprints = string.Empty;
-                            // Generate a string of the blueprints found.
-                            for (int i = 0; i < keys.Length; i++)
-                            {
-                                blueprints += $"({i + 1}) {keys[i]}\n";
-                            }
-                            // Saving the options
-                            SavedCraftInstructions.Content = new SavedCraftInstructions.SCIContent(keys, amount);
-                            // Responding with the blueprint options
-                            await _ctx.RespondAsync(new CraftingResponce() 
-                            { 
-                               Header = "Blueprint Search Results:",
-                               Content = blueprints
-                            }.GetResponce());
+                            PrepareForSelection();
                             break;
                     }
                     break;
+            }
+
+            // Prepares for the selection que.
+            async void PrepareForSelection()
+            {
+                // Contains all the found blueprints.
+                string blueprints = string.Empty;
+                // Generate a string of the blueprints found.
+                for (int i = 0; i < keys.Length; i++)
+                {
+                    blueprints += $"({i + 1}) {keys[i]}\n";
+                }
+                // Saving the options
+                SavedCraftInstructions.Content = new SavedCraftInstructions.SCIContent(keys, amount);
+                // Responding with the blueprint options
+                await _ctx.RespondAsync(new CraftingResponce()
+                {
+                    Header = "Blueprint Search Results:",
+                    Content = blueprints
+                }.GetResponce());
             }
         }
 
@@ -138,6 +149,9 @@ namespace BlueQuery.Commands.Crafting
             SavedCraftInstructions.Content = null;
         }
 
+        const int DEFAULT_START_OFFSET= 3;
+        static int startOffset = DEFAULT_START_OFFSET;
+
         /// <summary>
         ///     Calculates the cost a for a amount of a blueprint type.
         /// </summary>
@@ -148,22 +162,61 @@ namespace BlueQuery.Commands.Crafting
             // Getting the calculated cost for the blueprint
             CalculatedResourceCost[] costs = BlueQueryLibrary.Data.Blueprints.DefaultBlueprints[_blueprintKey].GetResourceCost(_amount).ToArray();
 
-            // https://www.youtube.com/watch?v=5cg9jv83SMo
-            // Using this to find the largest string inside our collection so we will know how to format.
-            int offset = costs.Aggregate(string.Empty, (longest, bp) => bp.Type.Length > longest.Length ? bp.Type : longest).Length;          
+            // Getting the padding offset needed to format our "x {cost}".
+            int offset = costs.Aggregate(string.Empty, (longest, bp) => bp.Type.Length > longest.Length ? bp.Type : longest).Length;
 
-            // Adding each resource cost to the responce body.
+            // Adding the main blueprint's resources to the content.
             for (int i = 0; i < costs.Length; i++)
             {
                 // Padding right allows the text after to be formatted neatly vertically.
-                content += $"\t{costs[i].Type.PadRight(offset)} x {costs[i].Amount}\n";
+                content += $"{"".PadRight(startOffset)}{costs[i].Type.PadRight(offset)} x {costs[i].Amount}\n";
             }
 
+            // Adding the nested blueprints to the content.
+            for (int i = 0; i < costs.Length; i++)
+            {
+                content += GetFormattedBlueprintCost(costs[i]);
+                startOffset = DEFAULT_START_OFFSET;
+            }            
+
+            // Returning a new crafting responce that contains our message.
             return new CraftingResponce
             {
                 Header = $"{_blueprintKey} x {_amount}:",
                 Content = content
             };
+        }
+
+        /// <summary>
+        ///     Returns a formatted string with all the information of the crafting requirements.
+        /// </summary>  
+        private static string GetFormattedBlueprintCost(CalculatedResourceCost _cost)
+        {
+            string content = string.Empty;
+
+            if (_cost.CalculatedResourceCosts != null)
+            {
+                // Moving the alignment over so that we can show these resources are inside the blueprint/resource.
+                // Ex:
+                //  blueprint/resource
+                //      Nested Resources
+                //      Nested Resource
+                startOffset += DEFAULT_START_OFFSET;
+                CalculatedResourceCost[] costs = _cost.CalculatedResourceCosts.ToArray();
+
+                // https://www.youtube.com/watch?v=5cg9jv83SMo
+                // Using this to find the largest string inside our collection so we will know how to format.
+                int offset = costs.Aggregate(string.Empty, (longest, bp) => bp.Type.Length > longest.Length ? bp.Type : longest).Length;
+
+                for (int i = 0; i < costs.Length; i++)
+                {
+                    content += $"{"".PadRight(startOffset)}{costs[i].Type.PadRight(offset)} x {costs[i].Amount}\n";
+                    // Calling this function on costs[i] to get it's cost.
+                    content += GetFormattedBlueprintCost(costs[i]);
+                }
+            }
+
+            return content;
         }
 
         public struct CraftingResponce
