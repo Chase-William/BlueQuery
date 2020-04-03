@@ -1,12 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using BlueQueryLibrary.Lang;
+using System.Collections.Generic;
 
 namespace BlueQueryLibrary.ArkBlueprints.DefaultBlueprints
 {
-    public class Blueprint
+    public class Blueprint : IResourceCalculator
     {
+        public const string BUNDLED_AMOUNT_KEY = "amount";
         public SortedList<string, double> Resources { get; set; }
         public int Yield { get; set; }
-        public virtual IEnumerable<CalculatedResourceCost> GetResourceCost(double _amount)
+
+        public virtual IEnumerable<CalculatedResourceCost> GetResourceCost(Bundle _bundle)
         {
             var calculatedResources = new List<CalculatedResourceCost>();
 
@@ -16,7 +19,7 @@ namespace BlueQueryLibrary.ArkBlueprints.DefaultBlueprints
                 {
                     Type = Resources.Keys[i],
                     // (resource value * how many) / by how many are produced.
-                    Amount = (Resources.Values[i] * _amount) / Yield
+                    Amount = (Resources.Values[i] * (int)_bundle.BundledInformation[BUNDLED_AMOUNT_KEY]) / Yield
                 });
             }
 

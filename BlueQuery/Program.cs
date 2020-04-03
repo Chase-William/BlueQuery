@@ -9,9 +9,9 @@ using Newtonsoft.Json;
 
 namespace BlueQuery
 {
-    class Program
+    public class Program
     {
-        public DiscordClient Client { get; set; }           // Our bot client
+        public static DiscordClient Client { get; set; }           // Our bot client
         public CommandsNextModule Commands { get; set; }    // Commands module
         
         /// <summary>
@@ -41,7 +41,7 @@ namespace BlueQuery
             var cfgjson = JsonConvert.DeserializeObject<ConfigJson>(json);
 
             // then we want to instantiate our client
-            this.Client = new DiscordClient(new DiscordConfiguration
+            Client = new DiscordClient(new DiscordConfiguration
             {
                 Token = cfgjson.Token,
                 TokenType = TokenType.Bot,

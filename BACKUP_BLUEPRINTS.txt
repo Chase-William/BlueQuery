@@ -1,11 +1,11 @@
 {
-  "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.IResourceCalculator, BlueQueryLibrary]], System.Private.CoreLib",
+  "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary]], System.Private.CoreLib",
   "Advanced Rifle Bullet": {
     "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
     "Resources": {
       "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
-      "Gun Powder": 9,
-      "Metal Ingots": 1
+      "Gun Powder": 9.0,
+      "Metal Ingots": 1.0
     },
     "Yield": 2
   },
@@ -13,8 +13,8 @@
     "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
     "Resources": {
       "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
-      "Gun Powder": 12,
-      "Metal Ingots": 2
+      "Gun Powder": 12.0,
+      "Metal Ingots": 2.0
     },
     "Yield": 2
   },
@@ -22,8 +22,8 @@
     "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
     "Resources": {
       "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
-      "Gun Powder": 6,
-      "Metal Ingots": 1
+      "Gun Powder": 6.0,
+      "Metal Ingots": 1.0
     },
     "Yield": 2
   },
@@ -31,42 +31,12 @@
     "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
     "Resources": {
       "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
-      "Gun Powder": 3,
-      "Metal Ingots": 1
+      "Gun Powder": 3.0,
+      "Metal Ingots": 1.0
     },
     "CraftedResources": {
       "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
-      "Simple Bullet": 3
-    },
-    "Yield": 1
-  },
-  "Tranq Arrow": {
-    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
-    "Resources": {
-      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
-      "Stone Arrow": 1
-    },
-    "CraftedResources": {
-      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
-      "Narcotics": 1
-    },
-    "Yield": 1
-  },
-  "Poison Grenade": {
-    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
-    "Resources": {
-      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
-      "Charcoal": 14,
-      "Metal Ingot": 5,
-      "Crystal": 5,
-      "Fiber": 20,
-      "Flint": 5
-    },
-    "CraftedResources": {
-      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
-      "Narcotics": 10,
-      "Sparkpowder": 18,
-      "Gunpowder": 12
+      "Simple Bullet": 3.0
     },
     "Yield": 1
   },
@@ -74,8 +44,8 @@
     "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
     "Resources": {
       "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
-      "Gun Powder": 3,
-      "Metal Ingots": 1
+      "Gun Powder": 3.0,
+      "Metal Ingots": 1.0
     },
     "Yield": 3
   },
@@ -83,11 +53,14 @@
     "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
     "Resources": {
       "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
-      "Gun Powder": 12,
-      "Metal Ingots": 2
+      "Gun Powder": 12.0,
+      "Metal Ingots": 2.0
     },
     "Yield": 2
   },
+
+
+
   "Note": {
     "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
     "Resources": {
@@ -1674,6 +1647,15 @@
     },
     "Yield": 1
   },
+  "Tranq Arrow": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Narcotic": 1,
+      "Stone Arrow": 1
+    },
+    "Yield": 1
+  },
   "Scissors": {
     "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
     "Resources": {
@@ -2273,128 +2255,26 @@
       "Silica Pearls": 3,
       "Silk": 3
     },
-    "Yield": 1
-  },
-  "Desert Cloth Gloves": {
-    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
-    "Resources": {
-      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
-      "Fiber": 4,
-      "Hide": 10,
-      "Silk": 8
+    "Desert Cloth Gloves": {
+      "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+      "Resources": {
+        "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+        "Fiber": 4,
+        "Hide": 10,
+        "Silk": 8
+      },
+      "Yield": 1
+    },
+    "Desert Cloth Boots": {
+      "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+      "Resources": {
+        "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+        "Fiber": 5,
+        "Hide": 12,
+        "Silk": 10
+      },
+      "Yield": 1
     },
     "Yield": 1
-  },
-  "Desert Cloth Boots": {
-    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
-    "Resources": {
-      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
-      "Fiber": 5,
-      "Hide": 12,
-      "Silk": 10
-    },
-    "Yield": 1
-  },
-  "Sparkpowder": {
-    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.CraftableResource, BlueQueryLibrary",
-    "CraftingMethods": {
-      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary]], System.Collections",
-      "Chemisty Bench": {
-        "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
-        "Resources": {
-          "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
-          "Flint": 8,
-          "Stone": 4
-        },
-        "Yield": 12
-      },
-      "Mortar and Pestle": {
-        "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
-        "Resources": {
-          "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
-          "Flint": 2,
-          "Stone": 1
-        },
-        "Yield": 2
-      }
-    }
-  },
-  "Cementing Paste": {
-    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.CraftableResource, BlueQueryLibrary",
-    "CraftingMethods": {
-      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary]], System.Collections",
-      "Chemisty Bench": {
-        "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
-        "Resources": {
-          "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
-          "Chitin/Keratin": 16,
-          "Stone": 32
-        },
-        "Yield": 6
-      },
-      "Mortar and Pestle": {
-        "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
-        "Resources": {
-          "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
-          "Chitin/Keratin": 4,
-          "Stone": 8
-        },
-        "Yield": 2
-      }
-    }
-  },
-  "Gunpowder": {
-    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedCraftableResource, BlueQueryLibrary",
-    "CraftingMethods": {
-      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary]], System.Collections",
-      "Chemisty Bench": {
-        "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
-        "Resources": {
-          "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
-          "Charcoal": 4
-        },
-        "CraftedResources": {
-          "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
-          "Sparkpowder": 4
-        },
-        "Yield": 6
-      },
-      "Mortar and Pestle": {
-        "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
-        "Resources": {
-          "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
-          "Charcoal": 2
-        },
-        "CraftedResources": {
-          "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
-          "Sparkpowder": 2
-        },
-        "Yield": 2
-      }
-    }
-  },
-  "Narcotics": {
-    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.CraftableResource, BlueQueryLibrary",
-    "CraftingMethods": {
-      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary]], System.Collections",
-      "Chemisty Bench": {
-        "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
-        "Resources": {
-          "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
-          "Narcoberry or Ascerbic Mushroom": 20,
-          "Spoiled Meat": 4
-        },
-        "Yield": 6
-      },
-      "Mortar and Pestle": {
-        "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
-        "Resources": {
-          "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
-          "Narcoberry or Ascerbic Mushroom": 5,
-          "Spoiled Meat": 1
-        },
-        "Yield": 1
-      }
-    }
   }
 }

@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
+using System;
 
 namespace BlueQueryLibrary.Data
 {
     public static class Blueprints
     {
-        public static Dictionary<string, Blueprint> DefaultBlueprints = new Dictionary<string, Blueprint>();
+        public static Dictionary<string, IResourceCalculator> DefaultBlueprints = new Dictionary<string, IResourceCalculator>();
 
         static Blueprints()
         {
@@ -87,6 +88,13 @@ namespace BlueQueryLibrary.Data
             //writer.Close();
 
 
+
+            //var test = new CraftableResource();
+
+            //using StreamWriter writer = new StreamWriter("../../../../test.json");
+            //writer.Write(JsonConvert.SerializeObject(test, settings));
+            //writer.Close();
+
             //using StreamWriter writer = new StreamWriter("../../../../default_blueprints.json");
 
             //writer.Write(JsonConvert.SerializeObject(StaticBlueprints, settings));
@@ -97,7 +105,7 @@ namespace BlueQueryLibrary.Data
 
             // read from json file and populate data
 
-            DefaultBlueprints = JsonConvert.DeserializeObject<Dictionary<string, Blueprint>>(new StreamReader("../../../../default_blueprints.json").ReadToEnd(), settings);
+            DefaultBlueprints = JsonConvert.DeserializeObject<Dictionary<string, IResourceCalculator>>(new StreamReader("../../../../default_blueprints.json").ReadToEnd(), settings);
         }
     }
 }
