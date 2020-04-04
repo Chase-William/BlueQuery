@@ -2396,5 +2396,2676 @@
         "Yield": 1
       }
     }
+  },
+  "Stone Fireplace": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Flint": 20,
+      "Stone": 450,
+      "Thatch": 80,
+      "Wood": 120
+    },
+    "Yield": 1
+  },
+  "Manta Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 70,
+      "Flint": 12,
+      "Hide": 100,
+      "Metal Ingot": 35,
+      "Wood": 25
+    },
+    "Yield": 1
+  },
+  "Large Stone Wall": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Stone": 160,
+      "Thatch": 60,
+      "Wood": 80
+    },
+    "Yield": 1
+  },
+  "Metal Pike Wall": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 30,
+      "Hide": 20,
+      "Metal Ingot": 25
+    },
+    "Yield": 1
+  },
+  "Tripwire Narcotic Trap": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 3,
+      "Crystal": 1,
+      "Fiber": 35,
+      "Hide": 6,
+      "Narcotic": 15,
+      "Wood": 4
+    },
+    "Yield": 1
+  },
+  "Balista Turret": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 200,
+      "Hide": 100,
+      "Metal Ingot": 300,
+      "Stone": 250,
+      "Thatch": 100,
+      "Wood": 500
+    },
+    "Yield": 1
+  },
+  "Spear Bolt": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 2,
+      "Fiber": 20,
+      "Flint": 5,
+      "Metal Ingot": 14,
+      "Thatch": 20,
+      "Wood": 14
+    },
+    "Yield": 1
+  },
+  "Gallimimus Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 160,
+      "Hide": 240,
+      "Metal Ingot": 25,
+      "Wood": 120
+    },
+    "Yield": 1
+  },
+  "Iguanodon Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 50,
+      "Hide": 80,
+      "Wood": 15
+    },
+    "Yield": 1
+  },
+  "Adobe Dinosaur Gateway": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Clay": 80,
+      "Fiber": 50,
+      "Thatch": 70,
+      "Wood": 280
+    },
+    "Yield": 1
+  },
+  "Adobe Dinosaur Gate": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Clay": 50,
+      "Fiber": 10,
+      "Thatch": 15,
+      "Wood": 60
+    },
+    "Yield": 1
+  },
+  "Megaloceros Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 110,
+      "Hide": 200,
+      "Metal Ingot": 5
+    },
+    "Yield": 1
+  },
+  "Sword": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Hide": 15,
+      "Metal Ingot": 50,
+      "Wood": 1
+    },
+    "Yield": 1
+  },
+  "Metal Sickle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Hide": 16,
+      "Metal Ingot": 18,
+      "Wood": 4
+    },
+    "Yield": 1
+  },
+  "Giant Stone Hatchframe": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Stone": 400,
+      "Thatch": 120,
+      "Wood": 200
+    },
+    "Yield": 1
+  },
+  "Giant Reinforced Trapdoor": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Stone": 300,
+      "Thatch": 120,
+      "Wood": 210
+    },
+    "Yield": 1
+  },
+  "Large Wood Elevator Platform": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 600,
+      "Metal Ingot": 85,
+      "Wood": 650
+    },
+    "Yield": 1
+  },
+  "Large Bear Trap": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 10,
+      "Hide": 15,
+      "Metal Ingot": 6
+    },
+    "Yield": 1
+  },
+  "Behemoth Stone Dinosaur Gateway": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Stone": 900,
+      "Thatch": 900,
+      "Wood": 900
+    },
+    "Yield": 1
+  },
+  "Behemoth Reinforced Dinosaur Gate": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Stone": 450,
+      "Thatch": 450,
+      "Wood": 450
+    },
+    "Yield": 1
+  },
+  "Gatapult Turret": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Hide": 100,
+      "Metal Ingot": 300,
+      "Stone": 390,
+      "Thatch": 100,
+      "Wood": 400
+    },
+    "Yield": 1
+  },
+  "Mammoth Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 140,
+      "Hide": 260,
+      "Metal Ingot": 10
+    },
+    "Yield": 1
+  },
+  "Zip-Line Anchor": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 100,
+      "Fungal Wood": 8,
+      "Metal Ingot": 15
+    },
+    "CraftedResources": {
+      "Stone Arrow": 2
+    },
+    "Yield": 1
+  },
+  "Reinforced Double Door": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Stone": 40,
+      "Thatch": 16,
+      "Wood": 28
+    },
+    "Yield": 1
+  },
+  "Stone Double Doorframe": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Stone": 30,
+      "Thatch": 12,
+      "Wood": 16
+    },
+    "Yield": 1
+  },
+  "Diplodocus Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 600,
+      "Hide": 850,
+      "Metal Ingot": 200,
+      "Wood": 250
+    },
+    "Yield": 1
+  },
+  "Mirror": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Crystal": 100,
+      "Metal Ingot": 50,
+      "Obsidian": 70,
+      "Sand": 100,
+      "Silica Pearls": 100,
+      "Thatch": 7,
+      "Wood": 10
+    },
+    "Yield": 1
+  },
+  "Lance": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 120,
+      "Flint": 100,
+      "Hide": 70,
+      "Metal Ingot": 260,
+      "Obsidian": 100,
+      "Pelt": 70
+    },
+    "Yield": 1
+  },
+  "Toilet": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 200,
+      "Crystal": 40,
+      "Metal": 180,
+      "Stone": 30,
+      "Wood": 70
+    },
+    "Yield": 1
+  },
+  "Large Taxidermy Base": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Metal Ingot": 50,
+      "Stone": 250,
+      "Thatch": 1250,
+      "Wood": 1000
+    },
+    "Yield": 1
+  },
+  "Deinonhchus Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 65,
+      "Hide": 110,
+      "Wood": 20
+    },
+    "Yield": 1
+  },
+  "Terror Bird Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 65,
+      "Hide": 110,
+      "Wood": 20
+    },
+    "Yield": 1
+  },
+  "Wooden Tree Platform": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 600,
+      "Fiber": 600,
+      "Metal Ingot": 200,
+      "Wood": 1600
+    },
+    "Yield": 1
+  },
+  "Ghille Leggings": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 5,
+      "Hide": 12,
+      "Organic Polymer": 8
+    },
+    "Yield": 1
+  },
+  "Ghille Chestpiece": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 4,
+      "Hide": 10,
+      "Organic Polymer": 6
+    },
+    "Yield": 1
+  },
+  "Ghille Mask": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 3,
+      "Hide": 7,
+      "Organic Polymer": 5
+    },
+    "Yield": 1
+  },
+  "Ghille Gauntlets": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 2,
+      "Hide": 5,
+      "Organic Polymer": 3
+    },
+    "Yield": 1
+  },
+  "Ghille Boots": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 4,
+      "Hide": 6,
+      "Organic Polymer": 4
+    },
+    "Yield": 1
+  },
+  "Giant Adobe Hatchframe": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Clay": 70,
+      "Fiber": 5,
+      "Thatch": 10,
+      "Wood": 20
+    },
+    "Yield": 1
+  },
+  "Giant Adobe Trapdoor": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Clay": 100,
+      "Fiber": 10,
+      "Thatch": 20,
+      "Wood": 45
+    },
+    "Yield": 1
+  },
+  "Simple Pistol": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Hide": 15,
+      "Metal Ingot": 60,
+      "Wood": 5
+    },
+    "Yield": 1
+  },
+  "Doedicurus Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 110,
+      "Hide": 200,
+      "Metal Ingot": 5,
+      "Stone": 15
+    },
+    "Yield": 1
+  },
+  "Cannon": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 300,
+      "Fiber": 200,
+      "Hide": 150,
+      "Metal Ingot": 950,
+      "Thatch": 120
+    },
+    "Yield": 1
+  },
+  "Cannon Ball": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 20,
+      "Metal Ingot": 80,
+      "Obsidian": 4
+    },
+    "CraftedResources": {
+      "Gunpowder": 30
+    },
+    "Yield": 1
+  },
+  "Climbing Pick": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 10,
+      "Fungal Wood": 2,
+      "Green Gem": 4,
+      "Metal Ingot": 8
+    },
+    "Yield": 1
+  },
+  "Scope Attachment": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Crystal": 20,
+      "Metal Ingot": 40,
+      "Stone": 5
+    },
+    "Yield": 1
+  },
+  "Longneck Rifle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Hide": 25,
+      "Metal Ingot": 95,
+      "Wood": 20
+    },
+    "Yield": 1
+  },
+  "Sarco Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 20,
+      "Fiber": 75,
+      "Hide": 230
+    },
+    "Yield": 1
+  },
+  "Lymantria Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Chitin/Keratin": 95,
+      "Fiber": 125,
+      "Hide": 130
+    },
+    "Yield": 1
+  },
+  "Tree Sap Tap": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 40,
+      "Metal Ingot": 100
+    },
+    "Yield": 1
+  },
+  "Beer Barrel": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 100,
+      "Metal Ingot": 80,
+      "Wood": 500
+    },
+    "Yield": 1
+  },
+  "Large Crop Plot": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 60,
+      "Stone": 100,
+      "Thatch": 40,
+      "Wood": 80
+    },
+    "Yield": 1
+  },
+  "Ankylo Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 140,
+      "Hide": 260,
+      "Metal Ingot": 10
+    },
+    "Yield": 1
+  },
+  "Chitin Leggings": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Chitin": 25,
+      "Fiber": 5,
+      "Hide": 12
+    },
+    "Yield": 1
+  },
+  "Chitin Chestpiece": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Chitin": 20,
+      "Fiber": 4,
+      "Hide": 10
+    },
+    "Yield": 1
+  },
+  "Chitin Helmet": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Chitin": 15,
+      "Fiber": 3,
+      "Hide": 7
+    },
+    "Yield": 1
+  },
+  "Chitin Gauntlets": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Chitin": 10,
+      "Fiber": 2,
+      "Hide": 5
+    },
+    "Yield": 1
+  },
+  "Chitin Boots": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Chitin": 12,
+      "Fiber": 4,
+      "Hide": 6
+    },
+    "Yield": 1
+  },
+  "Sabertooth Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 155,
+      "Hide": 290,
+      "Metal Ingot": 20
+    },
+    "Yield": 1
+  },
+  "Stone Cliff Platform": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 250,
+      "Fiber": 600,
+      "Fungal Wood": 800,
+      "Stone": 1200
+    },
+    "Yield": 1
+  },
+  "Grenade": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 15,
+      "Hide": 5,
+      "Metal Ingot": 2,
+      "Oil": 4,
+      "Stone": 20
+    },
+    "CraftedResources": {
+      "Gunpowder": 30
+    },
+    "Yield": 1
+  },
+  "Pteranodon Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Chitin/Keratin": 75,
+      "Fiber": 125,
+      "Hide": 230
+    },
+    "Yield": 1
+  },
+  "Re-Fertilizer": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fertilizer": 1,
+      "Oil": 3,
+      "Rare Flower": 1,
+      "Rare Mushroom": 1
+    },
+    "CraftedResources": {
+      "Sparkpowder": 4
+    },
+    "Yield": 1
+  },
+  "Behemoth Adobe Dinosaur Gateway": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Clay": 900,
+      "Thatch": 800,
+      "Wood": 700
+    },
+    "Yield": 1
+  },
+  "Behemoth Adobe Dinosaur Gate": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Clay": 450,
+      "Thatch": 450,
+      "Wood": 450
+    },
+    "Yield": 1
+  },
+  "Gacha Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Chitin/Keratin": 150,
+      "Fiber": 185,
+      "Hide": 350
+    },
+    "Yield": 1
+  },
+  "Metal Shield": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 20,
+      "Hide": 15,
+      "Metal Ingot": 80
+    },
+    "Yield": 1
+  },
+  "Shotgun": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Hide": 25,
+      "Metal Ingot": 80,
+      "Wood": 20
+    },
+    "Yield": 1
+  },
+  "Kaprosuchus Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Chitin/Keratin": 65,
+      "Fiber": 120,
+      "Hide": 165
+    },
+    "Yield": 1
+  },
+  "Beelzebufo": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 5,
+      "Fiber": 95,
+      "Hide": 170,
+      "Wood": 30
+    },
+    "Yield": 1
+  },
+  "Thorny Dragon Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Clay": 85,
+      "Fiber": 150,
+      "Hide": 270,
+      "Metal Ingot": 35,
+      "Wood": 125
+    },
+    "Yield": 1
+  },
+  "Araneo Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Chitin/Keratin": 100,
+      "Fiber": 140,
+      "Hide": 260
+    },
+    "Yield": 1
+  },
+  "Metal Irrigation Pipe": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 5,
+      "Metal Ingot": 15,
+      "Wood": 10
+    },
+    "Yield": 1
+  },
+  "Metal Irrigation Pipe - Straight": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 1,
+      "Metal Ingot": 2
+    },
+    "Yield": 1
+  },
+  "Metal Irrigation Pipe - Intersection": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 3,
+      "Metal Ingot": 6
+    },
+    "Yield": 1
+  },
+  "Metal Irrigation Pipe - Inclined": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 2,
+      "Metal Ingot": 2
+    },
+    "Yield": 1
+  },
+  "Metal Irrigation Pipe - Vertical": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 1,
+      "Metal Ingot": 2
+    },
+    "Yield": 1
+  },
+  "Metal Irrigation Pipe - Tap": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 4,
+      "Metal Ingot": 10,
+      "Wood": 15
+    },
+    "Yield": 1
+  },
+  "Gas Collector": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 60,
+      "Crystal": 40,
+      "Metal Ingot": 75,
+      "Red Gem": 20
+    },
+    "Yield": 1
+  },
+  "Metal Irrigation Pipe - Flexible": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 1,
+      "Metal Ingot": 2
+    },
+    "Yield": 1
+  },
+  "Paracer Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 110,
+      "Hide": 200,
+      "Metal Ingot": 10
+    },
+    "Yield": 1
+  },
+  "Silencer Attachment": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Chitin/Keratin": 20,
+      "Hide": 10,
+      "Metal Ingot": 50,
+      "Oil": 5
+    },
+    "Yield": 1
+  },
+  "Metal Water Reservoir": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 25,
+      "Metal Ingot": 75
+    },
+    "Yield": 1
+  },
+  "Greenhouse Wall": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 7,
+      "Crystal": 25,
+      "Metal Ingot": 7
+    },
+    "Yield": 1
+  },
+  "Greenhouse Ceiling": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 10,
+      "Crystal": 35,
+      "Metal Ingot": 10
+    },
+    "Yield": 1
+  },
+  "Chalicoltherium Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 180,
+      "Hide": 265,
+      "Metal Ingot": 45
+    },
+    "Yield": 1
+  },
+  "Greenhouse Triangle Ceiling": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 5,
+      "Crystal": 17,
+      "Metal Ingot": 5
+    },
+    "Yield": 1
+  },
+  "Pelagornis Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Chitin/Keratin": 75,
+      "Fiber": 125,
+      "Hide": 230
+    },
+    "Yield": 1
+  },
+  "Greenhouse Doorframe": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 5,
+      "Crystal": 20,
+      "Metal Ingot": 5
+    },
+    "Yield": 1
+  },
+  "Greenhouse Door": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 4,
+      "Crystal": 10,
+      "Metal Ingot": 3
+    },
+    "Yield": 1
+  },
+  "Harpoon Launcher": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 60,
+      "Fiber": 60,
+      "Hide": 25,
+      "Metal Ingot": 120,
+      "Obsidian": 50,
+      "Polymer": 30,
+      "Wood": 40
+    },
+    "Yield": 1
+  },
+  "Gasbags Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Chitin/Keratin": 150,
+      "Fiber": 185,
+      "Hide": 350
+    },
+    "Yield": 1
+  },
+  "Dunkleosteus Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 120,
+      "Fiber": 180,
+      "Hide": 300,
+      "Metal Ingot": 80
+    },
+    "Yield": 1
+  },
+  "Improvised Explosive": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Crystal": 10,
+      "Fiber": 35,
+      "Hide": 5,
+      "Metal Ingot": 10,
+      "Wood": 1
+    },
+    "CraftedResources": {
+      "Gunpowder": 50
+    },
+    "Yield": 1
+  },
+  "Sloped Greenhouse Wall Left": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 4,
+      "Crystal": 15,
+      "Metal Ingot": 4
+    },
+    "Yield": 1
+  },
+  "Sloped Greenhouse Wall Right": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 4,
+      "Crystal": 15,
+      "Metal Ingot": 4
+    },
+    "Yield": 1
+  },
+  "Sloped Greenhouse Roof": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 10,
+      "Crystal": 35,
+      "Metal Ingot": 10
+    },
+    "Yield": 1
+  },
+  "Greenhouse Window": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 1,
+      "Crystal": 3,
+      "Metal Ingot": 1
+    },
+    "Yield": 1
+  },
+  "Greenhouse Triangle Roof": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 7,
+      "Crystal": 25,
+      "Metal Ingot": 7
+    },
+    "Yield": 1
+  },
+  "Metal Foundation": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 15,
+      "Metal": 50
+    },
+    "Yield": 1
+  },
+  "Metal Wall": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 7,
+      "Metal Ingot": 25
+    },
+    "Yield": 1
+  },
+  "Metal Doorframe": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 6,
+      "Metal Ingot": 20
+    },
+    "Yield": 1
+  },
+  "Dire Bear Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 100,
+      "Fiber": 130,
+      "Hide": 300
+    },
+    "Yield": 1
+  },
+  "Metal Ceiling": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 10,
+      "Metal Ingot": 35
+    },
+    "Yield": 1
+  },
+  "Metal Door": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 4,
+      "Metal Ingot": 10
+    },
+    "Yield": 1
+  },
+  "Mantis Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 75,
+      "Hide": 120,
+      "Metal Ingot": 35
+    },
+    "Yield": 1
+  },
+  "Pliers": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Blue Gem": 15,
+      "Congealed Gas Balls": 12,
+      "Flint": 70,
+      "Metal Ingot": 15,
+      "Obsidian": 10
+    },
+    "Yield": 1
+  },
+  "Metal Triangle Ceiling": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 5,
+      "Metal Ingot": 18
+    },
+    "Yield": 1
+  },
+  "Metal Triangle Foundation": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 8,
+      "Metal Ingot": 25
+    },
+    "Yield": 1
+  },
+  "Megachelon Platform Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 28,
+      "Fiber": 260,
+      "Hide": 312,
+      "Metal Ingot": 76,
+      "Shell Fragment": 22,
+      "Silica Pearls": 42
+    },
+    "Yield": 1
+  },
+  "Metal Railing": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 3,
+      "Metal Ingot": 12
+    },
+    "Yield": 1
+  },
+  "Metal Pillar": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 7,
+      "Metal Ingot": 26
+    },
+    "Yield": 1
+  },
+  "Metal Staircase": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 35,
+      "Metal Ingot": 125
+    },
+    "Yield": 1
+  },
+  "Metal Windowframe": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 6,
+      "Metal Ingot": 20
+    },
+    "Yield": 1
+  },
+  "Metal Billboard": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 10,
+      "Metal Ingot": 35
+    },
+    "Yield": 1
+  },
+  "Metal Window": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Metal Ingot": 7
+    },
+    "Yield": 1
+  },
+  "Carno Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 170,
+      "Hide": 320,
+      "Metal Ingot": 30
+    },
+    "Yield": 1
+  },
+  "Sloped Metal Wall Left": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 5,
+      "Metal Ingot": 15
+    },
+    "Yield": 1
+  },
+  "Sloped Metal Wall Right": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 5,
+      "Metal Wall": 15
+    },
+    "Yield": 1
+  },
+  "Sloped Metal Roof": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 10,
+      "Metal Ingot": 35
+    },
+    "Yield": 1
+  },
+  "Metal Ramp": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 10,
+      "Metal Ingot": 35
+    },
+    "Yield": 1
+  },
+  "Megaldon Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 30,
+      "Fiber": 155,
+      "Hide": 290
+    },
+    "Yield": 1
+  },
+  "Metal Catwalk": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Metal Ingot": 15
+    },
+    "Yield": 1
+  },
+  "Grappling Hookj": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 1,
+      "Fiber": 35,
+      "Metal Ingot": 9,
+      "Thatch": 2
+    },
+    "CraftedResources": {
+      "Stone Arrow": 3
+    },
+    "Yield": 1
+  },
+  "Ravager Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 125,
+      "Fungal Wood": 110,
+      "Hide": 285
+    },
+    "Yield": 1
+  },
+  "Metal Stairs": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 10,
+      "Metal Ingot": 35
+    },
+    "Yield": 1
+  },
+  "Metal Triangle Roof": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 7,
+      "Metal Ingot": 25
+    },
+    "Yield": 1
+  },
+  "Fabricator": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 20,
+      "Crystal": 15,
+      "Metal Ingot": 35,
+      "Oil": 10
+    },
+    "CraftedResources": {
+      "Sparkpowder": 50
+    },
+    "Yield": 1
+  },
+  "Metal Hatchframe": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 8,
+      "Metal Ingot": 30
+    },
+    "Yield": 1
+  },
+  "Metal Trapdoor": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 4,
+      "Metal Ingot": 10
+    },
+    "Yield": 1
+  },
+  "Metal Fence Foundation": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 2,
+      "Metal Ingot": 5
+    },
+    "Yield": 1
+  },
+  "Polymer": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 2,
+      "Obsidian": 2
+    },
+    "Yield": 1
+  },
+  "Electronics": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Metal Ingot": 1,
+      "Silica Pearls": 3
+    },
+    "Yield": 1
+  },
+  "Metal Ladder": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Metal Ingot": 7
+    },
+    "Yield": 1
+  },
+  "Metal Fence Support": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 2,
+      "Metal Ingot": 5
+    },
+    "Yield": 1
+  },
+  "Baryonyx Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 350,
+      "Hide": 225,
+      "Metal Ingot": 25
+    },
+    "Yield": 1
+  },
+  "Electrical Generator": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Metal Ingot": 25
+    },
+    "CraftedResources": {
+      "Electronics": 3
+    },
+    "Yield": 1
+  },
+  "Straight Electrical Cable": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Metal Ingot": 2
+    },
+    "Yield": 1
+  },
+  "Electrical Outlet": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Metal Ingot": 3,
+      "Wood": 15
+    },
+    "CraftedResources": {
+      "Electronics": 3
+    },
+    "Yield": 1
+  },
+  "Inclined Electrical Cable": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Metal Ingot": 2
+    },
+    "Yield": 1
+  },
+  "Vertical Electrical Cable": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Metal Ingot": 2
+    },
+    "Yield": 1
+  },
+  "Electrical Cable Intersection": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Metal Ingot": 2
+    },
+    "Yield": 1
+  },
+  "Large Metal Wall": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 28,
+      "Metal Ingot": 100
+    },
+    "Yield": 1
+  },
+  "Flexible Electrical Cable": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Metal Ingot": 2
+    },
+    "Yield": 1
+  },
+  "Metal Sign": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 3,
+      "Metal Ingot": 5
+    },
+    "Yield": 1
+  },
+  "Metal Wall Sign": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 3,
+      "Metal Ingot": 5
+    },
+    "Yield": 1
+  },
+  "Wind Turbine": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 20,
+      "Metal Ingot": 75
+    },
+    "CraftedResources": {
+      "Electronics": 25
+    },
+    "Yield": 1
+  },
+  "Paracer Platform Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 25,
+      "Fiber": 200,
+      "Hide": 320,
+      "Metal Ingot": 70,
+      "Silica Pearls": 45
+    },
+    "Yield": 1
+  },
+  "Industrial Grill": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 40,
+      "Crystal": 30,
+      "Metal Ingot": 200,
+      "Oil": 40
+    },
+    "Yield": 1
+  },
+  "Omnidirectional Lamppost": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Crystal": 10,
+      "Metal Ingot": 5
+    },
+    "CraftedResources": {
+      "Electronics": 2
+    },
+    "Yield": 1
+  },
+  "Lamppost": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Crystal": 10,
+      "Metal Ingot": 5
+    },
+    "CraftedResources": {
+      "Electronics": 2
+    },
+    "Yield": 1
+  },
+  "Camera": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Black Pearl": 80,
+      "Crystal": 240,
+      "Hide": 30,
+      "Metal Ingot": 140,
+      "Obsidian": 150,
+      "Sap": 100,
+      "Wood": 80
+    },
+    "Yield": 1
+  },
+  "Greenhouse Double Door": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 8,
+      "Crystal": 20,
+      "Metal Ingot": 6
+    },
+    "Yield": 1
+  },
+  "Greenhouse Double Doorframe": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 5,
+      "Crystal": 20,
+      "Metal Ingot": 5
+    },
+    "Yield": 1
+  },
+  "Radio": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Crystal": 40,
+      "Metal Ingot": 40
+    },
+    "CraftedResources": {
+      "Sparkpowder": 40
+    },
+    "Yield": 1
+  },
+  "Chain Bola": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 10,
+      "Metal Ingot": 65,
+      "Obsidian": 2
+    },
+    "Yield": 1
+  },
+  "Thylacoleo Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 155,
+      "Hide": 290,
+      "Metal Ingot": 20
+    },
+    "Yield": 1
+  },
+  "War Map": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 4,
+      "Hide": 1,
+      "Wood": 2
+    },
+    "Yield": 1
+  },
+  "Metal Cliff Platform": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Blue Gem": 200,
+      "Cementing Paste": 800,
+      "Metal Ingot": 1200
+    },
+    "Yield": 1
+  },
+  "Empty Cryopod": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Crystal": 10,
+      "Fiber": 15,
+      "Hide": 5,
+      "Metal Ingot": 2,
+      "Oil": 4,
+      "Polymer": 8
+    },
+    "Yield": 1
+  },
+  "Metal Dinosaur Gateway": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 50,
+      "Metal Ingot": 170
+    },
+    "Yield": 1
+  },
+  "Metal Dinosaur Gate": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 10,
+      "Metal Ingot": 35
+    },
+    "Yield": 1
+  },
+  "Flashlight Attachment": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Crystal": 40,
+      "Metal Ingot": 40
+    },
+    "CraftedResources": {
+      "Electronics": 10
+    },
+    "Yield": 1
+  },
+  "Gps": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Polymer": 5
+    },
+    "CraftedResources": {
+      "Electronics": 20
+    },
+    "Yield": 1
+  },
+  "Megatherium Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 100,
+      "Fiber": 130,
+      "Hide": 325,
+      "Metal Ingot": 55
+    },
+    "Yield": 1
+  },
+  "Metal Double Door": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 8,
+      "Metal Ingot": 20
+    },
+    "Yield": 1
+  },
+  "Metal Double Doorframe": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 6,
+      "Metal Ingot": 20
+    },
+    "Yield": 1
+  },
+  "Woolly Rhino Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 100,
+      "Fiber": 130,
+      "Hide": 250,
+      "Metal Ingot": 60
+    },
+    "Yield": 1
+  },
+  "Remote Keypad": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 1,
+      "Metal Ingot": 2
+    },
+    "CraftedResources": {
+      "Electronics": 25
+    },
+    "Yield": 1
+  },
+  "Spray Painter": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 60,
+      "Crystal": 40,
+      "Hide": 5,
+      "Metal Ingot": 50,
+      "Oil": 20,
+      "Polymer": 35
+    },
+    "Yield": 1
+  },
+  "Metal Ocean Platform": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 375,
+      "Metal Ingot": 1500,
+      "Polymer": 25,
+      "300": 300
+    },
+    "Yield": 1
+  },
+  "Giant Metal Hatchframe": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 64,
+      "Metal Ingot": 240
+    },
+    "Yield": 1
+  },
+  "Giant Metal Trapdoor": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 120,
+      "Metal Ingot": 360
+    },
+    "Yield": 1
+  },
+  "Canteen": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 4,
+      "Hide": 2,
+      "Metal Ingot": 1,
+      "Polymer": 10
+    },
+    "Yield": 1
+  },
+  "Arthropluera Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 15,
+      "Fiber": 50,
+      "Flint": 8,
+      "Hide": 80,
+      "Metal Ingot": 30,
+      "Obsidian": 35,
+      "Wood": 20
+    },
+    "Yield": 1
+  },
+  "Bunk Bed": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 280,
+      "Hide": 120,
+      "Metal Ingot": 320,
+      "Pelt, Hair, or Wool": 200,
+      "Polymer": 80
+    },
+    "Yield": 1
+  },
+  "Zip-Line Motor Attachment Skin": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Blue Gem": 40,
+      "Metal Ingot": 60
+    },
+    "CraftedResources": {
+      "Electronics": 15
+    },
+    "Yield": 1
+  },
+  "Tapejara Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 180,
+      "Hide": 260,
+      "Metal Ingot": 45,
+      "Wood": 120
+    },
+    "Yield": 1
+  },
+  "Fabricated Pistol": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 30,
+      "Metal Ingot": 20,
+      "Polymer": 35
+    },
+    "Yield": 1
+  },
+  "Pump-Action Shotgun": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 45,
+      "Metal Ingot": 30,
+      "Polymer": 55
+    },
+    "Yield": 1
+  },
+  "Flak Leggins": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 5,
+      "Hide": 12,
+      "Metal Ingot": 16
+    },
+    "Yield": 1
+  },
+  "Flak Chestpiece": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 4,
+      "Hide": 10,
+      "Metal Ingot": 13
+    },
+    "Yield": 1
+  },
+  "Flak Boots": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 4,
+      "Hide": 6,
+      "Metal Ingot": 8
+    },
+    "Yield": 1
+  },
+  "Flak Gauntlets": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 2,
+      "Hide": 5,
+      "Metal Ingot": 6
+    },
+    "Yield": 1
+  },
+  "Flak Helmet": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 3,
+      "Hide": 7,
+      "Metal Ingot": 10
+    },
+    "Yield": 1
+  },
+  "Behemoth Gateway": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 490,
+      "Metal Ingot": 2100,
+      "Polymer": 140
+    },
+    "Yield": 1
+  },
+  "Behemoth Gate": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 350,
+      "Metal": 1500
+    },
+    "Yield": 1
+  },
+  "Megalosaurus Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 170,
+      "Hide": 320,
+      "Metal": 30
+    },
+    "Yield": 1
+  },
+  "Motorboat": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Black Pearl": 60,
+      "Fiber": 180,
+      "Hide": 200,
+      "Metal Ingot": 1200,
+      "Obsidian": 150,
+      "Polymer": 400,
+      "Wood": 250
+    },
+    "Yield": 1
+  },
+  "Chainsaw": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 50,
+      "Metal Ingot": 50,
+      "Polymer": 75
+    },
+    "CraftedResources": {
+      "Electronics": 25
+    },
+    "Yield": 1
+  },
+  "Assault Rifle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 50,
+      "Metal Ingot": 35,
+      "Polymer": 60
+    },
+    "Yield": 1
+  },
+  "Roll Rat Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 85,
+      "Fiber": 150,
+      "Green Gem": 45,
+      "Hide": 270,
+      "Metal Ingot": 425
+    },
+    "Yield": 1
+  },
+  "Daedon Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 155,
+      "Hide": 290,
+      "Metal Ingot": 20
+    },
+    "Yield": 1
+  },
+  "Laser Attachment": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Crystal": 60,
+      "Metal Ingots": 50
+    },
+    "CraftedResources": {
+      "Electronics": 40
+    },
+    "Yield": 1
+  },
+  "Metal Tree Platform": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 1400,
+      "Fiber": 600,
+      "Metal Ingot": 1800
+    },
+    "Yield": 1
+  },
+  "Basilosaurus Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 250,
+      "Hide": 200,
+      "Metal Ingot": 55
+    },
+    "Yield": 1
+  },
+  "Refrigerator": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Crystal": 25,
+      "Metal Ingots": 120,
+      "Polymer": 15
+    },
+    "CraftedResources": {
+      "Electronics": 10
+    },
+    "Yield": 1
+  },
+  "Oil Pump": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Crystal": 25,
+      "Metal Ingot": 75
+    },
+    "CraftedResources": {
+      "Electronics": 25
+    },
+    "Yield": 1
+  },
+  "Air Conditioner": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Crystal": 15,
+      "Metal Ingot": 80,
+      "Polymer": 5
+    },
+    "CraftedResources": {
+      "Electronics": 15
+    },
+    "Yield": 1
+  },
+  "Castoroides Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 140,
+      "Fiber": 200,
+      "Hide": 290,
+      "Metal Ingot": 100,
+      "Thatch": 180
+    },
+    "Yield": 1
+  },
+  "Snow Owl Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Chitin/Kertin": 150,
+      "Fiber": 185,
+      "Hide": 350
+    },
+    "Yield": 1
+  },
+  "Argentavis Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Chitin/Keratin": 150,
+      "Fiber": 185,
+      "Hide": 350
+    },
+    "Yield": 1
+  },
+  "Tranquilizer Dart": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Metal Ingot": 2
+    },
+    "CraftedResources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Narcotics": 3,
+      "Simple Rifle Ammo": 1
+    },
+    "Yield": 1
+  },
+  "Glider Suit": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Blue Gem": 25,
+      "Fiber": 100,
+      "Hide": 60,
+      "Metal Ingot": 60
+    },
+    "Yield": 1
+  },
+  "Bronto Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 185,
+      "Hide": 350,
+      "Metal Ingot": 40
+    },
+    "Yield": 1
+  },
+  "Heavy Miner's Helmet": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "AnglerGel": 5,
+      "Crystal": 25,
+      "Fiber": 8,
+      "Hide": 15,
+      "Metal Ingot": 15,
+      "Polymer": 12
+    },
+    "CraftedResources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Electronics": 8
+    },
+    "Yield": 1
+  },
+  "Plesiosaur Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 65,
+      "Fiber": 250,
+      "Hide": 400,
+      "Silica Pearls": 40
+    },
+    "Yield": 1
+  },
+  "Industrial Grinder": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 800,
+      "Crystal": 2000,
+      "Metal Ingot": 3200,
+      "Oil": 600,
+      "Polymer": 600
+    },
+    "Yield": 1
+  },
+  "Flamethrower": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 50,
+      "Metal Ingot": 35,
+      "Polymer": 75,
+      "Sulfur": 10
+    },
+    "CraftedResources": {
+      "Electronics": 15
+    },
+    "Yield": 1
+  },
+  "Flamethrower Ammo": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Gasoline": 10
+    },
+    "CraftedResources": {
+      "Propellant": 10
+    },
+    "Yield": 1
+  },
+  "C4 Remote Detonator": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 15,
+      "Crystal": 10,
+      "Metal Ingot": 10,
+      "Polymer": 20
+    },
+    "CraftedResources": {
+      "Electronics": 50
+    },
+    "Yield": 1
+  },
+  "C4 Charge": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 5,
+      "Crystal": 10,
+      "Fiber": 50,
+      "Hide": 5,
+      "Polymer": 5
+    },
+    "CraftedResources": {
+      "Electronics": 5,
+      "Gunpowder": 60
+    },
+    "Yield": 1
+  },
+  "Karkinos": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Blue Gem": 80,
+      "Fiber": 225,
+      "Fungal Wood": 200,
+      "Hide": 170
+    },
+    "Yield": 1
+  },
+  "Transponder Tracker": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 30,
+      "Crystal": 25,
+      "Metal Ingot": 20,
+      "Polymer": 50
+    },
+    "CraftedResources": {
+      "Elctronics": 80
+    },
+    "Yield": 1
+  },
+  "Transponder": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 12,
+      "Crystal": 12,
+      "Metal Ingots": 3,
+      "Polymer": 10
+    },
+    "CraftedResources": {
+      "Electronics": 14
+    },
+    "Yield": 1
+  },
+  "Managarmr Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Chitin/Keratin": 150,
+      "Fiber": 185,
+      "Hide": 350
+    },
+    "Yield": 1
+  },
+  "Allosaurus Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 170,
+      "Hide": 320,
+      "Metal Ingot": 30
+    },
+    "Yield": 1
+  },
+  "Auto Turret": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 50,
+      "Metal Ingot": 140,
+      "Polymer": 20
+    },
+    "CraftedResources": {
+      "Electronics": 70
+    },
+    "Yield": 1
+  },
+  "Hazard Suit Gloves": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Blue Gem": 8,
+      "Congealed Gas Ball": 15,
+      "Crystal": 16,
+      "Fiber": 35,
+      "Hide": 15,
+      "Polymer": 2
+    },
+    "Yield": 1
+  },
+  "Hazard Suit Hat": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Blue Gem": 25,
+      "Congealed Gas Ball": 20,
+      "Crystal": 50,
+      "Fiber": 45,
+      "Hide": 30,
+      "Polymer": 20
+    },
+    "Yield": 1
+  },
+  "Hazard Suit Pants": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Blue Gem": 20,
+      "Congealed Gas Ball": 30,
+      "Crystal": 40,
+      "Fiber": 65,
+      "Hide": 45,
+      "Polymer": 15
+    },
+    "Yield": 1
+  },
+  "Hazard Suit Boots": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Blue Gem": 5,
+      "Congealed Gas Ball": 15,
+      "Crystal": 10,
+      "Fiber": 25,
+      "Hide": 20,
+      "Polymer": 10
+    },
+    "Yield": 1
+  },
+  "Hazard Suit Shirt": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Blue Gem": 25,
+      "Congealed Gas Ball": 45,
+      "Crystal": 50,
+      "Fiber": 65,
+      "Hide": 45,
+      "Polymer": 25
+    },
+    "Yield": 1
+  },
+  "Therizinosaurus Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 160,
+      "Hide": 285,
+      "Metal Ingot": 55,
+      "Wood": 120
+    },
+    "Yield": 1
+  },
+  "Rock Golem Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 150,
+      "Hide": 270,
+      "Metal Ingot": 35
+    },
+    "Yield": 1
+  },
+  "Elevator Track": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 25,
+      "Metal Ingot": 140,
+      "Polymer": 35
+    },
+    "CraftedResources": {
+      "Electronics": 20
+    },
+    "Yield": 1
+  },
+  "Small Elevator Platform": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 40,
+      "Metal Ingot": 200,
+      "Polymer": 50
+    },
+    "Yield": 1
+  },
+  "Tek Jump Pad": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Crystal": 50,
+      "Element": 5,
+      "Metal Ingot": 100,
+      "Polymer": 250
+    },
+    "Yield": 1
+  },
+  "Spino Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 45,
+      "Fiber": 200,
+      "Hide": 380,
+      "Silica Pearls": 25
+    },
+    "Yield": 1
+  },
+  "Charge Battery": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Congealed Gas Ball": 20,
+      "Crystal": 4,
+      "Metal Ingot": 10,
+      "Polymer": 15
+    },
+    "Yield": 1
+  },
+  "Medium Elevator Platform": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 80,
+      "Metal Ingot": 400,
+      "Polymer": 100
+    },
+    "Yield": 1
+  },
+  "Trang1 Spear Bolt": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections"
+    },
+    "CraftedResources": {
+      "Spear Bolt": 1,
+      "Tranquilizer Dart": 1
+    },
+    "Yield": 1
+  },
+  "Tek Bridge": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Crystal": 150,
+      "Element": 2,
+      "Metal Ingot": 220,
+      "Polymer": 100
+    },
+    "Yield": 1
+  },
+  "Large Elevator Platform": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 160,
+      "Metal Ingot": 800,
+      "Polymer": 200
+    },
+    "Yield": 1
+  },
+  "Megalania Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 215,
+      "Hide": 315,
+      "Metal Ingot": 45
+    },
+    "Yield": 1
+  },
+  "Rex Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 200,
+      "Hide": 380,
+      "Metal Ingot": 50
+    },
+    "Yield": 1
+  },
+  "Vault": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 100,
+      "Metal Ingot": 500,
+      "Oil": 70,
+      "Polymer": 90
+    },
+    "Yield": 1
+  },
+  "Rock Drake Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 225,
+      "Hide": 350,
+      "Metal Ingot": 125,
+      "Red Gem": 85
+    },
+    "Yield": 1
+  },
+  "Quetz Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 100,
+      "Fiber": 500,
+      "Hide": 750,
+      "Silica Pearls": 85
+    },
+    "Yield": 1
+  },
+  "Holo-Scope Attachment": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Crystal": 40,
+      "Metal Ingot": 40
+    },
+    "CraftedResources": {
+      "Electronics": 30
+    },
+    "Yield": 1
+  },
+  "Mosasaur Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 140,
+      "Fiber": 600,
+      "Hide": 800,
+      "Metal Ingot": 400,
+      "Silica Pearls": 100
+    },
+    "Yield": 1
+  },
+  "Compound Bow": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 75,
+      "Metal Ingot": 85,
+      "Polymer": 95
+    },
+    "Yield": 1
+  },
+  "Metal Arrow": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 1,
+      "Fiber": 3,
+      "Metal Ingot": 3,
+      "Polymer": 1,
+      "Thatch": 3
+    },
+    "Yield": 1
+  },
+  "Tek Gravity Grenade": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Crystal": 50,
+      "Element Dust": 200,
+      "Metal Ingot": 30,
+      "Polymer": 60
+    },
+    "CraftedResources": {
+      "Gunpowder": 60
+    },
+    "Yield": 1
+  },
+  "Cluster Grenade": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 25,
+      "Crystal": 28,
+      "Metal Ingot": 40,
+      "Polymer": 18
+    },
+    "CraftedResources": {
+      "Gunpowder": 65,
+      "Propellent": 35
+    },
+    "Yield": 1
+  },
+  "Industrial Forge": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Cementing Paste": 600,
+      "Crystal": 250,
+      "Metal Ingot": 2500,
+      "Oil": 400,
+      "Polymer": 400
+    },
+    "Yield": 1
+  },
+  "Yutyrannus Saddle": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.Blueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Fiber": 350,
+      "Hide": 425,
+      "Metal Ingot": 135,
+      "Silica Pearls": 125
+    },
+    "Yield": 1
+  },
+  "Charge Latern": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Congealed Gas Ball": 400,
+      "Metal Ingot": 130,
+      "Polymer": 120,
+      "Red Gem": 80
+    },
+    "CraftedResources": {
+      "Charge Battery": 2,
+      "Electronics": 120
+    },
+    "Yield": 1
+  },
+  "Mining Drill": {
+    "$type": "BlueQueryLibrary.ArkBlueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
+    "Resources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Black Pearl": 36,
+      "Cementing Paste": 120,
+      "Crystal": 180,
+      "Metal Ingot": 482,
+      "Polymer": 132
+    },
+    "Yield": 1
   }
 }
+
+// Add CraftedResource Collection $type

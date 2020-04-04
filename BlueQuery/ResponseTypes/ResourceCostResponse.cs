@@ -72,14 +72,11 @@ namespace BlueQuery.ResponseTypes
                     Content[++index] += nextContent;
                 }
 
-            }
-
-            // Adding the nested blueprints to the content.
-            for (int i = 0; i < costs.Length; i++)
-            {
+                // Adding the nested blueprints to the content.
+                
                 GetFormattedBlueprintCost(costs[i]);
-                startOffset = DEFAULT_START_OFFSET;
-            }
+                startOffset = DEFAULT_START_OFFSET;                
+            }            
         }
     }
 }
