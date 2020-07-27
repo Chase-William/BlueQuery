@@ -40,7 +40,7 @@ namespace BlueQuery.ResponseTypes
         /// </summary>
         private void PerformResourceCalculations(string _blueprintKey, int _amount)
         {
-            int index = 0;
+            //int index = 0;
             // Assigning the leading text in the Content body
             Content[0] = "#Resources:\n\n";
             // Assigning the header of our response message to the user's request
@@ -51,37 +51,10 @@ namespace BlueQuery.ResponseTypes
             Bundle extras = new Bundle();
             extras.BundledInformation.Add(SimpleBlueprint.BUNDLED_AMOUNT_KEY, _amount);
 
-            // Getting the entire resource cost tree
-            // 
+            // Getting the 
             CalculatedResourceCost[] costs = Blueprints.DefaultBlueprints[_blueprintKey].GetResourceCost(extras).ToArray();
 
-            // Getting the padding offset needed to format our "x {cost}".
-            int offset = costs.Aggregate(string.Empty, (longest, bp) => bp.Type.Length > longest.Length ? bp.Type : longest).Length;
-
-            // Adding the main blueprint's resources to the content.
-            for (int i = 0; i < costs.Length; i++)
-            {
-                // Storing the next content to be added in a local variable for referencing.
-                var nextContent = $"{"".PadRight(startOffset)}{costs[i].Type.PadRight(offset)} x {costs[i].Amount}\n";
-
-                // If the content will exceed the max length after adding this to it, added it to the next index of the content array.
-                if ((Content[index].Length + nextContent.Length) <= MESSAGE_LENGTH_LIMIT)
-                {
-                    // Padding right allows the text after to be formatted neatly vertically.
-                    Content[index] += nextContent;
-                }
-                else
-                {
-                    // Incrementing the content array and adding the content.
-                    Content.Add(new string(string.Empty));
-                    Content[++index] += nextContent;
-                }
-
-                // Adding the nested blueprints to the content.
-                
-                GetFormattedBlueprintCost(costs[i]);
-                startOffset = DEFAULT_START_OFFSET;                
-            }            
+            FormatBlueprintCost(costs);
         }
     }
 }
