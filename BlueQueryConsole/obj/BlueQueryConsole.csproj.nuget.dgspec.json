@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQueryConsole\\BlueQueryConsole.csproj": {}
+    "C:\\Dev\\BlueQuery\\BlueQueryConsole\\BlueQueryConsole.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQueryConsole\\BlueQueryConsole.csproj": {
+    "C:\\Dev\\BlueQuery\\BlueQueryConsole\\BlueQueryConsole.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQueryConsole\\BlueQueryConsole.csproj",
+        "projectUniqueName": "C:\\Dev\\BlueQuery\\BlueQueryConsole\\BlueQueryConsole.csproj",
         "projectName": "BlueQueryConsole",
-        "projectPath": "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQueryConsole\\BlueQueryConsole.csproj",
+        "projectPath": "C:\\Dev\\BlueQuery\\BlueQueryConsole\\BlueQueryConsole.csproj",
         "packagesPath": "C:\\Users\\Chase Roth\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQueryConsole\\obj\\",
+        "outputPath": "C:\\Dev\\BlueQuery\\BlueQueryConsole\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -32,8 +32,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj": {
-                "projectPath": "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj"
+              "C:\\Dev\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj": {
+                "projectPath": "C:\\Dev\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj"
               }
             }
           }
@@ -67,18 +67,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj": {
+    "C:\\Dev\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj",
+        "projectUniqueName": "C:\\Dev\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj",
         "projectName": "BlueQueryLibrary",
-        "projectPath": "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj",
+        "projectPath": "C:\\Dev\\BlueQuery\\BlueQueryLibrary\\BlueQueryLibrary.csproj",
         "packagesPath": "C:\\Users\\Chase Roth\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Chase Roth\\Desktop\\BlueQuery\\BlueQueryLibrary\\obj\\",
+        "outputPath": "C:\\Dev\\BlueQuery\\BlueQueryLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -138,7 +138,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

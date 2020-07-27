@@ -99,3 +99,6 @@ C:\Users\Chase Roth\Desktop\BlueQuery\BlueQueryConsole\obj\Debug\netcoreapp3.1\B
 C:\Users\Chase Roth\Desktop\BlueQuery\BlueQueryConsole\obj\Debug\netcoreapp3.1\BlueQueryConsole.dll
 C:\Users\Chase Roth\Desktop\BlueQuery\BlueQueryConsole\obj\Debug\netcoreapp3.1\BlueQueryConsole.pdb
 C:\Users\Chase Roth\Desktop\BlueQuery\BlueQueryConsole\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Dev\BlueQuery\BlueQueryConsole\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Dev\BlueQuery\BlueQueryConsole\obj\Debug\netcoreapp3.1\BlueQueryConsole.csproj.CoreCompileInputs.cache
+C:\Dev\BlueQuery\BlueQueryConsole\obj\Debug\netcoreapp3.1\BlueQueryConsole.genruntimeconfig.cache

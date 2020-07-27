@@ -1,9 +1,10 @@
-﻿using BlueQueryLibrary.ArkBlueprints.DefaultBlueprints;
+﻿using BlueQueryLibrary.Blueprints.DefaultBlueprints;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
 using System;
+using BlueQueryLibrary.Blueprints;
 
 namespace BlueQueryLibrary.Data
 {
@@ -105,7 +106,14 @@ namespace BlueQueryLibrary.Data
 
             // read from json file and populate data
 
-            DefaultBlueprints = JsonConvert.DeserializeObject<Dictionary<string, IResourceCalculator>>(new StreamReader("../../../../default_blueprints.json").ReadToEnd(), settings);
+            try
+            {
+                DefaultBlueprints = JsonConvert.DeserializeObject<Dictionary<string, IResourceCalculator>>(new StreamReader("../../../../default_blueprints.json").ReadToEnd(), settings);
+            }                       
+            catch (Exception e)
+            {
+                Console.WriteLine();
+            }
         }
     }
 }

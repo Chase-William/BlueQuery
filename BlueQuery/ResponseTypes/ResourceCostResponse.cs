@@ -1,10 +1,15 @@
 ﻿using BlueQuery.Commands.Crafting.CommandStorageTypes;
-using BlueQueryLibrary.ArkBlueprints.DefaultBlueprints;
+using BlueQueryLibrary.Blueprints.DefaultBlueprints;
 using System.Linq;
 using BlueQueryLibrary.Lang;
+using BlueQueryLibrary.Data;
+using BlueQueryLibrary.Blueprints;
 
 namespace BlueQuery.ResponseTypes
 {
+    /// <summary>
+    ///     Class for getting the cost of crafting items. 
+    /// </summary>
     class ResourceCostResponse : BlueQueryResponse
     {
         /// <summary>
@@ -22,33 +27,33 @@ namespace BlueQuery.ResponseTypes
         }
 
         /// <summary>
-        ///     This overload should be called from a Craft command that knows the specific blueprint.<br/>
-        ///     
-        ///     It takes the string key of the specific blueprint.
+        ///     Initiates this class instance and calls PerformResourceCalculations()<br/>
+        ///     @param - _blueprintKey, blueprint to be crafted<br/>
+        ///     @param - _amount, the amount or quantity of _blueprintKey's value to be crafted
         /// </summary>
-        public ResourceCostResponse(string _blueprintKey, int _amount)
-        {
-            PerformResourceCalculations(_blueprintKey, _amount);
-        }
+        public ResourceCostResponse(string _blueprintKey, int _amount) => PerformResourceCalculations(_blueprintKey, _amount);
 
         /// <summary>
-        /// 
+        ///     Initiates the entire calculation and process<br/>
+        ///     @param - _blueprintKey, the blueprint to be crafted<br/>
+        ///     @param - _amount, the amount or quantity of _blueprintKey's value to be crafted
         /// </summary>
-        /// <param name="_blueprintKey"></param>
-        /// <param name="_amount"></param>
         private void PerformResourceCalculations(string _blueprintKey, int _amount)
         {
             int index = 0;
-            // The content;s header
+            // Assigning the leading text in the Content body
             Content[0] = "#Resources:\n\n";
-            // Once we have the key, we can assign the header which declares the item being crafted and the amount.
+            // Assigning the header of our response message to the user's request
             Header = $"{_blueprintKey} x {_amount}:";
 
+            // Adding any extra information the GetResourceCost function will need to take into consideration when calculating the cost
+            // We use a bundle because later in development we might want to add other parameters, therefore this creates extra flexability
             Bundle extras = new Bundle();
-            extras.BundledInformation.Add(Blueprint.BUNDLED_AMOUNT_KEY, _amount);
+            extras.BundledInformation.Add(SimpleBlueprint.BUNDLED_AMOUNT_KEY, _amount);
 
-            // Getting the calculated cost for the blueprint
-            CalculatedResourceCost[] costs = BlueQueryLibrary.Data.Blueprints.DefaultBlueprints[_blueprintKey].GetResourceCost(extras).ToArray();
+            // Getting the entire resource cost tree
+            // 
+            CalculatedResourceCost[] costs = Blueprints.DefaultBlueprints[_blueprintKey].GetResourceCost(extras).ToArray();
 
             // Getting the padding offset needed to format our "x {cost}".
             int offset = costs.Aggregate(string.Empty, (longest, bp) => bp.Type.Length > longest.Length ? bp.Type : longest).Length;

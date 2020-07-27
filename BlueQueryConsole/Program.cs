@@ -1,6 +1,7 @@
 ﻿using System;
 using BlueQueryLibrary;
-using BlueQueryLibrary.ArkBlueprints;
+using BlueQueryLibrary.Blueprints;
+using BlueQueryLibrary.Blueprints.CustomBlueprints;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 /// <summary>

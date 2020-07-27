@@ -1,5 +1,5 @@
 ﻿using BlueQuery.Commands.Crafting.CommandStorageTypes;
-using BlueQueryLibrary.ArkBlueprints.DefaultBlueprints;
+using BlueQueryLibrary.Blueprints.DefaultBlueprints;
 using DSharpPlus.CommandsNext;
 // Provides us the DSharpPlus formatter
 using DSharpPlus;
@@ -84,7 +84,7 @@ namespace BlueQuery.Commands.Crafting
                     catch
                     {
                         // Logging error
-                        Program.Client.DebugLogger.LogMessage(LogLevel.Error, "BlueQueryBot", $"Error retrieving blueprints for user request that made a '{_ctx.RawArgumentString}' request.", DateTime.Now);
+                        Program.Client.DebugLogger.LogMessage(LogLevel.Error, "BlueQueryBot", $"Error retrieving blueprints, requested blueprint: '{parameters[0].ToLower()}'", DateTime.Now);
                         await _ctx.RespondAsync(Messenger.RETRIEVING_BLUEPRINTS_ERROR_MSG);
                     }
                     break;
@@ -96,11 +96,11 @@ namespace BlueQuery.Commands.Crafting
                 default:
                     try
                     {
-                        keys = BlueQueryLibrary.Data.Blueprints.DefaultBlueprints.Keys.Where(x => x.ToLower().Contains(parameters[0])).ToArray();
+                        keys = BlueQueryLibrary.Data.Blueprints.DefaultBlueprints.Keys.Where(x => x.ToLower().Contains(parameters[0].ToLower())).ToArray();
                     }
                     catch
                     {
-                        Program.Client.DebugLogger.LogMessage(LogLevel.Error, "BlueQueryBot", $"Error retrieving blueprints for user request that made a '{_ctx.RawArgumentString}' request.", DateTime.Now);
+                        Program.Client.DebugLogger.LogMessage(LogLevel.Error, "BlueQueryBot", $"Error retrieving blueprints, requested blueprint: '{parameters[0].ToLower()}' request.", DateTime.Now);
                         await _ctx.RespondAsync(Messenger.RETRIEVING_BLUEPRINTS_ERROR_MSG);
                         return;
                     }

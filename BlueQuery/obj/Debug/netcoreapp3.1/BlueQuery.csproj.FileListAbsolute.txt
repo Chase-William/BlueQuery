@@ -104,3 +104,5 @@ C:\Dev\BlueQuery\BlueQuery\obj\Debug\netcoreapp3.1\BlueQuery.AssemblyInfo.cs
 C:\Dev\BlueQuery\BlueQuery\obj\Debug\netcoreapp3.1\BlueQuery.csproj.CopyComplete
 C:\Dev\BlueQuery\BlueQuery\obj\Debug\netcoreapp3.1\BlueQuery.dll
 C:\Dev\BlueQuery\BlueQuery\obj\Debug\netcoreapp3.1\BlueQuery.pdb
+C:\Dev\BlueQuery\BlueQuery\obj\Debug\netcoreapp3.1\BlueQuery.csproj.CoreCompileInputs.cache
+C:\Dev\BlueQuery\BlueQuery\obj\Debug\netcoreapp3.1\BlueQuery.genruntimeconfig.cache

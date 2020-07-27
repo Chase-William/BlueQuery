@@ -1,5 +1,6 @@
 ﻿using BlueQuery.Commands.Crafting.CommandStorageTypes;
-using BlueQueryLibrary.ArkBlueprints.DefaultBlueprints;
+using BlueQueryLibrary.Blueprints;
+using BlueQueryLibrary.Blueprints.DefaultBlueprints;
 using DSharpPlus;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,10 @@ using System.Text;
 
 namespace BlueQuery.ResponseTypes
 {
+    /// <summary>
+    ///     A generic glass for all BlueQuery responses.
+    ///     Contains functions for formatting its Content.
+    /// </summary>
     public abstract class BlueQueryResponse
     {
         public const int MESSAGE_LENGTH_LIMIT = 1950;
@@ -44,7 +49,7 @@ namespace BlueQuery.ResponseTypes
                 for (int i = 0; i < costs.Length; i++)
                 {
                     // Storing the next content to be added in a local variable for referencing.
-                    var nextContent = $"{"".PadRight(startOffset)}{costs[i].Type.PadRight(offset)} x {costs[i].Amount}\n";
+                    var nextContent = $"{"".PadRight(startOffset)}{costs[i].Type.PadRight(offset)} x {costs[i].Amount.ToString("0.0")}\n";
 
                     // If the content will exceed the max length after adding this to it, added it to the next index of the content array.
                     if ((Content[index].Length + nextContent.Length) <= MESSAGE_LENGTH_LIMIT)
@@ -57,7 +62,6 @@ namespace BlueQuery.ResponseTypes
                         // Incrementing the content array and adding the content.
                         Content[++index] += nextContent;
                     }
-
                 }
             }
         }

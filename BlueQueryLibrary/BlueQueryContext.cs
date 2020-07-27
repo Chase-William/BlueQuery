@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using BlueQueryLibrary.ArkBlueprints;
+using BlueQueryLibrary.Blueprints;
+using BlueQueryLibrary.Blueprints.CustomBlueprints;
+
 namespace BlueQueryLibrary
 {
     public class BlueQueryContext : DbContext

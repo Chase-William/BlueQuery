@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using BlueQueryLibrary.ArkBlueprints;
+using BlueQueryLibrary.Blueprints;
+using BlueQueryLibrary.Blueprints.CustomBlueprints;
 
 namespace BlueQueryLibrary
 {
