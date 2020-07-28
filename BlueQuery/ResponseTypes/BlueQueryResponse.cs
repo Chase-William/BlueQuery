@@ -22,7 +22,6 @@ namespace BlueQuery.ResponseTypes
         public string Header { get; protected set; }
         public List<string> Content { get; protected set; } = new List<string> { new string(string.Empty) };
 
-
         /// <summary>
         ///     Returns a formatted string with all the information of the crafting requirements.
         /// </summary>  

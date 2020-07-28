@@ -1,41 +1,50 @@
 {
   "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[BlueQueryLibrary.Blueprints.IResourceCalculator, BlueQueryLibrary]], System.Private.CoreLib",
   "Advanced Rifle Bullet": {
-    "$type": "BlueQueryLibrary.Blueprints.DefaultBlueprints.SimpleBlueprint, BlueQueryLibrary",
+    "$type": "BlueQueryLibrary.Blueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
     "Resources": {
       "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
-      "Gun Powder": 9,
       "Metal Ingots": 1
+    },
+    "CraftedResources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Gunpowder": 9
     },
     "Yield": 2
   },
   "Simple Rifle Bullet": {
-    "$type": "BlueQueryLibrary.Blueprints.DefaultBlueprints.SimpleBlueprint, BlueQueryLibrary",
+    "$type": "BlueQueryLibrary.Blueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
     "Resources": {
       "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
-      "Gun Powder": 12,
       "Metal Ingots": 2
+    },
+    "CraftedResources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Gunpowder": 12
     },
     "Yield": 2
   },
   "Simple Bullet": {
-    "$type": "BlueQueryLibrary.Blueprints.DefaultBlueprints.SimpleBlueprint, BlueQueryLibrary",
+    "$type": "BlueQueryLibrary.Blueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
     "Resources": {
       "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
-      "Gun Powder": 6,
       "Metal Ingots": 1
+    },
+    "CraftedResources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Gunpowder": 6
     },
     "Yield": 2
   },
   "Simple Shotgun Bullet": {
     "$type": "BlueQueryLibrary.Blueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
     "Resources": {
-      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
-      "Gun Powder": 3,
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",      
       "Metal Ingots": 1
     },
     "CraftedResources": {
       "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Gunpowder": 3,
       "Simple Bullet": 3
     },
     "Yield": 1
@@ -71,20 +80,26 @@
     "Yield": 1
   },
   "Advanced Bullet": {
-    "$type": "BlueQueryLibrary.Blueprints.DefaultBlueprints.SimpleBlueprint, BlueQueryLibrary",
+    "$type": "BlueQueryLibrary.Blueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
     "Resources": {
-      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
-      "Gun Powder": 3,
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",    
       "Metal Ingots": 1
+    },
+    "CraftedResources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",     
+      "Gunpowder": 3
     },
     "Yield": 3
   },
   "Advanced Sniper Bullet": {
-    "$type": "BlueQueryLibrary.Blueprints.DefaultBlueprints.SimpleBlueprint, BlueQueryLibrary",
+    "$type": "BlueQueryLibrary.Blueprints.DefaultBlueprints.AdvancedBlueprint, BlueQueryLibrary",
     "Resources": {
-      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
-      "Gun Powder": 12,
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections", 
       "Metal Ingots": 2
+    },
+    "CraftedResources": {
+      "$type": "System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Collections",
+      "Gunpowder": 12
     },
     "Yield": 2
   },
