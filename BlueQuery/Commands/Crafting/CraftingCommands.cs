@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using BlueQuery.Util;
 using BlueQuery.ResponseTypes;
 using System;
+using System.Net.NetworkInformation;
 
 namespace BlueQuery.Commands.Crafting
 {
@@ -152,6 +153,6 @@ namespace BlueQuery.Commands.Crafting
 
             // Reseting the keyOptions to null so this cannot be called again.
             SavedCraftInstructions.Content = null;
-        }     
+        }                
     }    
 }

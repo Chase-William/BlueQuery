@@ -67,9 +67,8 @@ namespace BlueQuery
 
             // Binding command classes
             Commands.RegisterCommands<Commands.General.Commands>();
-
-            // Commands for crafting blueprints.
-            Commands.RegisterCommands<Commands.Crafting.CraftingCommands>();
+            Commands.RegisterCommands<Commands.Crafting.CraftingCommands>();            
+            Commands.RegisterCommands<Commands.TribeCommands>();
 
             // connecting and logging in
             await Client.ConnectAsync();

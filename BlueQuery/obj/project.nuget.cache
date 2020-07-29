@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "4w+h/7Nhk/o1+o2S3BgclOVyL2KDkX4Kr3HtnuMVKwMLQxM5K+NSO1+4nFLZRQlE6zxSyi6WEdyYv5KTdYDk/A==",
+  "dgSpecHash": "RGUsxWRUa41f6WhBKraChVJVg2+72NGAVUh0iOZKMtl3IWZm6T0M5LSahE8f6cBR++VWzu+7e8b/WcHexLUXFg==",
   "success": true,
   "projectFilePath": "C:\\Dev\\BlueQuery\\BlueQuery\\BlueQuery.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Chase Roth\\.nuget\\packages\\dsharpplus\\3.2.3\\dsharpplus.3.2.3.nupkg.sha512",
     "C:\\Users\\Chase Roth\\.nuget\\packages\\dsharpplus.commandsnext\\3.2.3\\dsharpplus.commandsnext.3.2.3.nupkg.sha512",
+    "C:\\Users\\Chase Roth\\.nuget\\packages\\litedb\\5.0.8\\litedb.5.0.8.nupkg.sha512",
     "C:\\Users\\Chase Roth\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "C:\\Users\\Chase Roth\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "C:\\Users\\Chase Roth\\.nuget\\packages\\microsoft.data.sqlite.core\\3.1.0\\microsoft.data.sqlite.core.3.1.0.nupkg.sha512",

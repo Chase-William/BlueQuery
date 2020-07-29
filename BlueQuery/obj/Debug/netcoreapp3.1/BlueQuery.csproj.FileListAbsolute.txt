@@ -106,3 +106,4 @@ C:\Dev\BlueQuery\BlueQuery\obj\Debug\netcoreapp3.1\BlueQuery.dll
 C:\Dev\BlueQuery\BlueQuery\obj\Debug\netcoreapp3.1\BlueQuery.pdb
 C:\Dev\BlueQuery\BlueQuery\obj\Debug\netcoreapp3.1\BlueQuery.csproj.CoreCompileInputs.cache
 C:\Dev\BlueQuery\BlueQuery\obj\Debug\netcoreapp3.1\BlueQuery.genruntimeconfig.cache
+C:\Dev\BlueQuery\BlueQuery\bin\Debug\netcoreapp3.1\LiteDB.dll

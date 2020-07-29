@@ -44,6 +44,14 @@
           }
         }
       },
+      "LiteDB/5.0.8": {
+        "runtime": {
+          "lib/netstandard2.0/LiteDB.dll": {
+            "assemblyVersion": "5.0.8.0",
+            "fileVersion": "5.0.8.0"
+          }
+        }
+      },
       "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
         "runtime": {
           "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
@@ -984,7 +992,7 @@
       },
       "BlueQueryLibrary/1.0.0": {
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Sqlite.Core": "3.1.0",
+          "LiteDB": "5.0.8",
           "Newtonsoft.Json": "12.0.3",
           "System.Collections.Specialized": "4.3.0"
         },
@@ -1013,6 +1021,13 @@
       "sha512": "sha512-58KaSGeefzOl/Bzthmo2yGMr1gy5bvBi2cIVFxWkn+K0LNCOVJ3zN13/uC/daQGOD2phLIRHMkjrW+OO8FJY/w==",
       "path": "dsharpplus.commandsnext/3.2.3",
       "hashPath": "dsharpplus.commandsnext.3.2.3.nupkg.sha512"
+    },
+    "LiteDB/5.0.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lqwQnweoa3Lko87uo9FzZYf6BFh3AULas5yosG95LPVHIoACtJJ2BjBPQ7d7vUYDQYSV3rUco2+vMilVoBQ3WA==",
+      "path": "litedb/5.0.8",
+      "hashPath": "litedb.5.0.8.nupkg.sha512"
     },
     "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
       "type": "package",

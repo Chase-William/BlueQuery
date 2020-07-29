@@ -43,6 +43,6 @@ namespace BlueQuery.Commands.Crafting
         public async Task OnSelect(CommandContext ctx)
         {
             await Select(ctx);
-        }
+        }        
     }
 }
