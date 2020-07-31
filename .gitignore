@@ -2,7 +2,7 @@
 .vs/
 bin/
 BlueQuery/obj/
-BlueQueryLibrary/obj/
+BlueQueryLibrary/obj/*
 BlueQueryLibrary/bin/
 
 #Files

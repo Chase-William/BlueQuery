@@ -1,7 +1,6 @@
 C:\Dev\BlueQuery\BlueQueryLibrary\bin\Debug\netcoreapp3.1\BlueQueryLibrary.deps.json
 C:\Dev\BlueQuery\BlueQueryLibrary\bin\Debug\netcoreapp3.1\BlueQueryLibrary.dll
 C:\Dev\BlueQuery\BlueQueryLibrary\bin\Debug\netcoreapp3.1\BlueQueryLibrary.pdb
-C:\Dev\BlueQuery\BlueQueryLibrary\obj\Debug\netcoreapp3.1\BlueQueryLibrary.csprojAssemblyReference.cache
 C:\Dev\BlueQuery\BlueQueryLibrary\obj\Debug\netcoreapp3.1\BlueQueryLibrary.csproj.CoreCompileInputs.cache
 C:\Dev\BlueQuery\BlueQueryLibrary\obj\Debug\netcoreapp3.1\BlueQueryLibrary.AssemblyInfoInputs.cache
 C:\Dev\BlueQuery\BlueQueryLibrary\obj\Debug\netcoreapp3.1\BlueQueryLibrary.AssemblyInfo.cs
