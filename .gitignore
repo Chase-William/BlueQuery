@@ -1,0 +1,8 @@
+#Directories
+.vs/
+bin/
+BlueQuery/obj
+BlueQueryLibrary/obj
+
+#Files
+*.user

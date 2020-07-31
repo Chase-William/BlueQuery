@@ -13,5 +13,5 @@ C:\Dev\BlueQuery\BlueQueryLibrary\obj\Debug\netcoreapp3.1\BlueQueryLibrary.Assem
 C:\Dev\BlueQuery\BlueQueryLibrary\obj\Debug\netcoreapp3.1\BlueQueryLibrary.dll
 C:\Dev\BlueQuery\BlueQueryLibrary\obj\Debug\netcoreapp3.1\BlueQueryLibrary.pdb
 C:\Users\Chase Roth\Desktop\BlueQuery\BlueQueryLibrary\obj\Debug\netcoreapp3.1\BlueQueryLibrary.csprojAssemblyReference.cache
-C:\Dev\BlueQuery\BlueQueryLibrary\obj\Debug\netcoreapp3.1\BlueQueryLibrary.csprojAssemblyReference.cache
 C:\Dev\BlueQuery\BlueQueryLibrary\obj\Debug\netcoreapp3.1\BlueQueryLibrary.csproj.CoreCompileInputs.cache
+C:\Dev\BlueQuery\BlueQueryLibrary\obj\Debug\netcoreapp3.1\BlueQueryLibrary.csprojAssemblyReference.cache

@@ -107,3 +107,15 @@ C:\Dev\BlueQuery\BlueQuery\obj\Debug\netcoreapp3.1\BlueQuery.pdb
 C:\Dev\BlueQuery\BlueQuery\obj\Debug\netcoreapp3.1\BlueQuery.csproj.CoreCompileInputs.cache
 C:\Dev\BlueQuery\BlueQuery\obj\Debug\netcoreapp3.1\BlueQuery.genruntimeconfig.cache
 C:\Dev\BlueQuery\BlueQuery\bin\Debug\netcoreapp3.1\LiteDB.dll
+C:\Dev\BlueQuery\bin\Debug-\netcoreapp3.1\BlueQuery.exe
+C:\Dev\BlueQuery\bin\Debug-\netcoreapp3.1\BlueQuery.deps.json
+C:\Dev\BlueQuery\bin\Debug-\netcoreapp3.1\BlueQuery.runtimeconfig.json
+C:\Dev\BlueQuery\bin\Debug-\netcoreapp3.1\BlueQuery.runtimeconfig.dev.json
+C:\Dev\BlueQuery\bin\Debug-\netcoreapp3.1\BlueQuery.dll
+C:\Dev\BlueQuery\bin\Debug-\netcoreapp3.1\BlueQuery.pdb
+C:\Dev\BlueQuery\bin\Debug\netcoreapp3.1\BlueQuery.exe
+C:\Dev\BlueQuery\bin\Debug\netcoreapp3.1\BlueQuery.deps.json
+C:\Dev\BlueQuery\bin\Debug\netcoreapp3.1\BlueQuery.runtimeconfig.json
+C:\Dev\BlueQuery\bin\Debug\netcoreapp3.1\BlueQuery.runtimeconfig.dev.json
+C:\Dev\BlueQuery\bin\Debug\netcoreapp3.1\BlueQuery.dll
+C:\Dev\BlueQuery\bin\Debug\netcoreapp3.1\BlueQuery.pdb

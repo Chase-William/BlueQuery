@@ -108,7 +108,7 @@ namespace BlueQueryLibrary.Data
 
             try
             {
-                DefaultBlueprints = JsonConvert.DeserializeObject<Dictionary<string, IResourceCalculator>>(new StreamReader("../../../../default_blueprints.json").ReadToEnd(), settings);
+                DefaultBlueprints = JsonConvert.DeserializeObject<Dictionary<string, IResourceCalculator>>(new StreamReader("default_blueprints.json").ReadToEnd(), settings);
             }                       
             catch (Exception e)
             {
