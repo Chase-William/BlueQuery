@@ -1,5 +1,5 @@
 <p align="center">
-  <img style="align:middle;" src="https://raw.githubusercontent.com/ChaseRoth/BlueQuery/master/Icons/bluequery512.png" alt="Blue Query Icon">
+    <img src="Branding/bluequery512.png" alt="BlueQuery Icon"/>
 </p>
 
 # Blue Query (Early Development)
