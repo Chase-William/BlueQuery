@@ -5,5 +5,8 @@ BlueQuery/obj/
 BlueQueryLibrary/obj/
 BlueQueryLibrary/bin/
 
+#Contains bot's token and prefix
+config.json
+
 #Files
 *.user

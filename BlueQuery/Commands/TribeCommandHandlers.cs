@@ -9,10 +9,10 @@ namespace BlueQuery.Commands
 {
     public partial class TribeCommands
     {
-        [Command("CreateTribe")]
-        [Description("Creates a tribe which owns blueprints and determines who has access to zed blueprints.")]
-        [Aliases("createtribe", "CT", "ct")]
-        public async Task OnCreateTribe(CommandContext ctx) => await CreateTribe(ctx);
+        //[Command("CreateTribe")]
+        //[Description("Creates a tribe which owns blueprints and determines who has access to zed blueprints.")]
+        //[Aliases("createtribe", "CT", "ct")]
+        //public async Task OnCreateTribe(CommandContext ctx) => await CreateTribe(ctx);
 
         [Command("Tribe")]
         [Description("Base command for interacting with a tribe.")]

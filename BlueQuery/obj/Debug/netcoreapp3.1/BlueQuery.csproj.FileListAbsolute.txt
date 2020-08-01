@@ -12,3 +12,5 @@ C:\Dev\BlueQuery\BlueQuery\obj\Debug\netcoreapp3.1\BlueQuery.csproj.CopyComplete
 C:\Dev\BlueQuery\BlueQuery\obj\Debug\netcoreapp3.1\BlueQuery.dll
 C:\Dev\BlueQuery\BlueQuery\obj\Debug\netcoreapp3.1\BlueQuery.pdb
 C:\Dev\BlueQuery\BlueQuery\obj\Debug\netcoreapp3.1\BlueQuery.genruntimeconfig.cache
+C:\Dev\BlueQuery\bin\Debug\netcoreapp3.1\default_blueprints.json
+C:\Dev\BlueQuery\bin\Debug\netcoreapp3.1\config.json

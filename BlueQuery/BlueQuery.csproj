@@ -24,4 +24,13 @@
     <ProjectReference Include="..\BlueQueryLibrary\BlueQueryLibrary.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="default_blueprints.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

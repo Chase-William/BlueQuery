@@ -1,146 +1,234 @@
-﻿using BlueQueryLibrary.Data;
+﻿using BlueQuery.ResponseTypes;
+using BlueQuery.Util;
+using BlueQueryLibrary.Data;
 using DSharpPlus.CommandsNext;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace BlueQuery.Commands
 {
+    struct ParamInfo
+    {
+        public string ParamType;                // String identifer of what the param purpose is
+        public int ParamPropertyStartIndex;     // Start index of the property ex. -rename
+        public int ParamValueStartIndex;        // Start index of the param value 
+        public string ParamValue;               // Value of the parameter
+    }
+
     public partial class TribeCommands
     {
-        private const string RENAME_PARAM = " -rename ";
-        private const string NEWNAME_PARAM = " -newname ";
-        private const string ADD_GUILD_PARAM = " -add ";
+        const string NAME_PARAM = " -name ";        // Required in order to identify the tribe          -- single use   -- if parameter -create is given then -name shouldn't be given as well
+        const string RENAME_PARAM = " -rename ";    // Optional, used to rename tribe                   -- single use
+        const string CREATE_PARAM = " -create ";    // Optional, used to create a tribe                 -- single use
+        const string ADD_GUILD_PARAM = " -add ";    // Optional, used to add a guild to permitted list  -- repeatable use
 
-        public static async Task CreateTribe(CommandContext _ctx)
-        {
-            string str = _ctx.RawArgumentString;
-            if (string.IsNullOrWhiteSpace(str))
-            {
-                await _ctx.RespondAsync("Invalid arguments. You must provide atleast the name of the tribe Ex. (?createtribe -name <tribe name here>)");
-                return;
-            }
+        const byte GUILID_ID_LENGTH = 18;           // Length of a guild's ulong Id
 
-            Tribe newtribe = new Tribe
-            {
-                PermittedGuilds = new List<ulong>()
-            };
-            
-            // Checking to make sure the name field is being provided
-            if (str.Contains(" -name "))
-            {
-                string[] parts = str.Split(new string[] { " -name " }, StringSplitOptions.RemoveEmptyEntries);
-
-                // Formatting error
-                if (parts.Length > 1)
-                {
-                    await _ctx.RespondAsync("Formatting error. See '!help createtribe' for help.");
-                    return;
-                }
-
-                // Checking for guilds to be added
-                if (parts[0].Contains(" -add "))
-                {
-                    // splitting for guilds
-                    string[] toBePermittedGuilds = parts[0].Split(" -add ");
-
-                    // Assigning the name to our larger scope variable array
-                    parts[0] = toBePermittedGuilds[0];
-
-                    // iterating through all the guilds
-                    for (int i = 1; i < toBePermittedGuilds.Length; i++)
-                    {
-                        ulong id;
-                        // parsing each guild into
-                        if(ulong.TryParse(toBePermittedGuilds[i], out id))
-                        {
-                            newtribe.PermittedGuilds.Add(id);
-                        }
-                        else
-                        {
-                            await _ctx.RespondAsync("Invalid guild id given.");
-                            return;
-                        }
-                    }
-
-                }               
-
-                string name = parts[0].Trim();
-
-                // If the name is invalid, error
-                if (string.IsNullOrWhiteSpace(name))
-                {
-                    await _ctx.RespondAsync("Invalid tribe name. The tribe name cannot be empty or whitespace");
-                    return;
-                }
-
-                // Check to see if a tribe with the same name already exist
-                if (TribeDatabaseContext.Provider.DoesTribeExist(name.ToLower(), out _))
-                {
-                    await _ctx.RespondAsync("Invalid tribe name. The tribe name given already exist, please choose a different tribe name.");
-                    return;
-                }
-
-                newtribe.NameId = name;
-            }
-            else
-            {
-                await _ctx.RespondAsync("Invalid arguments. Missing required -name parameter ex. ?createtribe -name <tribe name here>");
-                return;
-            }
-
-            newtribe.Owner = _ctx.Member.Id;
-            newtribe.PermittedGuilds.Add(_ctx.Guild.Id); // adding this guild to the permitted guild list
-
-            TribeDatabaseContext.Provider.InsertTribe(newtribe);
-
-            await _ctx.RespondAsync($"Tribe {newtribe.NameId} has been created!");
-        }
+        /// <summary>
+        ///     Contains all the single use parameters available within the -tribe command
+        /// </summary>
+        static readonly string[] SINGLE_USE_PARAMS = new string[] { NAME_PARAM, RENAME_PARAM, CREATE_PARAM };   
 
         public static async Task Tribe(CommandContext _ctx)
         {
             string str = _ctx.RawArgumentString;
 
-            GetAllParameters(str);
+            ParamInfo[] @params = GetAllParameters(_ctx, str);
 
-            // Rename operation desired
-            if (str.Contains(RENAME_PARAM) && str.Contains(NEWNAME_PARAM))
+            // Checking for multiple uses of a single use parameter
+            {                
+                for (int i = 0; i < SINGLE_USE_PARAMS.Length; i++)
+                {
+                    int paramCount = @params.Where(p => p.ParamType.Equals(SINGLE_USE_PARAMS[i])).Count();
+
+                    if (paramCount > 1)
+                    {
+                        await _ctx.RespondAsync($"Single use parameter used too many times. The parameter {SINGLE_USE_PARAMS[i]} was provided more than once.");
+                        return;
+                    }
+                }
+            }
+
+
+
+            /* ----- Creating Tribe Code ----- */
+
+            // Checking to see if we are creating a tribe
+            if (@params.Any(p => p.ParamType.Equals(CREATE_PARAM)))
             {
-                int iRename = str.IndexOf(" -rename ");
-                int iNewName = str.IndexOf(" -newname ");
+                // Only -add and -create parameters are allowed when creating a tribe
+                if (@params.Any(p => p.ParamType != CREATE_PARAM && p.ParamType != ADD_GUILD_PARAM))
+                {
+                    await _ctx.RespondAsync("Invalid parameters given. When creating a tribe you can only use the -create and -add parameters.");
+                    return;
+                }
+                else
+                {
+                    // If an error ocurred during processing, propogate error to user & return from encapsulating function
+                    if (!ProcessGuildIds(out var guildIds, out string procErrorMsg))
+                    {
+                        await _ctx.RespondAsync(procErrorMsg);
+                        return;
+                    }
 
-                string renameValue = str.Substring(iRename + RENAME_PARAM.Length, iNewName - (iRename + RENAME_PARAM.Length));
-                string newNameValue = str.Substring(iNewName + NEWNAME_PARAM.Length);
+                    string tribeName = (@params.Single(p => p.ParamType.Equals(CREATE_PARAM)).ParamValue);
+                    if (!ValidateTribeName(ref tribeName, out string errorMsg))
+                    {
+                        await _ctx.RespondAsync(errorMsg);
+                        return;
+                    }
 
-                RenameTribe(_ctx, str);
+                    // If a tribe with the given name already exist, error
+                    if (TribeDatabaseContext.Provider.DoesTribeExist(tribeName, out _, out string tribeErrorMsg))
+                    {
+                        await _ctx.RespondAsync(tribeErrorMsg);
+                        return;
+                    }
+
+                    guildIds.Add(_ctx.Guild.Id);
+
+                    Tribe newTribe = new Tribe
+                    {
+                        NameId = @params.Single(p => p.ParamType.Equals(CREATE_PARAM)).ParamValue,
+                        PermittedGuilds = guildIds,
+                        Owner = _ctx.Member.Id
+                    };
+
+                    // Insert call
+                    TribeDatabaseContext.Provider.InsertTribe(newTribe);
+
+                    var msg = new TribeInfoResponse();
+                    msg.FormatTribe(newTribe);
+                    await Messenger.SendMessage(_ctx , msg);
+                    return;
+                }
+            }
+                
+            // If the -name param hasn't been provided, error
+            if (!@params.Any(p => p.ParamType.Equals(NAME_PARAM)))
+            {
+                await _ctx.RespondAsync("Missing required parameter. You must provide the -name *<your tribe name here>* parameter.");
+                return;
+            }
+
+
+
+            /* ----- Updating Tribe Code ----- */
+
+            {
+                // If the given guildIds don't process correctly, error
+                if (!ProcessGuildIds(out var guildIds, out string procErrorMsg))
+                {
+                    await _ctx.RespondAsync(procErrorMsg);
+                    return;
+                }
+
+                // variable is used to store our processed tribe name
+                string tribeName = (@params.Single(p => p.ParamType.Equals(NAME_PARAM)).ParamValue);
+                if (!ValidateTribeName(ref tribeName, out string errorMsg))
+                {
+                    await _ctx.RespondAsync(errorMsg);
+                    return;
+                }
+
+                // Checking to make sure the given tribe name exist in the database.
+                // IMPORTANT -- here we pass in the processed tribe name created above, not query the name from the collection
+                if (TribeDatabaseContext.Provider.DoesTribeExist(tribeName, out Tribe tribe, out string tribeErrorMsg))
+                {
+                    await _ctx.RespondAsync(tribeErrorMsg);
+                    return;
+                }
+
+                // Adding guilds if given
+                if (guildIds.Count != 0) tribe.AddGuilds(guildIds);
+
+                // Update call
+                TribeDatabaseContext.Provider.UpdateTribe(tribe);
+            }
+            
+
+            // Parses guild ids from string to unsigned long
+            bool ProcessGuildIds(out List<ulong> ids, out string errorMsg)
+            {
+                var rawIds = @params.Where(p => p.ParamType.Equals(ADD_GUILD_PARAM)).Select(p => p.ParamValue).ToList();
+
+                ids = new List<ulong>();
+
+                if (rawIds.Count != 0)
+                    foreach (var strId in rawIds)
+                    {
+                        if (ulong.TryParse(strId, out ulong parsedId) && strId.Length == GUILID_ID_LENGTH)
+                        {
+                            ids.Add(parsedId);
+                        }
+                        else
+                        {
+                            errorMsg = $"Invalid guild id given. The id {strId} was invalid. A guild's id must be 18 characters in length and only contain numbers.";
+                            return false;
+                        }
+                    }
+                // No error, therefore empty message
+                errorMsg = string.Empty;
+                return true;
+            }
+
+            // Processes and Validates a given tribe name
+            // false == invalid
+            // true == valid
+            bool ValidateTribeName(ref string tribeName, out string errorMsg)
+            {
+                tribeName = tribeName.Trim();
+
+                // We trimmed it so no need to check for whitespace
+                if (string.IsNullOrEmpty(tribeName))
+                {
+                    errorMsg = $"Invalid tribe name given. The tribe name '{tribeName}' cannot be an empty string or only contain whitespaces.";
+                    return false;
+                }
+                else
+                {
+                    errorMsg = string.Empty;
+                    return true;
+                }
+            }
+        }                
+        
+
+        public static async Task Keep(CommandContext _ctx)
+        {
+            // If no image of a blueprint was provided return an error
+            if (_ctx.Message.Attachments == null || _ctx.Message.Attachments.Count == 0)
+            {
+                await _ctx.RespondAsync("An image of the blueprint must be attached when creating a blueprint.");
                 return;
             }
         }
 
-        struct ParamInfo
-        {
-            public string ParamType { get; set; }               // String identifer of what the param purpose is
-            public int ParamPropertyStartIndex { get; set; }        // Start index of the property ex. -rename
-            public int ParamValueStartIndex { get; set; }       // Start index of the param value 
-            public string ParamValue { get; set; }              // Value of the parameter
-        }
 
         /// <summary>
-        ///     First I need to identify all the parameters that exist in the argument string<br/>
-        ///     Secondly I need to get the indices of all the parameter's values starting positions and associate it with the param keyword<br/>
-        ///     Thirdly I need to know the length of which to substring the param value
+        ///     Processes all parameters inside request string<br/>
+        ///     This is done by using the IndexOf function to obtain the starting positions of all parameter types ex. -name<br/>
+        ///     All the information gathered about the positions of the params is stored in a ParamInfo array.<br/>
+        ///     Each parameter gets it's own ParamInfo instance.
         /// </summary>
-        /// <returns></returns>
-        private static void GetAllParameters(string srcStr)
+        /// <param name="_ctx"> Entire message context </param>
+        /// <param name="srcStr"> The source string </param>
+        /// <returns> Array of information about each parameter inside the srouce string </returns>
+        private static ParamInfo[] GetAllParameters(CommandContext _ctx, string srcStr)
         {
             // Collection that holds all parameter's info
             var paramsInfo = new List<ParamInfo>();
 
-            // Searching for the RENAME
-            GetParam(RENAME_PARAM);
-            GetParam(NEWNAME_PARAM);
-            GetRepeatedParams(ADD_GUILD_PARAM);
+            // Searching / Checking all single use params
+            for (int i = 0; i < SINGLE_USE_PARAMS.Length; i++)
+            {
+                ProcessSingleUseParam(SINGLE_USE_PARAMS[i]);
+            }
+
+            ProcessRepeatableParams(ADD_GUILD_PARAM);
 
             var pOrdered = paramsInfo.OrderBy(x => x.ParamValueStartIndex).ToArray();
 
@@ -160,12 +248,11 @@ namespace BlueQuery.Commands
                 pOrdered[i].ParamValue = srcStr.Substring(pOrdered[i].ParamValueStartIndex, pOrdered[(i + 1)].ParamPropertyStartIndex - pOrdered[i].ParamValueStartIndex);
             }
 
-            /* After Parsing Code Here */
+            return pOrdered;
 
-            Console.WriteLine();
-
+            #region Nested Utility Functions
             // Gets a parameter that can only occur once inside a request
-            void GetParam(in string _param)
+            void ProcessSingleUseParam(in string _param)
             {
                 if (srcStr.Contains(_param))
                 {
@@ -182,7 +269,7 @@ namespace BlueQuery.Commands
             }
 
             // Gets parameters that can be repeated throughout the request
-            void GetRepeatedParams(in string _param)
+            void ProcessRepeatableParams(in string _param)
             {
                 // Helps IndexOf not find the same _param repeatedly 
                 int posOffset = 0;
@@ -190,7 +277,7 @@ namespace BlueQuery.Commands
                 string srcStrCpy = srcStr;
 
 
-                while(true)
+                while (true)
                 {
                     if (srcStrCpy.Contains(_param))
                     {
@@ -219,150 +306,11 @@ namespace BlueQuery.Commands
                     {
                         break;
                     }
-                }                
-            }
-        }
-
-        /// <summary>
-        ///     Handles a rename request of a tribe
-        /// </summary>
-        /// <param name="_rawStr"> raw argument string </param>
-        private static async void RenameTribe(CommandContext _ctx, string _rawStr)
-        {
-            string[] parameters = _rawStr.Split(new string[] { " -rename ", " -newname " }, StringSplitOptions.RemoveEmptyEntries);
-
-            // Trimming all parameters
-            for (int i = 0; i < parameters.Length; i++)
-            {
-                parameters[i] = parameters[i].Trim();
-            }
-
-            // If there is a formatting error
-            if (parameters.Length != 2)
-            {
-                await _ctx.RespondAsync("Formatting error. Request should look like: ?tribe -rename <target tribe name> -newname <new tribe name>");
-                return;
-            }
-
-            // Preventing the user from trying to rename the tribe to the same name
-            if (parameters[0] == parameters[1])
-            {
-                await _ctx.RespondAsync("You cannot rename to the same name...");
-                return;
-            }
-
-            // If the target tribe doesn't exist, error
-            if (!TribeDatabaseContext.Provider.DoesTribeExist(parameters[0], out Tribe existingTribe))
-            {
-                await _ctx.RespondAsync("The target tribe to be renamed does not exist.");
-                return;
-            }
-
-            // If the new tribe name is already in use, error
-            if (TribeDatabaseContext.Provider.DoesTribeExist(parameters[1].ToLower(), out _))
-            {
-                await _ctx.RespondAsync("The given new tribe name is already in use by another tribe.");
-                return;
-            }
-
-            // Assigning the new name
-            existingTribe.NameId = parameters[1];
-            // Calling our database provider to make the updates to our local storage
-            TribeDatabaseContext.Provider.UpdateTribe(existingTribe);
-        }
-
-
-
-
-
-
-
-
-        private static async void AppendAddParameters(CommandContext _ctx, string _toBeParsed , Tribe tribe)
-        {
-            // Checking for guilds to be added
-            if (_toBeParsed.Contains(" -add "))
-            {
-                // splitting for guilds
-                string[] toBePermittedGuilds = _toBeParsed.Split(" -add ");
-
-                // Assigning the name to our larger scope variable array
-                _toBeParsed = toBePermittedGuilds[0];
-
-                // iterating through all the guilds
-                for (int i = 1; i < toBePermittedGuilds.Length; i++)
-                {
-                    ulong id;
-                    // parsing each guild into
-                    if (ulong.TryParse(toBePermittedGuilds[i], out id))
-                    {
-                        tribe.PermittedGuilds.Add(id);
-                    }
-                    else
-                    {
-                        await _ctx.RespondAsync("Invalid guild id given.");
-                        return;
-                    }
                 }
-
             }
+            #endregion
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        public static async Task Keep(CommandContext _ctx)
-        {
-            // If no image of a blueprint was provided return an error
-            if (_ctx.Message.Attachments == null || _ctx.Message.Attachments.Count == 0)
-            {
-                await _ctx.RespondAsync("An image of the blueprint must be attached when creating a blueprint.");
-                return;
-            }
-
-
-        }
     }
 }

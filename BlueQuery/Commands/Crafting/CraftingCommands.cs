@@ -14,7 +14,9 @@ using System.Net.NetworkInformation;
 namespace BlueQuery.Commands.Crafting
 {
     public partial class CraftingCommands
-    {       
+    {
+        const string RETRIEVING_BLUEPRINTS_ERROR_MSG = "Error retrieving blueprints.";
+
         /// <summary>
         ///     Determines the resources needed to craft the specific blueprint and its quantity.<br/><br/>
         ///     
@@ -80,13 +82,13 @@ namespace BlueQuery.Commands.Crafting
                     {
                         // Getting all blueprint keys
                         keys = BlueQueryLibrary.Data.Blueprints.DefaultBlueprints.Keys.ToArray();
-                        await Messenger.SendMessage(_ctx, new SelectionListingResponce(keys, amount));
+                        await Messenger.SendMessage(_ctx, new SelectionListingResponse(keys, amount));
                     }
                     catch
                     {
                         // Logging error
                         Program.Client.DebugLogger.LogMessage(LogLevel.Error, "BlueQueryBot", $"Error retrieving blueprints, requested blueprint: '{parameters[0].ToLower()}'", DateTime.Now);
-                        await _ctx.RespondAsync(Messenger.RETRIEVING_BLUEPRINTS_ERROR_MSG);
+                        await _ctx.RespondAsync(RETRIEVING_BLUEPRINTS_ERROR_MSG);
                     }
                     break;
                 // Advanced Rifle Bullets
@@ -102,7 +104,7 @@ namespace BlueQuery.Commands.Crafting
                     catch
                     {
                         Program.Client.DebugLogger.LogMessage(LogLevel.Error, "BlueQueryBot", $"Error retrieving blueprints, requested blueprint: '{parameters[0].ToLower()}' request.", DateTime.Now);
-                        await _ctx.RespondAsync(Messenger.RETRIEVING_BLUEPRINTS_ERROR_MSG);
+                        await _ctx.RespondAsync(RETRIEVING_BLUEPRINTS_ERROR_MSG);
                         return;
                     }
 
@@ -114,11 +116,11 @@ namespace BlueQuery.Commands.Crafting
                             break;
                         // Only one blueprint was found so we can calculate immediately.
                         case 1:
-                            await Messenger.SendMessage(_ctx, new ResourceCostResponse(keys.First(), amount));
+                            await Messenger.SendMessage(_ctx, new CraftingCostResponse(keys.First(), amount));
                             break;
                         // Multiple blueprints were found.
                         default:
-                            await Messenger.SendMessage(_ctx, new SelectionListingResponce(keys, amount));
+                            await Messenger.SendMessage(_ctx, new SelectionListingResponse(keys, amount));
                             break;
                     }
                     break;
@@ -149,7 +151,7 @@ namespace BlueQuery.Commands.Crafting
                 return;
             }
 
-            await Messenger.SendMessage(_ctx, new ResourceCostResponse(selectedIndex, SavedCraftInstructions.Content.Amount));
+            await Messenger.SendMessage(_ctx, new CraftingCostResponse(selectedIndex, SavedCraftInstructions.Content.Amount));
 
             // Reseting the keyOptions to null so this cannot be called again.
             SavedCraftInstructions.Content = null;

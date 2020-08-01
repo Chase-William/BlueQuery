@@ -5,9 +5,7 @@ using DSharpPlus.CommandsNext;
 namespace BlueQuery.Util
 {
     public static class Messenger
-    {
-        public const string RETRIEVING_BLUEPRINTS_ERROR_MSG = "Error retrieving blueprints.";
-
+    {        
         /// <summary>
         ///     Forwards the chunks of of our messages to the RespondAsync Command.
         ///     @param - _ctx, the command context used by the DSharpPlus API

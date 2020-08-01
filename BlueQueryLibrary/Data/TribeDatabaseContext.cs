@@ -22,17 +22,27 @@ namespace BlueQueryLibrary.Data
         /// <param name="_tribeName"> Tribename to be checked </param>
         /// <param name="_existingTribe"> Existing tribe instance, null if no tribe found </param>
         /// <returns> Whether or not the given tribe name is already taken </returns>               
-        public bool DoesTribeExist(string _tribeName, out Tribe _existingTribe)
+        public bool DoesTribeExist(string _tribeName, out Tribe _existingTribe, out string errorMsg)
         {
             using var db = new LiteDatabase(BLUEQUERY_DATABASE);
             var col = db.GetCollection<Tribe>(TRIBE_COLLECTION);
             col.EnsureIndex(t => t.NameId);
             var existingTribe = col.FindOne(t => t.NameId == _tribeName.ToLower());
             _existingTribe = existingTribe;
+
             // Returning the results
             // true == invalid tribe name, already exist
-            // false == valid tribe name, doesn't exist
-            return existingTribe == null ? false : true;
+            // false == valid tribe name, doesn't exist                        
+            if (existingTribe == null)
+            {
+                errorMsg = "Invalid tribe name given. The tribe name given doesn't exist.";
+                return false;
+            }
+            else
+            {
+                errorMsg = string.Empty;
+                return true;
+            }
         }
 
         /// <summary>

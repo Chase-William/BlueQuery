@@ -5,9 +5,9 @@ using System.Text;
 
 namespace BlueQuery.ResponseTypes
 {
-    class SelectionListingResponce : BlueQueryResponse
+    public class SelectionListingResponse : BlueQueryResponse
     {
-        public SelectionListingResponce(string[] _keys, int _amount)
+        public SelectionListingResponse(string[] _keys, int _amount)
         {
             int index = 0;
             Header = "Blueprint Search Results:";
