@@ -19,13 +19,6 @@ Solitaire is currently extended with the following plugins. Intructions on how t
 | ------ | ------ |
 | DSharpPlus | https://github.com/DSharpPlus/DSharpPlus |
 | Newtonsoft | https://www.newtonsoft.com/json |
-### Development Ideas
-
-- [ ] Implement different crafting response themes.
-- [ ] Implement a way for users to make multiple crafting request in one request.
-- [ ] Allow a user to create a crafting list that can be updated, deleted, and completed.
-- [ ] Implement user creatable blueprints that are based off the pre-existing template blueprints.
 
 ### Powered By
 [![Footer](https://d585tldpucybw.cloudfront.net/sfimages/default-source/productsimages/justmock/justmock__net_770.png?sfvrsn=b4522579_1)](https://dotnet.microsoft.com/download)
-
