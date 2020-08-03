@@ -40,7 +40,7 @@ namespace BlueQueryLibrary.Data
             }
             else
             {
-                errorMsg = string.Empty;
+                errorMsg = "A tribe with the same name already exist.";
                 return true;
             }
         }

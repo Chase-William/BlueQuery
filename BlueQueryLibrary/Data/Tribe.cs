@@ -1,5 +1,7 @@
 ﻿using LiteDB;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Xml.Serialization;
 
@@ -20,7 +22,7 @@ namespace BlueQueryLibrary.Data
         /// <summary>
         ///     Contains discord guilds which have been permitted to access the data located in FolderName variable
         /// </summary>
-        public List<ulong> PermittedGuilds { get; set; }
+        public List<GuildInfo> PermittedGuilds { get; set; } = new List<GuildInfo>();
 
         /// <summary>
         ///     Base folder that contains all information related to this tribe
@@ -42,11 +44,21 @@ namespace BlueQueryLibrary.Data
         {
             foreach (var id in guildIds)
             {
-                if (!PermittedGuilds.Contains(id))
+                if (PermittedGuilds.All(p => p.Id != id))
                 {
-                    guildIds.Add(id);
+                    PermittedGuilds.Add(new GuildInfo 
+                    { 
+                        Id = id,
+                        DateAdded = DateTime.Now
+                    });
                 }
             }
         }
+    }
+
+    public struct GuildInfo
+    {
+        public ulong Id { get; set; }
+        public DateTime DateAdded { get; set; }
     }
 }

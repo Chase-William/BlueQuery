@@ -2,6 +2,7 @@
 using BlueQuery.Util;
 using BlueQueryLibrary.Data;
 using DSharpPlus.CommandsNext;
+using DSharpPlus.EventArgs;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -25,6 +26,7 @@ namespace BlueQuery.Commands
         const string CREATE_PARAM = " -create ";    // Optional, used to create a tribe                 -- single use
         const string ADD_GUILD_PARAM = " -add ";    // Optional, used to add a guild to permitted list  -- repeatable use
 
+        const byte MAX_TRIBE_NAME_LENGTH = 100;     // Max length of a tribe name in characters
         const byte GUILID_ID_LENGTH = 18;           // Length of a guild's ulong Id
 
         /// <summary>
@@ -38,6 +40,8 @@ namespace BlueQuery.Commands
 
             ParamInfo[] @params = GetAllParameters(_ctx, str);
 
+            List<ulong> guildIds = new List<ulong>();
+
             // Checking for multiple uses of a single use parameter
             {                
                 for (int i = 0; i < SINGLE_USE_PARAMS.Length; i++)
@@ -50,11 +54,24 @@ namespace BlueQuery.Commands
                         return;
                     }
                 }
+            }            
+
+
+            /* Validating / Processing -add parameters */
+            
+            // Processing guildIds here to prevent code duplication later on
+            if (@params.Any(p => p.ParamType.Equals(ADD_GUILD_PARAM)))
+            {
+                // If an error ocurred during processing, propogate error to user & return from encapsulating function
+                if (!ProcessGuildIds(out var _guildIds, out string procErrorMsg))
+                {
+                    await _ctx.RespondAsync(procErrorMsg);
+                    return;
+                }
+                guildIds = _guildIds;
             }
 
-
-
-            /* ----- Creating Tribe Code ----- */
+            /* ----- Create Tribe ----- */
 
             // Checking to see if we are creating a tribe
             if (@params.Any(p => p.ParamType.Equals(CREATE_PARAM)))
@@ -68,11 +85,11 @@ namespace BlueQuery.Commands
                 else
                 {
                     // If an error ocurred during processing, propogate error to user & return from encapsulating function
-                    if (!ProcessGuildIds(out var guildIds, out string procErrorMsg))
-                    {
-                        await _ctx.RespondAsync(procErrorMsg);
-                        return;
-                    }
+                    //if (!ProcessGuildIds(out var guildIds, out string procErrorMsg))
+                    //{
+                    //    await _ctx.RespondAsync(procErrorMsg);
+                    //    return;
+                    //}
 
                     string tribeName = (@params.Single(p => p.ParamType.Equals(CREATE_PARAM)).ParamValue);
                     if (!ValidateTribeName(ref tribeName, out string errorMsg))
@@ -92,17 +109,17 @@ namespace BlueQuery.Commands
 
                     Tribe newTribe = new Tribe
                     {
-                        NameId = @params.Single(p => p.ParamType.Equals(CREATE_PARAM)).ParamValue,
-                        PermittedGuilds = guildIds,
+                        NameId = @params.Single(p => p.ParamType.Equals(CREATE_PARAM)).ParamValue,                        
                         Owner = _ctx.Member.Id
                     };
 
+                    // Adds all guilds to the new tribe (includes duplicate checks inside function)
+                    newTribe.AddGuilds(guildIds);
+
                     // Insert call
                     TribeDatabaseContext.Provider.InsertTribe(newTribe);
-
-                    var msg = new TribeInfoResponse();
-                    msg.FormatTribe(newTribe);
-                    await Messenger.SendMessage(_ctx , msg);
+                   
+                    await Messenger.SendMessage(_ctx , new TribeInfoResponse(_ctx.Client, newTribe));
                     return;
                 }
             }
@@ -114,21 +131,44 @@ namespace BlueQuery.Commands
                 return;
             }
 
-
-
-            /* ----- Updating Tribe Code ----- */
-
+            // Validating that the target tribe exist
+            Tribe tribe;
             {
-                // If the given guildIds don't process correctly, error
-                if (!ProcessGuildIds(out var guildIds, out string procErrorMsg))
+                // Checking to make sure the targe tribe exist
+                if (!TribeDatabaseContext.Provider.DoesTribeExist(@params.Single(p => p.ParamType.Equals(NAME_PARAM)).ParamValue, out Tribe _tribe, out string tribeErrorMsg))
                 {
-                    await _ctx.RespondAsync(procErrorMsg);
+                    await _ctx.RespondAsync(tribeErrorMsg);
                     return;
                 }
+                tribe = _tribe;
+            }            
+
+            /* ----- Get Tribe Info ----- */
+
+            // If the param count is 1, then only -name was provided, therefore get info about tribe
+            // Note: -create could also qualify here but we check for that before this so this should never get called with -create
+            if (@params.Count() == 1)
+            {                
+                await Messenger.SendMessage(_ctx, new TribeInfoResponse(_ctx.Client, tribe));
+                return;
+            }
+
+
+            /* ----- Renaming Tribe ----- */
+
+            // If the -rename parameter is present we need to rename the tribe
+            if (@params.Any(p => p.ParamType.Equals(RENAME_PARAM)))
+            {
+                // If the given guildIds don't process correctly, error
+                //if (!ProcessGuildIds(out List<ulong> guildIds, out string procErrorMsg))
+                //{
+                //    await _ctx.RespondAsync(procErrorMsg);
+                //    return;
+                //}
 
                 // variable is used to store our processed tribe name
-                string tribeName = (@params.Single(p => p.ParamType.Equals(NAME_PARAM)).ParamValue);
-                if (!ValidateTribeName(ref tribeName, out string errorMsg))
+                string newTribeName = (@params.Single(p => p.ParamType.Equals(RENAME_PARAM)).ParamValue);
+                if (!ValidateTribeName(ref newTribeName, out string errorMsg))
                 {
                     await _ctx.RespondAsync(errorMsg);
                     return;
@@ -136,20 +176,25 @@ namespace BlueQuery.Commands
 
                 // Checking to make sure the given tribe name exist in the database.
                 // IMPORTANT -- here we pass in the processed tribe name created above, not query the name from the collection
-                if (TribeDatabaseContext.Provider.DoesTribeExist(tribeName, out Tribe tribe, out string tribeErrorMsg))
+                if (TribeDatabaseContext.Provider.DoesTribeExist(newTribeName, out _, out string _tribeErrorMsg))
                 {
-                    await _ctx.RespondAsync(tribeErrorMsg);
+                    await _ctx.RespondAsync(_tribeErrorMsg);
                     return;
                 }
 
                 // Adding guilds if given
                 if (guildIds.Count != 0) tribe.AddGuilds(guildIds);
 
+                tribe.NameId = newTribeName;
+
                 // Update call
                 TribeDatabaseContext.Provider.UpdateTribe(tribe);
+              
+                await Messenger.SendMessage(_ctx, new TribeInfoResponse(_ctx.Client, tribe));
+                return;
             }
-            
 
+            
             // Parses guild ids from string to unsigned long
             bool ProcessGuildIds(out List<ulong> ids, out string errorMsg)
             {
@@ -182,10 +227,15 @@ namespace BlueQuery.Commands
             {
                 tribeName = tribeName.Trim();
 
-                // We trimmed it so no need to check for whitespace
+                // We trimmed it so no need to check for whitespace               
                 if (string.IsNullOrEmpty(tribeName))
                 {
                     errorMsg = $"Invalid tribe name given. The tribe name '{tribeName}' cannot be an empty string or only contain whitespaces.";
+                    return false;
+                }
+                else if (tribeName.Length > 100)
+                {
+                    errorMsg = $"Invalid tribe name given. The tribe name '{tribeName}' exceeds the 100 character limit of tribe names. Choose a smaller name.";
                     return false;
                 }
                 else
@@ -310,7 +360,5 @@ namespace BlueQuery.Commands
             }
             #endregion
         }
-
-
     }
 }
