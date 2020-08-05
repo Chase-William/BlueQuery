@@ -9,7 +9,7 @@ BlueQuery is a discord bot that aims to improve players` <a href="https://store.
 **Table of Contents**
 
 - <a href="#costCMD">Cost Command<a/>
-	- <a href="#amountParam">Amount Param</a>
+	- <a href="#amountParam">Amount Parameter</a>
 - <a href="#selectCMD">Select Command</a>
 - <a href="#tribeCMD">Tribe Command</a>
 	- <a href="#nameParam">Name Parameter</a>
