@@ -23,7 +23,7 @@ BlueQuery is a discord bot that aims to improve players` <a href="https://store.
 # Cost Command
 The *cost* command is designed to allow users to get the cost required to make the specified item(s). This command does more than just get the cost for the target item itself. It also returns the cost for all sub resources that are needed to craft the target item.
 
-	?Cost <ItemName>
+	?cost <ItemName>
 
 Running this command will return the cost required to make one instance of the provided item.
 
@@ -32,7 +32,7 @@ Running this command will return the cost required to make one instance of the p
 
 The *-amount* parameter lets users get the cost of a certain quantity of the specified item.
 
-	?Cost <ItemName> -Amount 100
+	?cost <ItemName> -Amount 100
 
 This will return the cost to make 100 of the specified item.
 
@@ -42,7 +42,7 @@ This will return the cost to make 100 of the specified item.
 # Select Command
 The *select* command allows the user to choose an item from a list of items. This is used with the cost command because if the given item’s name matches multiple items then the bot needs to know which one to use.
 
-	?Craft Rocket
+	?cost Rocket
 User Request ^
 
 	Blueprint Search Results:
@@ -56,7 +56,7 @@ User Request ^
 ```
 Bot Response ^
 
-	?Select 3
+	?select 3
 The user enters the *select* command to choose the 3rd item that matched their original search.
 
 <br/>
