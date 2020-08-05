@@ -32,7 +32,7 @@ Running this command will return the cost required to make one instance of the p
 
 The *-amount* parameter lets users get the cost of a certain quantity of the specified item.
 
-	?cost <ItemName> -Amount 100
+	?cost <ItemName> -amount 100
 
 This will return the cost to make 100 of the specified item.
 
