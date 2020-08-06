@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using DSharpPlus;
@@ -11,18 +12,18 @@ namespace BlueQuery
 {
     public class Program
     {
-        public static DiscordClient Client { get; set; }           // Our bot client
+        public static DiscordClient Client { get; set; }    // Our bot client
         public CommandsNextModule Commands { get; set; }    // Commands module
-        
+
         /// <summary>
         ///     The bluequery Library.
         /// </summary>
         //public static BlueQueryLibrary.BlueQueryLibrary BQL { get; set; } = new BlueQueryLibrary.BlueQueryLibrary();
 
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {          
             var prog = new Program();                       
-            prog.RunBotAsync().GetAwaiter().GetResult();
+            prog.RunBotAsync().GetAwaiter().GetResult();            
         }
 
         /// <summary>

@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 
 namespace BlueQuery.Commands
@@ -21,10 +22,12 @@ namespace BlueQuery.Commands
 
     public partial class TribeCommands
     {
-        const string NAME_PARAM = " -name ";        // Required in order to identify the tribe          -- single use   -- if parameter -create is given then -name shouldn't be given as well
-        const string RENAME_PARAM = " -rename ";    // Optional, used to rename tribe                   -- single use
-        const string CREATE_PARAM = " -create ";    // Optional, used to create a tribe                 -- single use
-        const string ADD_GUILD_PARAM = " -add ";    // Optional, used to add a guild to permitted list  -- repeatable use
+        const string NAME_PARAM         = " -name ";    // Required in order to identify the tribe                  -- single use       -- if parameter '-create' is given then -name shouldn't be given as well
+        const string RENAME_PARAM       = " -rename ";  // Optional, used to rename tribe                           -- single use
+        const string CREATE_PARAM       = " -create ";  // Optional, used to create a tribe                         -- single use
+        const string ADD_GUILD_PARAM    = " -add ";     // Optional, used to add a guild to permitted list          -- repeatable use
+        const string REMOVE_GUILD_PARAM = " -remove ";  // Optional, used to remove a guild from the permitted list -- repeatable use
+        const string GET_ALL_TRIBES     = " -all";      // Optional, returns all tribes the guild has access to     -- single use
 
         const byte MAX_TRIBE_NAME_LENGTH = 100;     // Max length of a tribe name in characters
         const byte GUILID_ID_LENGTH = 18;           // Length of a guild's ulong Id
@@ -32,7 +35,9 @@ namespace BlueQuery.Commands
         /// <summary>
         ///     Contains all the single use parameters available within the -tribe command
         /// </summary>
-        static readonly string[] SINGLE_USE_PARAMS = new string[] { NAME_PARAM, RENAME_PARAM, CREATE_PARAM };   
+        static readonly string[] SINGLE_USE_PARAMS = new string[] { NAME_PARAM, RENAME_PARAM, CREATE_PARAM, GET_ALL_TRIBES };
+
+        static readonly string[] REPEATABLE_USE_PARAMS = new string[] { ADD_GUILD_PARAM, REMOVE_GUILD_PARAM };
 
         public static async Task Tribe(CommandContext _ctx)
         {
@@ -40,7 +45,14 @@ namespace BlueQuery.Commands
 
             ParamInfo[] @params = GetAllParameters(_ctx, str);
 
-            List<ulong> guildIds = new List<ulong>();
+            // If no arguments were given return
+            if (@params == null)
+            {
+                await _ctx.RespondAsync("No parameters given. The tribe command isn't useful by itself. Try passing some parameters to make it do something.");
+                return;
+            }
+
+            List<TempGuild> guilds = new List<TempGuild>();
 
             // Checking for multiple uses of a single use parameter
             {                
@@ -60,7 +72,7 @@ namespace BlueQuery.Commands
             /* Validating / Processing -add parameters */
             
             // Processing guildIds here to prevent code duplication later on
-            if (@params.Any(p => p.ParamType.Equals(ADD_GUILD_PARAM)))
+            if (@params.Any(p => p.ParamType.Equals(ADD_GUILD_PARAM) || p.ParamType.Equals(REMOVE_GUILD_PARAM)))
             {
                 // If an error ocurred during processing, propogate error to user & return from encapsulating function
                 if (!ProcessGuildIds(out var _guildIds, out string procErrorMsg))
@@ -68,8 +80,9 @@ namespace BlueQuery.Commands
                     await _ctx.RespondAsync(procErrorMsg);
                     return;
                 }
-                guildIds = _guildIds;
+                guilds = _guildIds;
             }
+            
 
             /* ----- Create Tribe ----- */
 
@@ -105,7 +118,7 @@ namespace BlueQuery.Commands
                         return;
                     }
 
-                    guildIds.Add(_ctx.Guild.Id);
+                    guilds.Add(new TempGuild(_ctx.Guild.Id, Mode.Add));
 
                     Tribe newTribe = new Tribe
                     {
@@ -114,7 +127,7 @@ namespace BlueQuery.Commands
                     };
 
                     // Adds all guilds to the new tribe (includes duplicate checks inside function)
-                    newTribe.AddGuilds(guildIds);
+                    newTribe.ApplyGuilds(guilds.ToArray());
 
                     // Insert call
                     TribeDatabaseContext.Provider.InsertTribe(newTribe);
@@ -124,6 +137,15 @@ namespace BlueQuery.Commands
                 }
             }
                 
+            // If the -all param is present return
+            if (@params.Any(p => p.ParamType.Equals(GET_ALL_TRIBES)))
+            {
+                var tribes = TribeDatabaseContext.Provider.GetTribesFromGuild(_ctx.Guild.Id);
+
+                await _ctx.RespondAsync(tribes.FirstOrDefault().NameId);
+                return;
+            }
+
             // If the -name param hasn't been provided, error
             if (!@params.Any(p => p.ParamType.Equals(NAME_PARAM)))
             {
@@ -141,14 +163,18 @@ namespace BlueQuery.Commands
                     return;
                 }
                 tribe = _tribe;
-            }            
+            }
+
+            // Add guilds if given
+            if (guilds.Count != 0) tribe.ApplyGuilds(guilds.ToArray());
 
             /* ----- Get Tribe Info ----- */
+            
+            if (@params.All(p => p.ParamType.Equals(NAME_PARAM) || p.ParamType.Equals(ADD_GUILD_PARAM) || p.ParamType.Equals(REMOVE_GUILD_PARAM)))
+            {
+                // If new guildIds were provided, perform an update
+                if (guilds.Count != 0) TribeDatabaseContext.Provider.UpdateTribe(tribe);
 
-            // If the param count is 1, then only -name was provided, therefore get info about tribe
-            // Note: -create could also qualify here but we check for that before this so this should never get called with -create
-            if (@params.Count() == 1)
-            {                
                 await Messenger.SendMessage(_ctx, new TribeInfoResponse(_ctx.Client, tribe));
                 return;
             }
@@ -180,10 +206,7 @@ namespace BlueQuery.Commands
                 {
                     await _ctx.RespondAsync(_tribeErrorMsg);
                     return;
-                }
-
-                // Adding guilds if given
-                if (guildIds.Count != 0) tribe.AddGuilds(guildIds);
+                }                
 
                 tribe.NameId = newTribeName;
 
@@ -193,28 +216,47 @@ namespace BlueQuery.Commands
                 await Messenger.SendMessage(_ctx, new TribeInfoResponse(_ctx.Client, tribe));
                 return;
             }
+           
 
-            
             // Parses guild ids from string to unsigned long
-            bool ProcessGuildIds(out List<ulong> ids, out string errorMsg)
+            bool ProcessGuildIds(out List<TempGuild> ids, out string errorMsg)
             {
-                var rawIds = @params.Where(p => p.ParamType.Equals(ADD_GUILD_PARAM)).Select(p => p.ParamValue).ToList();
+                var toBeAddedIds = @params.Where(p => p.ParamType.Equals(ADD_GUILD_PARAM)).Select(p => p.ParamValue).ToList();
+                var toBeRemovedIds = @params.Where(p => p.ParamType.Equals(REMOVE_GUILD_PARAM)).Select(p => p.ParamValue).ToList();
 
-                ids = new List<ulong>();
+                ids = new List<TempGuild>();
 
-                if (rawIds.Count != 0)
-                    foreach (var strId in rawIds)
+                // If the user is adding and removing the same id, error
+                if (toBeAddedIds.Any(add => toBeRemovedIds.Any(remove => remove.Equals(add))))
+                {
+                    errorMsg = $"Attempt to add and remove the same guild id at once rejected. You cannot add and remove the same guild id in one call.";
+                    return false;
+                }                
+
+                if (toBeAddedIds.Count != 0)
+                    foreach (var strId in toBeAddedIds)
                     {
                         if (ulong.TryParse(strId, out ulong parsedId) && strId.Length == GUILID_ID_LENGTH)
-                        {
-                            ids.Add(parsedId);
-                        }
+                            ids.Add(new TempGuild(parsedId, Mode.Add));                       
                         else
                         {
                             errorMsg = $"Invalid guild id given. The id {strId} was invalid. A guild's id must be 18 characters in length and only contain numbers.";
                             return false;
                         }
                     }
+
+                if (toBeRemovedIds.Count != 0)
+                    foreach (var strId in toBeRemovedIds)
+                    {
+                        if (ulong.TryParse(strId, out ulong parsedId) && strId.Length == GUILID_ID_LENGTH)
+                            ids.Add(new TempGuild(parsedId, Mode.Remove));
+                        else
+                        {
+                            errorMsg = $"Invalid guild id given. The id {strId} was invalid. A guild's id must be 18 characters in length and only contain numbers.";
+                            return false;
+                        }
+                    }
+
                 // No error, therefore empty message
                 errorMsg = string.Empty;
                 return true;
@@ -269,6 +311,9 @@ namespace BlueQuery.Commands
         /// <returns> Array of information about each parameter inside the srouce string </returns>
         private static ParamInfo[] GetAllParameters(CommandContext _ctx, string srcStr)
         {
+            // If the given string was empty return null
+            if (string.IsNullOrWhiteSpace(srcStr)) return null;
+
             // Collection that holds all parameter's info
             var paramsInfo = new List<ParamInfo>();
 
@@ -278,7 +323,10 @@ namespace BlueQuery.Commands
                 ProcessSingleUseParam(SINGLE_USE_PARAMS[i]);
             }
 
-            ProcessRepeatableParams(ADD_GUILD_PARAM);
+            for (int i = 0; i < REPEATABLE_USE_PARAMS.Length; i++)
+            {
+                ProcessRepeatableParam(REPEATABLE_USE_PARAMS[i]);
+            }            
 
             var pOrdered = paramsInfo.OrderBy(x => x.ParamValueStartIndex).ToArray();
 
@@ -319,7 +367,7 @@ namespace BlueQuery.Commands
             }
 
             // Gets parameters that can be repeated throughout the request
-            void ProcessRepeatableParams(in string _param)
+            void ProcessRepeatableParam(in string _param)
             {
                 // Helps IndexOf not find the same _param repeatedly 
                 int posOffset = 0;

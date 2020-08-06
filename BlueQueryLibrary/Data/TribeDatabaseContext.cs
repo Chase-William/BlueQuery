@@ -1,6 +1,7 @@
 ﻿using LiteDB;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BlueQueryLibrary.Data
@@ -94,6 +95,19 @@ namespace BlueQueryLibrary.Data
             using var db = new LiteDatabase(BLUEQUERY_DATABASE);
             var col = db.GetCollection<Tribe>(TRIBE_COLLECTION);
             return col.Update(tribe);                        
+        }
+
+        /// <summary>
+        ///     Gets all the tribes that the given guild has access to
+        /// </summary>
+        /// <param name="guildId"> Sender guild </param>
+        /// <returns> List of all the tribes the guild has access to </returns>
+        public List<Tribe> GetTribesFromGuild(ulong guildId)
+        {
+            using var db = new LiteDatabase(BLUEQUERY_DATABASE);
+            var col = db.GetCollection<Tribe>(TRIBE_COLLECTION);
+
+            return col.FindAll().Where(p => p.PermittedGuilds.Any(p => p.Id.Equals(guildId))).ToList();
         }
     }
 }

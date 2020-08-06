@@ -19,6 +19,7 @@ namespace BlueQuery.Commands
         [Aliases("tribe", "t", "T")]
         public async Task OnTribe(CommandContext ctx) => await Tribe(ctx);
         
+        
         [Command("Keep")]
         [Description("Saves the blueprint to the discord server's database.")]
         [Aliases("keep", "k", "K")]

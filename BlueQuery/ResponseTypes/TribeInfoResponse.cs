@@ -4,6 +4,9 @@ using DSharpPlus.Entities;
 
 namespace BlueQuery.ResponseTypes
 {
+    /// <summary>
+    ///     Formats a tribe and its data into a array of strings that meet discord's guidelines.
+    /// </summary>
     public class TribeInfoResponse : BlueQueryResponse
     {
         public TribeInfoResponse(DiscordClient _client, Tribe _tribe) => FormatTribe(_client, _tribe);
