@@ -99,7 +99,9 @@ In this example you can see the user has provided 3 different *-add* parameters.
 
 <a name="removeParam"></a>
 ### Remove Parameter
-Under Development
+The *-remove* parameter is a repeatable param that is used to remove existing guild ids that are in the target tribe`s permitted guilds collection.
+
+	?tribe -remove <GuildId>
 
 <a name="createParam"></a>
 ### Create Parameter
