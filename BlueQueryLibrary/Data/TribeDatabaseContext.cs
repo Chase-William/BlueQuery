@@ -57,7 +57,10 @@ namespace BlueQueryLibrary.Data
             using var db = new LiteDatabase(BLUEQUERY_DATABASE);
             var col = db.GetCollection<Tribe>(TRIBE_COLLECTION);
             col.EnsureIndex(t => t.NameId);
-            col.Insert(_tribe);
+            int id = col.Insert(_tribe).AsInt32;
+            _tribe.Id = id;
+            _tribe.FolderName = id.ToString();
+            Console.WriteLine();
         }
 
         /// <summary>

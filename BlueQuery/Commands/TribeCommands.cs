@@ -2,16 +2,16 @@
 using BlueQuery.Util;
 using BlueQueryLibrary.Data;
 using DSharpPlus.CommandsNext;
-using DSharpPlus.EventArgs;
-using System;
+using DSharpPlus.CommandsNext.Attributes;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 
 namespace BlueQuery.Commands
 {
+    /// <summary>
+    ///     Provides information needed to parse the given string containing a user's request.
+    /// </summary>
     struct ParamInfo
     {
         public string ParamType;                // String identifer of what the param purpose is
@@ -39,7 +39,10 @@ namespace BlueQuery.Commands
 
         static readonly string[] REPEATABLE_USE_PARAMS = new string[] { ADD_GUILD_PARAM, REMOVE_GUILD_PARAM };
 
-        public static async Task Tribe(CommandContext _ctx)
+        [Command("Tribe")]
+        [Description("Base command for interacting with a tribe.")]
+        [Aliases("tribe")]       
+        public static async Task OnTribe(CommandContext _ctx)
         {
             string str = _ctx.RawArgumentString;
 
@@ -185,12 +188,7 @@ namespace BlueQuery.Commands
             // If the -rename parameter is present we need to rename the tribe
             if (@params.Any(p => p.ParamType.Equals(RENAME_PARAM)))
             {
-                // If the given guildIds don't process correctly, error
-                //if (!ProcessGuildIds(out List<ulong> guildIds, out string procErrorMsg))
-                //{
-                //    await _ctx.RespondAsync(procErrorMsg);
-                //    return;
-                //}
+                
 
                 // variable is used to store our processed tribe name
                 string newTribeName = (@params.Single(p => p.ParamType.Equals(RENAME_PARAM)).ParamValue);
@@ -275,7 +273,7 @@ namespace BlueQuery.Commands
                     errorMsg = $"Invalid tribe name given. The tribe name '{tribeName}' cannot be an empty string or only contain whitespaces.";
                     return false;
                 }
-                else if (tribeName.Length > 100)
+                else if (tribeName.Length > MAX_TRIBE_NAME_LENGTH)
                 {
                     errorMsg = $"Invalid tribe name given. The tribe name '{tribeName}' exceeds the 100 character limit of tribe names. Choose a smaller name.";
                     return false;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 
@@ -25,6 +26,8 @@ namespace BlueQueryLibrary.Data
     
     public class Tribe
     {
+        const string BASE_DIR = "tribes/";  // Base directory all tribes reside in
+
         /// <summary>
         ///     Our true primary key
         /// </summary>
@@ -40,10 +43,25 @@ namespace BlueQueryLibrary.Data
         /// </summary>
         public List<GuildInfo> PermittedGuilds { get; set; } = new List<GuildInfo>();
 
+        private string folderName;
         /// <summary>
-        ///     Base folder that contains all information related to this tribe
+        ///     Base folder relative to the tribe.<br/>
+        ///     Creates a directory for its tribe if one doesn't already exist.
         /// </summary>
-        public string FolderName { get; set; }
+        public string FolderName
+        {
+            get => folderName;
+            set
+            {
+                folderName = value;
+
+                // Create the directory if it hasn't been created yet
+                if (!Directory.Exists(BASE_DIR + FolderName))
+                {
+                    Directory.CreateDirectory(BASE_DIR + FolderName);
+                }
+            }
+        }
 
         /// <summary>
         ///     The owner of the tribe - the creator

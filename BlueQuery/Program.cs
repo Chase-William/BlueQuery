@@ -70,6 +70,7 @@ namespace BlueQuery
             Commands.RegisterCommands<Commands.General.Commands>();
             Commands.RegisterCommands<Commands.Crafting.CraftingCommands>();            
             Commands.RegisterCommands<Commands.TribeCommands>();
+            Commands.RegisterCommands<Commands.BlueprintCommands>();
 
             // connecting and logging in
             await Client.ConnectAsync();
@@ -85,9 +86,7 @@ namespace BlueQuery
         /// </summary>
         private Task Client_Ready(ReadyEventArgs e)
         {
-            // let's log the fact that this event occured
-            e.Client.DebugLogger.LogMessage(LogLevel.Info, "ExampleBot", "Client is ready to process events.", DateTime.Now);
-
+            e.Client.DebugLogger.LogMessage(LogLevel.Info, "BlueQuery", "Client is ready to process events.", DateTime.Now);
             return Task.CompletedTask;
         }
 
@@ -96,10 +95,7 @@ namespace BlueQuery
         /// </summary>
         private Task Client_GuildAvailable(GuildCreateEventArgs e)
         {
-            // let's log the name of the guild that was just
-            // sent to our client
-            e.Client.DebugLogger.LogMessage(LogLevel.Info, "ExampleBot", $"Guild available: {e.Guild.Name}", DateTime.Now);
-
+            e.Client.DebugLogger.LogMessage(LogLevel.Info, "BlueQuery", $"Guild available: {e.Guild.Name}", DateTime.Now);
             return Task.CompletedTask;
         }
 
@@ -108,10 +104,7 @@ namespace BlueQuery
         /// </summary>
         private Task Client_ClientError(ClientErrorEventArgs e)
         {
-            // let's log the details of the error that just 
-            // occured in our client
-            e.Client.DebugLogger.LogMessage(LogLevel.Error, "Kraumbot", $"Exception occured: {e.Exception.GetType()}: {e.Exception.Message}", DateTime.Now);
-
+            e.Client.DebugLogger.LogMessage(LogLevel.Error, "BlueQuery", $"Exception occured: {e.Exception.GetType()}: {e.Exception.Message}", DateTime.Now);
             return Task.CompletedTask;
         }
 
@@ -126,9 +119,6 @@ namespace BlueQuery
 
         [JsonProperty("prefix")]
         public string CommandPrefix { get; private set; }
-
-        //[JsonProperty("databaseFilePath")]
-        //public string DatabaseFilePath { get; private set; }
     }
 }
 
