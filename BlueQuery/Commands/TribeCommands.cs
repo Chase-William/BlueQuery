@@ -9,17 +9,6 @@ using System.Threading.Tasks;
 
 namespace BlueQuery.Commands
 {
-    /// <summary>
-    ///     Provides information needed to parse the given string containing a user's request.
-    /// </summary>
-    struct ParamInfo
-    {
-        public string ParamType;                // String identifer of what the param purpose is
-        public int ParamPropertyStartIndex;     // Start index of the property ex. -rename
-        public int ParamValueStartIndex;        // Start index of the param value 
-        public string ParamValue;               // Value of the parameter
-    }
-
     public partial class TribeCommands
     {
         const string NAME_PARAM         = " -name ";    // Required in order to identify the tribe                  -- single use       -- if parameter '-create' is given then -name shouldn't be given as well
@@ -42,11 +31,13 @@ namespace BlueQuery.Commands
         [Command("Tribe")]
         [Description("Base command for interacting with a tribe.")]
         [Aliases("tribe")]       
-        public static async Task OnTribe(CommandContext _ctx)
+        public async Task OnTribe(CommandContext _ctx)
         {
-            string str = _ctx.RawArgumentString;
-
-            ParamInfo[] @params = GetAllParameters(_ctx, str);
+            if(!ParseUtil.ParseRequestStr(_ctx.RawArgumentString, SINGLE_USE_PARAMS, REPEATABLE_USE_PARAMS, out ParamInfo[] @params ,out string errMsg))
+            {
+                await _ctx.RespondAsync(errMsg);
+                return;
+            }
 
             // If no arguments were given return
             if (@params == null)
@@ -263,7 +254,7 @@ namespace BlueQuery.Commands
             // Processes and Validates a given tribe name
             // false == invalid
             // true == valid
-            bool ValidateTribeName(ref string tribeName, out string errorMsg)
+            static bool ValidateTribeName(ref string tribeName, out string errorMsg)
             {
                 tribeName = tribeName.Trim();
 
@@ -284,127 +275,6 @@ namespace BlueQuery.Commands
                     return true;
                 }
             }
-        }                
-        
-
-        public static async Task Keep(CommandContext _ctx)
-        {
-            // If no image of a blueprint was provided return an error
-            if (_ctx.Message.Attachments == null || _ctx.Message.Attachments.Count == 0)
-            {
-                await _ctx.RespondAsync("An image of the blueprint must be attached when creating a blueprint.");
-                return;
-            }
-        }
-
-
-        /// <summary>
-        ///     Processes all parameters inside request string<br/>
-        ///     This is done by using the IndexOf function to obtain the starting positions of all parameter types ex. -name<br/>
-        ///     All the information gathered about the positions of the params is stored in a ParamInfo array.<br/>
-        ///     Each parameter gets it's own ParamInfo instance.
-        /// </summary>
-        /// <param name="_ctx"> Entire message context </param>
-        /// <param name="srcStr"> The source string </param>
-        /// <returns> Array of information about each parameter inside the srouce string </returns>
-        private static ParamInfo[] GetAllParameters(CommandContext _ctx, string srcStr)
-        {
-            // If the given string was empty return null
-            if (string.IsNullOrWhiteSpace(srcStr)) return null;
-
-            // Collection that holds all parameter's info
-            var paramsInfo = new List<ParamInfo>();
-
-            // Searching / Checking all single use params
-            for (int i = 0; i < SINGLE_USE_PARAMS.Length; i++)
-            {
-                ProcessSingleUseParam(SINGLE_USE_PARAMS[i]);
-            }
-
-            for (int i = 0; i < REPEATABLE_USE_PARAMS.Length; i++)
-            {
-                ProcessRepeatableParam(REPEATABLE_USE_PARAMS[i]);
-            }            
-
-            var pOrdered = paramsInfo.OrderBy(x => x.ParamValueStartIndex).ToArray();
-
-            // Getting the parameters values now
-            // Using the starting index of the next ordered param as the stopping point
-            for (int i = 0; i < pOrdered.Length; i++)
-            {
-                // If we are iterating on the last item we need to read until the end because their isn't another element in the array (index out of bounds incoming)
-                if (i == (pOrdered.Length - 1))
-                {
-                    pOrdered[i].ParamValue = srcStr.Substring(pOrdered[i].ParamValueStartIndex);
-                    break;
-                }
-                // Reading from the start index of the current until the start index of the next minus 1
-                // This is assigned back into the array but to the ParamValue property
-                var test = (pOrdered[(i + 1)].ParamValueStartIndex - pOrdered[(i + 1)].ParamPropertyStartIndex);
-                pOrdered[i].ParamValue = srcStr.Substring(pOrdered[i].ParamValueStartIndex, pOrdered[(i + 1)].ParamPropertyStartIndex - pOrdered[i].ParamValueStartIndex);
-            }
-
-            return pOrdered;
-
-            #region Nested Utility Functions
-            // Gets a parameter that can only occur once inside a request
-            void ProcessSingleUseParam(in string _param)
-            {
-                if (srcStr.Contains(_param))
-                {
-                    int propIndex = srcStr.IndexOf(_param);
-                    int startIndex = propIndex + _param.Length;
-
-                    paramsInfo.Add(new ParamInfo
-                    {
-                        ParamType = _param,
-                        ParamPropertyStartIndex = propIndex,
-                        ParamValueStartIndex = startIndex
-                    });
-                }
-            }
-
-            // Gets parameters that can be repeated throughout the request
-            void ProcessRepeatableParam(in string _param)
-            {
-                // Helps IndexOf not find the same _param repeatedly 
-                int posOffset = 0;
-
-                string srcStrCpy = srcStr;
-
-
-                while (true)
-                {
-                    if (srcStrCpy.Contains(_param))
-                    {
-                        int propIndex = srcStr.IndexOf(_param, posOffset);
-                        int startIndex = propIndex + _param.Length;
-
-                        // Setting a offset so that the next iteration of IndexOf won't return the index of the same _param
-                        posOffset = startIndex;
-
-                        paramsInfo.Add(new ParamInfo
-                        {
-                            ParamType = _param,
-                            ParamPropertyStartIndex = propIndex,
-                            ParamValueStartIndex = startIndex
-                        });
-
-                        // -- With the following comment code we can get the guildId because the guild id is a number with no spaces
-                        // -- TO MYSELF -- DO NOT REMOVE THIS COMMENT
-                        // String scoped to the start of the -add value provided
-                        //var startString = srcStrCpy.Substring(startIndex);
-                        //var guildId = new string(startString.TakeWhile(x => x != ' ').ToArray());
-
-                        srcStrCpy = srcStrCpy.Remove(srcStrCpy.IndexOf(_param), _param.Length);
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-            }
-            #endregion
-        }
+        }     
     }
 }
