@@ -2,7 +2,9 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.Collections.Specialized;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Transactions;
 
 namespace BlueQuery.Util
@@ -70,12 +72,14 @@ namespace BlueQuery.Util
             var paramsInfo = new List<ParamInfo>();
 
             // If sParams are provided, process them
-            if (sParams != null)                
-                ProcessSingleUseParams(srcStr, sParams, paramsInfo);
-                
+            if (sParams != null)
+                if (!ProcessParams(srcStr, sParams, paramsInfo, ProcessMode.Single, out errMsg))
+                    return false;
+
             // If rParams are provided, process them
             if (rParams != null)
-                ProcessRepeatableParams(srcStr, rParams, paramsInfo);
+                if (!ProcessParams(srcStr, rParams, paramsInfo, ProcessMode.Repeatable, out errMsg))
+                    return false;
                 
 
             // Ordering all the parameters by their start index from small to large
@@ -97,65 +101,34 @@ namespace BlueQuery.Util
                 pOrdered[i].ParamValue = srcStr.Substring(pOrdered[i].ParamValueStartIndex, pOrdered[(i + 1)].ParamPropertyStartIndex - pOrdered[i].ParamValueStartIndex);
             }
 
+            /* ----- Formatting Error Checks ----- */
 
-            if (sParams != null)
-            {
-                ParamInfo errParam = new ParamInfo();
-                // Looking for any parameter values that contain a reserved keyword within them
-                // This would most likely be a user input error
-                if (sParams.Any(s_str => pOrdered.Any(p => 
-                {
-                    if (p.ParamValue.Contains(s_str.Trim()))
-                    {
-                        errParam = p;
-                        return true;
-                    }
-                    else                    
-                        return false;                    
-                })))
-                {
-                    string srcStrCpy = srcStr;
+            // If these return false then we want to propagate the error 
 
-                    srcStrCpy = srcStrCpy.Insert(errParam.ParamValueStartIndex, ">");
-                    srcStrCpy = srcStrCpy.Insert(errParam.ParamValueStartIndex + errParam.ParamValue.Length + 1, "<");
-
-                    errMsg = "Single use parameter value contained a reserved keyword.\n" + "Request:\n" + "`" + srcStrCpy + "`" + "\n" + "Error:\n" + $"```diff\n{errParam.ParamValue}```";
+            if (sParams != null)            
+                if (!CheckFormatting(srcStr, sParams, pOrdered, out errMsg))             
                     return false;
-                }
-            }                                  
 
             if (rParams != null)
-            {
-                // Looking for any parameter values that contain a reserved keyword within them
-                // This would most likely be a user input error
-                if (rParams.Any(r_str => pOrdered.Any(p => p.ParamValue.Contains(r_str.Trim()))))
-                {
-                    errMsg = "Repeatable use parameter value contained a reserved keyword.";
+                if (!CheckFormatting(srcStr, rParams, pOrdered, out errMsg))
                     return false;
-                }
-            }
+
             // Updaing the out var with the ordered and filled collection
             _params = pOrdered;
             errMsg = string.Empty;
             return true;
         }
 
-        private static void ProcessSingleUseParams(in string srcStr, string[] sParams, List<ParamInfo> _params)
+        enum ProcessMode
         {
-            for (int i = 0; i < sParams.Length; i++)
-            {
-                if (srcStr.Contains(sParams[i]))                
-                    _params.Add(new ParamInfo
-                    {
-                        ParamType = sParams[i],
-                        ParamPropertyStartIndex = srcStr.IndexOf(sParams[i])
-                    });                
-            }
+            Single = 0,
+            Repeatable
         }
 
         // Gets parameters that can be repeated throughout the request
-        private static void ProcessRepeatableParams(in string srcStr, string[] rParams, List<ParamInfo> _params)
+        private static bool ProcessParams(in string srcStr, string[] s_or_r_params, List<ParamInfo> _paramsInfo, ProcessMode mode, out string errMsg)
         {
+            errMsg = string.Empty;
             // Prevents IndexOf() call not find the same _param repeatedly 
             int posOffset = 0;
 
@@ -163,32 +136,81 @@ namespace BlueQuery.Util
             string srcStrCpy = srcStr;
 
             // Check for each repeatable parameter
-            for (int i = 0; i < rParams.Length; i++)
+            for (int i = 0; i < s_or_r_params.Length; i++)
             {
                 // Interate until all repeatable parameters captured
                 while (true)
                 {
-                    if (srcStrCpy.Contains(rParams[i]))
+                    if (srcStrCpy.Contains(s_or_r_params[i]))
                     {
-                        int propIndex = srcStr.IndexOf(rParams[i], posOffset);
-                        int valueIndex = propIndex + rParams[i].Length;
+                        int propIndex = srcStr.IndexOf(s_or_r_params[i], posOffset);
+                        int valueIndex = propIndex + s_or_r_params[i].Length;
 
                         // Setting a offset so that the next iteration of IndexOf won't return the index of the same _param
                         posOffset = valueIndex;
 
-                        _params.Add(new ParamInfo
+                        _paramsInfo.Add(new ParamInfo
                         {
-                            ParamType = rParams[i],
+                            ParamType = s_or_r_params[i],
                             ParamPropertyStartIndex = propIndex
                         });
 
+                        // If we are processing for single use parameters, propagate an error if a single use param shows up more than once
+                        if (mode.Equals(ProcessMode.Single))
+                        {
+                            if (_paramsInfo.Where(p => p.ParamType.Equals(s_or_r_params[i])).Count() > 1)
+                            {
+                                errMsg = "Invalid use of single use parameter. A single use parameter can only be used once in a request.";
+                                return false;
+                            }
+                        }
+
                         // Updaing the copy
-                        srcStrCpy = srcStrCpy.Remove(srcStrCpy.IndexOf(rParams[i]), rParams[i].Length);
+                        srcStrCpy = srcStrCpy.Remove(srcStrCpy.IndexOf(s_or_r_params[i]), s_or_r_params[i].Length);
                     }
                     else 
                         break;
-                }
+                }                
             }
+            return true;
+        }
+
+        /// <summary>
+        ///     Checks to see if any of the parameters values contains any keywords which would indicate a formatting error.<br/>
+        ///     returns:<br/>
+        ///     True == Formatting passes<br/>
+        ///     False == Formatting failure
+        /// </summary>
+        /// <param name="s_or_r_params"> Single or Repeatable parameters </param>
+        /// <param name="_paramsInfo"> Ordered parameters </param>
+        /// <param name="errMsg"> Error message </param>
+        /// <returns></returns>
+        private static bool CheckFormatting(in string _srcStr, in string[] s_or_r_params, ParamInfo[] _paramsInfo, out string errMsg)
+        {
+            errMsg = string.Empty;
+            ParamInfo errParam = new ParamInfo();
+            // Looking for any parameter values that contain a reserved keyword within them
+            // This would most likely be a user input error
+            if (s_or_r_params.Any(s_str => _paramsInfo.Any(p =>
+            {
+                if (p.ParamValue.Contains(s_str.Trim()))
+                {
+                    errParam = p;
+                    return true;
+                }
+                else
+                    return false;
+            })))
+            {
+                string srcStrCpy = _srcStr;
+
+                srcStrCpy = srcStrCpy.Insert(errParam.ParamValueStartIndex, "[");
+                srcStrCpy = srcStrCpy.Insert(errParam.ParamValueStartIndex + errParam.ParamValue.Length + 1, "]");
+
+                errMsg = "Formatting Error Detected.\n" + "**Error Text:**\n" + $"```css\n[{errParam.ParamValue}]``````fix\n{srcStrCpy}```";
+                return false;
+            }
+            return true;
         }
     }
 }
