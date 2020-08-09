@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Transactions;
 
@@ -31,13 +33,13 @@ namespace BlueQuery.Util
         public string ParamValue { get; set; }
     }    
 
-    public class ParseUtil
+    public class StrParseUtil
     {
 
         /// <summary>
         ///     Parses a request string.<br/>
         ///     @param - _srcStr, Request string to be parsed<br/>
-        ///     @param - sParams, Single use parameters to be parsed, passing null for this param will result in no repeatable params being processed<br/>
+        ///     @param - sParams, Single use parameters to be parsed, passing null for this param will result in no single use params being processed<br/>
         ///     @param - rParams, Repeatable parameters to be parsed, passing null for this param will result in no repeatable params being processed<br/>
         ///     @out param - Parsed parameters<br/>
         ///     Returns the status of the parse<br/> 
@@ -95,14 +97,43 @@ namespace BlueQuery.Util
                 pOrdered[i].ParamValue = srcStr.Substring(pOrdered[i].ParamValueStartIndex, pOrdered[(i + 1)].ParamPropertyStartIndex - pOrdered[i].ParamValueStartIndex);
             }
 
-            // Looking for any parameter values that contain a reserved keyword within them
-            // This would most likely be a user input error
-            if (sParams.Any(s_str => pOrdered.Any(p => p.ParamValue.Contains(s_str.Trim()))) || rParams.Any(r_str => pOrdered.Any(p => p.ParamValue.Contains(r_str.Trim()))))
-            {
-                errMsg = "Parameter value contained a reserved keyword.";
-                return false;
-            }
 
+            if (sParams != null)
+            {
+                ParamInfo errParam = new ParamInfo();
+                // Looking for any parameter values that contain a reserved keyword within them
+                // This would most likely be a user input error
+                if (sParams.Any(s_str => pOrdered.Any(p => 
+                {
+                    if (p.ParamValue.Contains(s_str.Trim()))
+                    {
+                        errParam = p;
+                        return true;
+                    }
+                    else                    
+                        return false;                    
+                })))
+                {
+                    string srcStrCpy = srcStr;
+
+                    srcStrCpy = srcStrCpy.Insert(errParam.ParamValueStartIndex, ">");
+                    srcStrCpy = srcStrCpy.Insert(errParam.ParamValueStartIndex + errParam.ParamValue.Length + 1, "<");
+
+                    errMsg = "Single use parameter value contained a reserved keyword.\n" + "Request:\n" + "`" + srcStrCpy + "`" + "\n" + "Error:\n" + $"```diff\n{errParam.ParamValue}```";
+                    return false;
+                }
+            }                                  
+
+            if (rParams != null)
+            {
+                // Looking for any parameter values that contain a reserved keyword within them
+                // This would most likely be a user input error
+                if (rParams.Any(r_str => pOrdered.Any(p => p.ParamValue.Contains(r_str.Trim()))))
+                {
+                    errMsg = "Repeatable use parameter value contained a reserved keyword.";
+                    return false;
+                }
+            }
             // Updaing the out var with the ordered and filled collection
             _params = pOrdered;
             errMsg = string.Empty;

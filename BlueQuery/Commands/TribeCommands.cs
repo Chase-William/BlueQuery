@@ -29,15 +29,17 @@ namespace BlueQuery.Commands
         static readonly string[] REPEATABLE_USE_PARAMS = new string[] { ADD_GUILD_PARAM, REMOVE_GUILD_PARAM };
 
         [Command("Tribe")]
-        [Description("Base command for interacting with a tribe.")]
+        [Description("Base command for performing CRUD operations.")]
         [Aliases("tribe")]       
         public async Task OnTribe(CommandContext _ctx)
         {
-            if(!ParseUtil.ParseRequestStr(_ctx.RawArgumentString, SINGLE_USE_PARAMS, REPEATABLE_USE_PARAMS, out ParamInfo[] @params ,out string errMsg))
+            if(!StrParseUtil.ParseRequestStr(_ctx.RawArgumentString, SINGLE_USE_PARAMS, REPEATABLE_USE_PARAMS, out ParamInfo[] @params ,out string errMsg))
             {
                 await _ctx.RespondAsync(errMsg);
                 return;
             }
+
+            /* ----- Command Specific Logic Below ----- */
 
             // If no arguments were given return
             if (@params == null)
