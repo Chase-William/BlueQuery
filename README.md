@@ -14,10 +14,10 @@ BlueQuery is a discord bot that aims to improve players` <a href="https://store.
 - <a href="#selectCMD">Select Command</a>
 - <a href="#tribeCMD">Tribe Command</a>
 	- <a href="#nameParam">*Name Parameter*</a>
-	- <a href="#renameParam">*Rename Parameter*</a>
-	- <a href="#addParam">*Add Parameter*</a>
-	- <a href="#removeParam">*Remove Parameter*</a>
 	- <a href="#createParam">*Create Parameter*</a>
+	- <a href="#removeParam">*Remove Parameter*</a>
+	- <a href="#renameParam">*Rename Parameter*</a>
+	- <a href="#addParam">*Add Parameter*</a>	
 	- <a href="#allParam">*All Parameter*</a>
 	
 <a name="costCMD"></a>
@@ -81,6 +81,23 @@ Dependent Parameters:
 - <code>Rename</code>
 
 <a name="renameParam"></a>
+### *Create Parameter*
+
+The *-create* parameter creates a tribe with a give name.
+
+	?tribe -create <TribeName>
+
+When creating a tribe, the sender`s guild *id* will be automatically be added to the tribe. You can also include the *-add* parameter to add extra guilds when creating the tribe.
+
+	?tribe -create <TribeName> -add <GuildId>
+
+<a name="allParam"></a>
+### *Remove Parameter*
+The *-remove* parameter is a repeatable param that is used to remove existing guild ids that are in the target tribe`s permitted guilds collection.
+
+	?tribe -remove <GuildId>
+
+<a name="createParam"></a>
 ### *Rename Parameter*
 The *-rename* parameter renames an existing tribe to the provided name.
 
@@ -99,23 +116,6 @@ This will append the provided discord guild *id* to the tribe`s permitted guilds
 In this example you can see the user has provided 3 different *-add* parameters. On top of that, they are being placed before the *-name* param. This request will work because BlueQuery is very flexable when it comes to parameter arrangement.
 
 <a name="removeParam"></a>
-### *Remove Parameter*
-The *-remove* parameter is a repeatable param that is used to remove existing guild ids that are in the target tribe`s permitted guilds collection.
-
-	?tribe -remove <GuildId>
-
-<a name="createParam"></a>
-### *Create Parameter*
-
-The *-create* parameter creates a tribe with a give name.
-
-	?tribe -create <TribeName>
-
-When creating a tribe, the sender`s guild *id* will be automatically be added to the tribe. You can also include the *-add* parameter to add extra guilds when creating the tribe.
-
-	?tribe -create <TribeName> -add <GuildId>
-
-<a name="allParam"></a>
 ### *All Parameter*
 
 The *-all* parameter allows the users to get all the tribes that their guild has access to.
