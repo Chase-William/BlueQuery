@@ -92,16 +92,9 @@ namespace BlueQuery.Commands
                     return;
                 }
                 else
-                {
-                    // If an error ocurred during processing, propogate error to user & return from encapsulating function
-                    //if (!ProcessGuildIds(out var guildIds, out string procErrorMsg))
-                    //{
-                    //    await _ctx.RespondAsync(procErrorMsg);
-                    //    return;
-                    //}
-
+                {                    
                     string tribeName = (@params.Single(p => p.ParamType.Equals(CREATE_PARAM)).ParamValue);
-                    if (!ValidateTribeName(ref tribeName, out string errorMsg))
+                    if (!StrParseUtil.ValidateName(ref tribeName, out string errorMsg))
                     {
                         await _ctx.RespondAsync(errorMsg);
                         return;
@@ -119,7 +112,7 @@ namespace BlueQuery.Commands
                     Tribe newTribe = new Tribe
                     {
                         NameId = @params.Single(p => p.ParamType.Equals(CREATE_PARAM)).ParamValue,                        
-                        Owner = _ctx.Member.Id
+                        UserOwner = _ctx.Member.Id
                     };
 
                     // Adds all guilds to the new tribe (includes duplicate checks inside function)
@@ -180,12 +173,10 @@ namespace BlueQuery.Commands
 
             // If the -rename parameter is present we need to rename the tribe
             if (@params.Any(p => p.ParamType.Equals(RENAME_PARAM)))
-            {
-                
-
+            {                
                 // variable is used to store our processed tribe name
                 string newTribeName = (@params.Single(p => p.ParamType.Equals(RENAME_PARAM)).ParamValue);
-                if (!ValidateTribeName(ref newTribeName, out string errorMsg))
+                if (!StrParseUtil.ValidateName(ref newTribeName, out string errorMsg))
                 {
                     await _ctx.RespondAsync(errorMsg);
                     return;
@@ -251,32 +242,7 @@ namespace BlueQuery.Commands
                 // No error, therefore empty message
                 errorMsg = string.Empty;
                 return true;
-            }
-
-            // Processes and Validates a given tribe name
-            // false == invalid
-            // true == valid
-            static bool ValidateTribeName(ref string tribeName, out string errorMsg)
-            {
-                tribeName = tribeName.Trim();
-
-                // We trimmed it so no need to check for whitespace               
-                if (string.IsNullOrEmpty(tribeName))
-                {
-                    errorMsg = $"Invalid tribe name given. The tribe name '{tribeName}' cannot be an empty string or only contain whitespaces.";
-                    return false;
-                }
-                else if (tribeName.Length > MAX_TRIBE_NAME_LENGTH)
-                {
-                    errorMsg = $"Invalid tribe name given. The tribe name '{tribeName}' exceeds the 100 character limit of tribe names. Choose a smaller name.";
-                    return false;
-                }
-                else
-                {
-                    errorMsg = string.Empty;
-                    return true;
-                }
-            }
+            }            
         }     
     }
 }

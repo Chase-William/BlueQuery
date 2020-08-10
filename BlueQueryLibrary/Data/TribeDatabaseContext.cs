@@ -18,7 +18,9 @@ namespace BlueQueryLibrary.Data
         ///     <br/>
         ///     @param - _tribeName, target tribe name<br/>
         ///     @param out - _existingTribe, tribe instance found, null if nothing found<br/>
-        ///     @return - true == already exist, false == doesn't exist
+        ///     Returns boolean indicating whether the tribe exist<br/>
+        ///     True - already exist<br/>
+        ///     False - doesn't exist
         /// </summary>
         /// <param name="_tribeName"> Tribename to be checked </param>
         /// <param name="_existingTribe"> Existing tribe instance, null if no tribe found </param>

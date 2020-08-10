@@ -12,7 +12,10 @@ namespace BlueQueryLibrary.Data
         Add
     }
 
-    public struct TempGuild
+    /// <summary>
+    ///     A temporary struct that holds data refering to how the guild should be treated by the receiving tribe
+    /// </summary>
+    public readonly struct TempGuild
     {         
         public TempGuild(ulong _id, Mode _mode)
         {
@@ -20,8 +23,8 @@ namespace BlueQueryLibrary.Data
             Mode = _mode;
         }
 
-        public ulong Id { get; set; }
-        public Mode Mode { get; set; }
+        public readonly ulong Id;
+        public readonly Mode Mode;
     }    
     
     public class Tribe
@@ -64,9 +67,14 @@ namespace BlueQueryLibrary.Data
         }
 
         /// <summary>
-        ///     The owner of the tribe - the creator
+        ///     Contains information about all the blueprints this tribe contains
         /// </summary>
-        public ulong Owner { get; set; }
+        public Dictionary<string, BlueprintInfo> Blueprints { get; set; } = new Dictionary<string, BlueprintInfo>();
+
+        /// <summary>
+        ///     The owner of the tribe (discord member or person, NOT GUILD) - the creator
+        /// </summary>
+        public ulong UserOwner { get; set; }
 
         /// <summary>
         ///     Applys the given guilds to the permitted guilds collection.<br/>
@@ -84,11 +92,7 @@ namespace BlueQueryLibrary.Data
                     // If the guild id already exist inside the permitted guild collection then skip
                     if (PermittedGuilds.All(p => p.Id != guild.Id))
                     {
-                        PermittedGuilds.Add(new GuildInfo
-                        {
-                            Id = guild.Id,
-                            DateAdded = DateTime.Now
-                        });
+                        PermittedGuilds.Add(new GuildInfo(guild.Id, DateTime.Now));
                     }                                      
                 }
                 // If the permitted guild isn't inside the collection then skip
@@ -99,11 +103,51 @@ namespace BlueQueryLibrary.Data
                 }                              
             }            
         }
+
+        public void CreateBlueprint()
+        {
+
+        }
     }
 
-    public struct GuildInfo
+    /// <summary>
+    ///     Contains information about a guild<br/>
+    ///     @prop - Id, Primary Key for a guild<br/>
+    ///     @prop - DateAdded, Date this guild was originally added to the tribe
+    /// </summary>
+    public readonly struct GuildInfo
     {
-        public ulong Id { get; set; }
+        /// <summary>
+        ///     Primary Key for the guild
+        /// </summary>
+        public readonly ulong Id;
+        /// <summary>
+        ///     Date originally added
+        /// </summary>
+        public readonly DateTime DateAdded;
+
+        public GuildInfo(ulong _id, DateTime _dateAdded)
+        {
+            Id = _id;
+            DateAdded = _dateAdded;
+        }
+    }
+
+    /// <summary>
+    ///     Contains information about a blueprint<br/>
+    ///     @prop - NameId, Primary Key for the blueprint, also is the name of the image stored on disk<br/>
+    ///     @prop - DateAdded, Date this blueprint was originally added to the tribe
+    /// </summary>
+    public struct BlueprintInfo
+    {
+        /// <summary>
+        ///     Primary Key for the blueprint, also is the name of the image stored on disk
+        /// </summary>
+        //public string NameId { get; set; }
+
+        /// <summary>
+        ///     Date this blueprint was originally added to the tribe
+        /// </summary>
         public DateTime DateAdded { get; set; }
     }
 }

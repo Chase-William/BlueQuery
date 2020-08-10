@@ -3,6 +3,8 @@ using DSharpPlus.CommandsNext.Attributes;
 using System.Threading.Tasks;
 using BlueQuery.Util;
 using System.Linq;
+using BlueQueryLibrary.Data;
+using System;
 
 namespace BlueQuery.Commands
 {
@@ -18,7 +20,7 @@ namespace BlueQuery.Commands
         [Description("Base command for performing CRUD operations on blueprints.")]
         [Aliases("blueprint", "bp")]
         public async Task OnSave(CommandContext _ctx)
-        {
+        {            
             if(!StrParseUtil.ParseRequestStr(_ctx.RawArgumentString, SINGLE_USE_PARAMS, null, out ParamInfo[] @params, out string errMsg))
             {
                 await _ctx.RespondAsync(errMsg);
@@ -34,11 +36,51 @@ namespace BlueQuery.Commands
                 return;
             }
 
-            if (@params.Any(p => p.ParamType.Equals(CREATE_PARAM)))
+            // To create a blueprint right now you need to pass the -create param and the -tribe param
+            if (@params.Any(p => p.ParamType.Equals(CREATE_PARAM) && @params.Any(p => p.ParamType.Equals(TRIBE_PARAM))))
             {
+                // Validate and process the given name
+                string bpName = (@params.Single(p => p.ParamType.Equals(CREATE_PARAM)).ParamValue);
+                if (!StrParseUtil.ValidateName(ref bpName, out errMsg))
+                {
+                    await _ctx.RespondAsync(errMsg);
+                    return;
+                }                
+
+                // Check to make sure the given tribe exist
+                if (!TribeDatabaseContext.Provider.DoesTribeExist(@params.Single(t => t.ParamType.Equals(TRIBE_PARAM)).ParamValue, out Tribe tribe, out errMsg))
+                {
+                    await _ctx.RespondAsync(errMsg);
+                    return;
+                }
+
+                // Check to make sure a blueprint with the given name doesn't already exist
+                if (tribe.Blueprints.ContainsKey(bpName))
+                {
+                    await _ctx.RespondAsync($"Invalid blueprint name given. The blueprint {bpName} already exist within the {tribe.NameId}. Try picking a different name.");
+                    return;
+                }
+
+                // Only one image is allowed to be provided for a single blueprint
+                if (_ctx.Message.Attachments.Count > 1)
+                {
+                    await _ctx.RespondAsync("Invalid number of attachments given. A blueprint can only have one image.");
+                    return;
+                }
+
+                // Only jpg or png are allowed
+                //if (_ctx.Message.Attachments[0].)
+
+                // Create blueprint the blueprint
+                
+
+
                 await _ctx.RespondAsync("CREATE-PARAM detected.");
                 return;
             }
+
+
+
 
             await _ctx.RespondAsync("Save Command!");
         }

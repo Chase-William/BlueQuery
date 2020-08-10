@@ -37,6 +37,7 @@ namespace BlueQuery.Util
 
     public class StrParseUtil
     {
+        public const byte MAX_NAME_LENGTH = 30;
 
         /// <summary>
         ///     Parses a request string.<br/>
@@ -52,6 +53,7 @@ namespace BlueQuery.Util
         /// <param name="sParams"> Single use parameters to be parsed </param>
         /// <param name="rParams"> Repeatable parameters to be parsed </param>
         /// <param name="_params"> Parsed parameters </param>
+        /// <param name="errMsg"> Error message </param>
         /// <returns> 
         ///     Returns the status of the parse<br/> 
         ///     True - Success<br/>
@@ -117,6 +119,39 @@ namespace BlueQuery.Util
             _params = pOrdered;
             errMsg = string.Empty;
             return true;
+        }
+
+        /// <summary>
+        ///     Validates the name given follows the rules bluequery enforces.<br/>
+        ///     @param - name, Proposted name of given entity<br/>
+        ///     @param - errMsg, Error message
+        ///     Returns the status of the validation<br/>
+        ///     True - Success<br/>
+        ///     False - Failure
+        /// </summary>
+        /// <param name="name"> Name given </param>
+        /// <param name="errMsg"> Error message </param>
+        /// <returns></returns>
+        public static bool ValidateName(ref string name, out string errMsg)
+        {
+            name = name.Trim();
+
+            // We trimmed it so no need to check for whitespace               
+            if (string.IsNullOrEmpty(name))
+            {
+                errMsg = $"Invalid name given. The name '{name}' cannot be an empty string or only contain whitespaces.";
+                return false;
+            }
+            else if (name.Length > MAX_NAME_LENGTH)
+            {
+                errMsg = $"Invalid name given. The name '{name}' exceeds the {MAX_NAME_LENGTH} character limit of names. Choose a smaller name.";
+                return false;
+            }
+            else
+            {
+                errMsg = string.Empty;
+                return true;
+            }
         }
 
         enum ProcessMode
