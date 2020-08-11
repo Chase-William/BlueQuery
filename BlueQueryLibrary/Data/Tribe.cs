@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
+using System.Threading.Tasks;
 
 namespace BlueQueryLibrary.Data
 {
@@ -31,10 +33,24 @@ namespace BlueQueryLibrary.Data
     {
         const string BASE_DIR = "tribes/";  // Base directory all tribes reside in
 
+        private int id;
         /// <summary>
         ///     Our true primary key
         /// </summary>
-        public int Id { get; set; }
+        public int Id
+        {
+            get => id;
+            set
+            {
+                id = value;
+
+                // Create the directory if it hasn't been created yet
+                if (!Directory.Exists(BASE_DIR + FolderName))
+                {
+                    Directory.CreateDirectory(BASE_DIR + FolderName);
+                }
+            }
+        }
 
         /// <summary>
         ///     Name of the tribe which is unique
@@ -46,24 +62,13 @@ namespace BlueQueryLibrary.Data
         /// </summary>
         public List<GuildInfo> PermittedGuilds { get; set; } = new List<GuildInfo>();
 
-        private string folderName;
         /// <summary>
-        ///     Base folder relative to the tribe.<br/>
-        ///     Creates a directory for its tribe if one doesn't already exist.
+        ///     The tribe's folder name id<br/>
+        ///     This is the same as the id of the tribe
         /// </summary>
         public string FolderName
         {
-            get => folderName;
-            set
-            {
-                folderName = value;
-
-                // Create the directory if it hasn't been created yet
-                if (!Directory.Exists(BASE_DIR + FolderName))
-                {
-                    Directory.CreateDirectory(BASE_DIR + FolderName);
-                }
-            }
+            get => Id.ToString();
         }
 
         /// <summary>
@@ -104,10 +109,18 @@ namespace BlueQueryLibrary.Data
             }            
         }
 
-        public void CreateBlueprint()
+        public async Task CreateBlueprint(string url, string imageFile)
         {
+            System.Net.Http.HttpClient client = new System.Net.Http.HttpClient();
 
-        }
+            var test = await client.GetAsync(url);
+
+            Stream imgStream = await test.Content.ReadAsStreamAsync();            
+
+            Image img = Image.FromStream(imgStream);
+
+            img.Save($"{BASE_DIR}\\{FolderName}\\{imageFile}");
+        }        
     }
 
     /// <summary>

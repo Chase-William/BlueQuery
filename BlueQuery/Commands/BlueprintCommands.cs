@@ -5,6 +5,9 @@ using BlueQuery.Util;
 using System.Linq;
 using BlueQueryLibrary.Data;
 using System;
+using System.IO;
+using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace BlueQuery.Commands
 {
@@ -13,8 +16,9 @@ namespace BlueQuery.Commands
         const string NAME_PARAM = " -name ";
         const string CREATE_PARAM = " -create ";
         const string TRIBE_PARAM = " -tribe ";
+        const string IMAGE_PARAM = " -img ";
 
-        public readonly string[] SINGLE_USE_PARAMS = { NAME_PARAM, TRIBE_PARAM, CREATE_PARAM };
+        public readonly string[] SINGLE_USE_PARAMS = { NAME_PARAM, TRIBE_PARAM, CREATE_PARAM, IMAGE_PARAM };
 
         [Command("Blueprint")]
         [Description("Base command for performing CRUD operations on blueprints.")]
@@ -68,12 +72,33 @@ namespace BlueQuery.Commands
                     return;
                 }
 
+                // You can't provide more than one image for a blueprint
+                if (_ctx.Message.Attachments.Count > 1)
+                {
+                    await _ctx.RespondAsync("Invalid number of attachments given. You cannot provide more than one image for a blueprint.");
+                    return;
+                }
+
                 // Only jpg or png are allowed
-                //if (_ctx.Message.Attachments[0].)
+                if (_ctx.Message.Attachments.Count == 1)
+                {
+                    var attachment = _ctx.Message.Attachments[0];
+
+                    int extensionIndex = attachment.FileName.LastIndexOf('.');
+                    string ex = attachment.FileName.Substring(extensionIndex + 1, attachment.FileName.Length - extensionIndex - 1);                   
+                    if (!(ex.Equals("jpg") || ex.Equals("JPG") || ex.Equals("jpeg") || ex.Equals("JPEG") || ex.Equals("png") || ex.Equals("PNG")))
+                    {
+                        await _ctx.RespondAsync("Invalid file given. The valid image extensions are as follows:\n" + "`jpg` " + "`JPG` " + "`jpeg` " + "`JPEG` " + "`png` " + "`PNG` ");
+                        return;
+                    }
+
+                    await tribe.CreateBlueprint(attachment.Url, bpName + "." + ex);
+                    await _ctx.RespondAsync("BP Created");
+                    return;
+                }
 
                 // Create blueprint the blueprint
                 
-
 
                 await _ctx.RespondAsync("CREATE-PARAM detected.");
                 return;
