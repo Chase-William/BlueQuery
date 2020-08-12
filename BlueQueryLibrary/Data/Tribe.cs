@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 
@@ -17,7 +18,7 @@ namespace BlueQueryLibrary.Data
     /// <summary>
     ///     A temporary struct that holds data refering to how the guild should be treated by the receiving tribe
     /// </summary>
-    public readonly struct TempGuild
+    public struct TempGuild
     {         
         public TempGuild(ulong _id, Mode _mode)
         {
@@ -25,15 +26,16 @@ namespace BlueQueryLibrary.Data
             Mode = _mode;
         }
 
-        public readonly ulong Id;
-        public readonly Mode Mode;
+        public ulong Id;
+        public Mode Mode;
     }    
-    
+        
     public class Tribe
     {
         const string BASE_DIR = "tribes/";  // Base directory all tribes reside in
 
         private int id;
+
         /// <summary>
         ///     Our true primary key
         /// </summary>
@@ -74,7 +76,7 @@ namespace BlueQueryLibrary.Data
         /// <summary>
         ///     Contains information about all the blueprints this tribe contains
         /// </summary>
-        public Dictionary<string, BlueprintInfo> Blueprints { get; set; } = new Dictionary<string, BlueprintInfo>();
+        public List<BlueprintInfo> Blueprints { get; set; } = new List<BlueprintInfo>();
 
         /// <summary>
         ///     The owner of the tribe (discord member or person, NOT GUILD) - the creator
@@ -97,7 +99,7 @@ namespace BlueQueryLibrary.Data
                     // If the guild id already exist inside the permitted guild collection then skip
                     if (PermittedGuilds.All(p => p.Id != guild.Id))
                     {
-                        PermittedGuilds.Add(new GuildInfo(guild.Id, DateTime.Now));
+                        PermittedGuilds.Add(new GuildInfo(guild.Id));
                     }                                      
                 }
                 // If the permitted guild isn't inside the collection then skip
@@ -109,18 +111,25 @@ namespace BlueQueryLibrary.Data
             }            
         }
 
-        public async Task CreateBlueprint(string url, string imageFile)
+        public async Task<Tuple<bool, string>> CreateBlueprint(string bpNameOnly, string bpNameWithEx, string imgUrl)
         {
-            System.Net.Http.HttpClient client = new System.Net.Http.HttpClient();
+            try
+            {
+                HttpClient client = new HttpClient();
+                Stream imgStream = await (await client.GetAsync(imgUrl)).Content.ReadAsStreamAsync();
 
-            var test = await client.GetAsync(url);
+                Image img = Image.FromStream(imgStream);
+                img.Save($"{BASE_DIR}\\{FolderName}\\{bpNameWithEx}");
+            }
+            catch (Exception ex)
+            {
+                return new Tuple<bool, string>(false, "An issue occured while attempting to download the image from the provided url.");
+            }
 
-            Stream imgStream = await test.Content.ReadAsStreamAsync();            
+            Blueprints.Add(new BlueprintInfo(bpNameOnly));
 
-            Image img = Image.FromStream(imgStream);
-
-            img.Save($"{BASE_DIR}\\{FolderName}\\{imageFile}");
-        }        
+            return new Tuple<bool, string>(true, string.Empty);
+        }                
     }
 
     /// <summary>
@@ -128,21 +137,21 @@ namespace BlueQueryLibrary.Data
     ///     @prop - Id, Primary Key for a guild<br/>
     ///     @prop - DateAdded, Date this guild was originally added to the tribe
     /// </summary>
-    public readonly struct GuildInfo
+    public struct GuildInfo
     {
         /// <summary>
         ///     Primary Key for the guild
         /// </summary>
-        public readonly ulong Id;
+        public ulong Id { get; set; }
         /// <summary>
         ///     Date originally added
         /// </summary>
-        public readonly DateTime DateAdded;
+        public DateTime DateAdded { get; set; }
 
-        public GuildInfo(ulong _id, DateTime _dateAdded)
+        public GuildInfo(ulong _id)
         {
             Id = _id;
-            DateAdded = _dateAdded;
+            DateAdded = DateTime.Now;
         }
     }
 
@@ -154,13 +163,29 @@ namespace BlueQueryLibrary.Data
     public struct BlueprintInfo
     {
         /// <summary>
+        ///     Creates a blueprint using the given name<br/>
+        ///     Also notes when this blueprint was officially created
+        /// </summary>
+        /// <param name="_nameId"></param>
+        public BlueprintInfo(string _nameId)
+        {
+            NameId = _nameId;
+            DateAdded = DateTime.Now;
+        }
+
+        /// <summary>
         ///     Primary Key for the blueprint, also is the name of the image stored on disk
         /// </summary>
-        //public string NameId { get; set; }
+        public string NameId { get; set; }
 
         /// <summary>
         ///     Date this blueprint was originally added to the tribe
         /// </summary>
         public DateTime DateAdded { get; set; }
+
+        /// <summary>
+        ///     Contains the filename of the image that is associated with this blueprint
+        /// </summary>
+        public string ImgFileName => NameId;
     }
 }

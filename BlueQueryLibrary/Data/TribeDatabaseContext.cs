@@ -61,7 +61,6 @@ namespace BlueQueryLibrary.Data
             col.EnsureIndex(t => t.NameId);
             int id = col.Insert(_tribe).AsInt32;
             _tribe.Id = id;
-            Console.WriteLine();
         }
 
         /// <summary>

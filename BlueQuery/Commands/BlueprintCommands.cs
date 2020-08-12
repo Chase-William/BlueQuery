@@ -8,6 +8,7 @@ using System;
 using System.IO;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Reflection.Metadata.Ecma335;
 
 namespace BlueQuery.Commands
 {
@@ -16,9 +17,9 @@ namespace BlueQuery.Commands
         const string NAME_PARAM = " -name ";
         const string CREATE_PARAM = " -create ";
         const string TRIBE_PARAM = " -tribe ";
-        const string IMAGE_PARAM = " -img ";
+        const string IMG_LINK_PARAM = " -img ";
 
-        public readonly string[] SINGLE_USE_PARAMS = { NAME_PARAM, TRIBE_PARAM, CREATE_PARAM, IMAGE_PARAM };
+        public readonly string[] SINGLE_USE_PARAMS = { NAME_PARAM, TRIBE_PARAM, CREATE_PARAM, IMG_LINK_PARAM };
 
         [Command("Blueprint")]
         [Description("Base command for performing CRUD operations on blueprints.")]
@@ -43,13 +44,18 @@ namespace BlueQuery.Commands
             // To create a blueprint right now you need to pass the -create param and the -tribe param
             if (@params.Any(p => p.ParamType.Equals(CREATE_PARAM) && @params.Any(p => p.ParamType.Equals(TRIBE_PARAM))))
             {
+                string imgUrl = string.Empty;
+                string bpNameOnly = string.Empty;
+                string bpNameWithExtension = string.Empty;
+
                 // Validate and process the given name
-                string bpName = (@params.Single(p => p.ParamType.Equals(CREATE_PARAM)).ParamValue);
-                if (!StrParseUtil.ValidateName(ref bpName, out errMsg))
+                bpNameOnly = (@params.Single(p => p.ParamType.Equals(CREATE_PARAM)).ParamValue);
+                if (!StrParseUtil.ValidateName(ref bpNameOnly, out errMsg))
                 {
                     await _ctx.RespondAsync(errMsg);
                     return;
-                }                
+                }
+                bpNameWithExtension = bpNameOnly;
 
                 // Check to make sure the given tribe exist
                 if (!TribeDatabaseContext.Provider.DoesTribeExist(@params.Single(t => t.ParamType.Equals(TRIBE_PARAM)).ParamValue, out Tribe tribe, out errMsg))
@@ -59,16 +65,9 @@ namespace BlueQuery.Commands
                 }
 
                 // Check to make sure a blueprint with the given name doesn't already exist
-                if (tribe.Blueprints.ContainsKey(bpName))
+                if (tribe.Blueprints.Any(x => x.NameId.Equals(bpNameOnly)))
                 {
-                    await _ctx.RespondAsync($"Invalid blueprint name given. The blueprint {bpName} already exist within the {tribe.NameId}. Try picking a different name.");
-                    return;
-                }
-
-                // Only one image is allowed to be provided for a single blueprint
-                if (_ctx.Message.Attachments.Count > 1)
-                {
-                    await _ctx.RespondAsync("Invalid number of attachments given. A blueprint can only have one image.");
+                    await _ctx.RespondAsync($"Invalid blueprint name given. The blueprint {bpNameOnly} already exist within the {tribe.NameId} tribe. Try picking a different name.");
                     return;
                 }
 
@@ -84,30 +83,72 @@ namespace BlueQuery.Commands
                 {
                     var attachment = _ctx.Message.Attachments[0];
 
-                    int extensionIndex = attachment.FileName.LastIndexOf('.');
-                    string ex = attachment.FileName.Substring(extensionIndex + 1, attachment.FileName.Length - extensionIndex - 1);                   
-                    if (!(ex.Equals("jpg") || ex.Equals("JPG") || ex.Equals("jpeg") || ex.Equals("JPEG") || ex.Equals("png") || ex.Equals("PNG")))
+                    if (!ValidateFileIsImg(attachment.FileName, out string ex, out errMsg))
                     {
-                        await _ctx.RespondAsync("Invalid file given. The valid image extensions are as follows:\n" + "`jpg` " + "`JPG` " + "`jpeg` " + "`JPEG` " + "`png` " + "`PNG` ");
+                        await _ctx.RespondAsync(errMsg);
                         return;
                     }
 
-                    await tribe.CreateBlueprint(attachment.Url, bpName + "." + ex);
-                    await _ctx.RespondAsync("BP Created");
+                    imgUrl = attachment.Url;
+                    bpNameWithExtension += $".{ex}";
+                }
+                else if (@params.Any(p => p.ParamType.Equals(IMG_LINK_PARAM)))
+                {
+                    var testingUrl = @params.Single(p => p.ParamType.Equals(IMG_LINK_PARAM)).ParamValue;
+
+                    if (!ValidateFileIsImg(testingUrl, out string ex, out errMsg))
+                    {
+                        await _ctx.RespondAsync(errMsg);
+                        return;
+                    }
+
+                    imgUrl = testingUrl;
+                    bpNameWithExtension += $".{ex}";
+                }
+
+                // Create blueprint the blueprint & update db
+                var results = await tribe.CreateBlueprint(bpNameOnly, bpNameWithExtension, imgUrl);
+                TribeDatabaseContext.Provider.UpdateTribe(tribe);
+
+                // If an error ocurred during the creation of the blueprint report it here
+                if (!results.Item1)
+                {
+                    await _ctx.RespondAsync(results.Item2);
                     return;
                 }
 
-                // Create blueprint the blueprint
-                
-
-                await _ctx.RespondAsync("CREATE-PARAM detected.");
+                await _ctx.RespondAsync($"Blueprint {bpNameOnly} created!");
                 return;
             }
 
-
-
-
             await _ctx.RespondAsync("Save Command!");
+        }
+
+        /// <summary>
+        ///     Validates a file url given ex. (https://www.MyWebsite.com/images/MyImage.png) is a valid image file.<br/>
+        ///     This is done by getting the last '.' in the name and comparing with the extension after that.<br/>
+        ///     @param - fileName, File name given<br/>
+        ///     @out param - errMsg, Error message
+        ///     Returns whether or not the file given is a valid image to bluequery standards<br/>
+        ///     True - Valid<br/>
+        ///     False - Invalid
+        /// </summary>
+        /// <param name="fileUrl"> Given file url </param>
+        /// <param name="errMsg"> Error message </param>
+        /// <returns></returns>
+        private static bool ValidateFileIsImg(in string fileUrl, out string fileExtension , out string errMsg)
+        {
+            errMsg = string.Empty;
+
+            int extensionIndex = fileUrl.LastIndexOf('.');
+            fileExtension = fileUrl.Substring(extensionIndex + 1, fileUrl.Length - extensionIndex - 1);
+            if (!(fileExtension.Equals("jpg") || fileExtension.Equals("JPG") || fileExtension.Equals("jpeg") || fileExtension.Equals("JPEG") || fileExtension.Equals("png") || fileExtension.Equals("PNG")))
+            {
+                errMsg = "Invalid file given. The valid image extensions are as follows:\n" + "`jpg` " + "`JPG` " + "`jpeg` " + "`JPEG` " + "`png` " + "`PNG` ";
+                return false;
+            }
+
+            return true;
         }
     }
 }

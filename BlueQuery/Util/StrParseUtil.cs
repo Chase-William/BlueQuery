@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.Collections.Specialized;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Transactions;
 
 namespace BlueQuery.Util
 {
@@ -59,7 +54,7 @@ namespace BlueQuery.Util
         ///     True - Success<br/>
         ///     False - Failure
         /// </returns>
-        public static bool ParseRequestStr(in string srcStr, string[] sParams, string[] rParams, out ParamInfo[] _params, out string errMsg)
+        public static bool ParseRequestStr(string srcStr, string[] sParams, string[] rParams, out ParamInfo[] _params, out string errMsg)
         {
             _params = null;
 
@@ -75,14 +70,20 @@ namespace BlueQuery.Util
 
             // If sParams are provided, process them
             if (sParams != null)
-                if (!ProcessParams(srcStr, sParams, paramsInfo, ProcessMode.Single, out errMsg))
+                if (!ProcessSingleUseParams(srcStr, sParams, paramsInfo, out errMsg))
                     return false;
 
             // If rParams are provided, process them
             if (rParams != null)
-                if (!ProcessParams(srcStr, rParams, paramsInfo, ProcessMode.Repeatable, out errMsg))
+                if (!ProcessRepeatableUseParams(srcStr, rParams, paramsInfo, out errMsg))
                     return false;
                 
+            // If text was passed but none matched our parameters:
+            if (paramsInfo.Count == 0)
+            {
+                errMsg = "Invalid Request. The request must contain a valid parameter to be used in some way.";
+                return false;
+            }
 
             // Ordering all the parameters by their start index from small to large
             var pOrdered = paramsInfo.OrderBy(x => x.ParamValueStartIndex).ToArray();
@@ -106,6 +107,17 @@ namespace BlueQuery.Util
             /* ----- Formatting Error Checks ----- */
 
             // If these return false then we want to propagate the error 
+
+            // We need to check the beginning of the srcStr for format errors 
+            if (pOrdered[0].ParamPropertyStartIndex - pOrdered[0].ParamType.Length > 0)
+            {                
+                string fullErrStr = srcStr.Trim();
+
+                string onlyErrStr = fullErrStr.Substring(0, pOrdered[0].ParamPropertyStartIndex - 1).Trim();
+
+                errMsg = FormatError(onlyErrStr, "[" + onlyErrStr + "] " + fullErrStr.Substring(pOrdered[0].ParamPropertyStartIndex - 1));
+                return false;
+            }
 
             if (sParams != null)            
                 if (!CheckFormatting(srcStr, sParams, pOrdered, out errMsg))             
@@ -153,60 +165,91 @@ namespace BlueQuery.Util
                 return true;
             }
         }
-
-        enum ProcessMode
+        
+        private static bool ProcessSingleUseParams(in string srcStr, string[] sParams, List<ParamInfo> _paramsInfo, out string errMsg)
         {
-            Single = 0,
-            Repeatable
-        }
+            Dictionary<string, int> offsets = new Dictionary<string, int>();
 
-        // Gets parameters that can be repeated throughout the request
-        private static bool ProcessParams(in string srcStr, string[] s_or_r_params, List<ParamInfo> _paramsInfo, ProcessMode mode, out string errMsg)
-        {
-            errMsg = string.Empty;
-            // Prevents IndexOf() call not find the same _param repeatedly 
-            int posOffset = 0;
+            errMsg = string.Empty;            
 
             // We need this copy because the Contains() doesn't allow us to check if something is contained after a specific index within a string
             string srcStrCpy = srcStr;
 
             // Check for each repeatable parameter
-            for (int i = 0; i < s_or_r_params.Length; i++)
-            {
-                // Interate until all repeatable parameters captured
-                while (true)
+            for (int i = 0; i < sParams.Length; i++)
+            {                
+                if (srcStrCpy.Contains(sParams[i]))
                 {
-                    if (srcStrCpy.Contains(s_or_r_params[i]))
+                    int propIndex = srcStr.IndexOf(sParams[i], offsets.ContainsKey(sParams[i]) ? offsets[sParams[i]] : 0);
+                    int valueIndex = propIndex + sParams[i].Length;
+
+                    // If a single use param is already present in our collection then report error                        
+                    if (offsets.ContainsKey(sParams[i]))
                     {
-                        int propIndex = srcStr.IndexOf(s_or_r_params[i], posOffset);
-                        int valueIndex = propIndex + s_or_r_params[i].Length;
+                        errMsg = $"Invalid use of single use parameter. The parameter {sParams[i].Trim()} cannot be used more than once.";
+                        return false;
+                    }
 
-                        // Setting a offset so that the next iteration of IndexOf won't return the index of the same _param
-                        posOffset = valueIndex;
+                    // Saving the offset of this param
+                    offsets.Add(sParams[i], valueIndex);
+                    // Adding the param and its information to our collection
+                    _paramsInfo.Add(new ParamInfo
+                    {
+                        ParamType = sParams[i],
+                        ParamPropertyStartIndex = propIndex
+                    });
+                        
+                    // Updating the copy by removing the accounted for singe use param
+                    srcStrCpy = srcStrCpy.Remove(srcStrCpy.IndexOf(sParams[i]), sParams[i].Length);
+                }                         
+            }
+            return true;
+        }
 
+        private static bool ProcessRepeatableUseParams(in string srcStr, string[] rParams, List<ParamInfo> _paramsInfo, out string errMsg)
+        {
+            Dictionary<string, int> offsets = new Dictionary<string, int>();
+            errMsg = string.Empty;            
+
+            // We need this copy because the Contains() doesn't allow us to check if something is contained after a specific index within a string
+            string srcStrCpy = srcStr;
+
+            for (int i = 0; i < rParams.Length; i++)
+            {
+                while(true)
+                {
+                    if (srcStrCpy.Contains(rParams[i]))
+                    {
+                        int propIndex = srcStr.IndexOf(rParams[i], offsets.ContainsKey(rParams[i]) ? offsets[rParams[i]] : 0);
+                        int valueIndex = propIndex + rParams[i].Length;
+
+                        if (offsets.ContainsKey(rParams[i]))
+                        {
+                            offsets[rParams[i]] = valueIndex;
+                        }
+                        else
+                        {
+                            // Saving the offset of this param
+                            offsets.Add(rParams[i], valueIndex);
+                        }
+
+                        // Adding the param and its information to our collection
                         _paramsInfo.Add(new ParamInfo
                         {
-                            ParamType = s_or_r_params[i],
+                            ParamType = rParams[i],
                             ParamPropertyStartIndex = propIndex
                         });
 
-                        // If we are processing for single use parameters, propagate an error if a single use param shows up more than once
-                        if (mode.Equals(ProcessMode.Single))
-                        {
-                            if (_paramsInfo.Where(p => p.ParamType.Equals(s_or_r_params[i])).Count() > 1)
-                            {
-                                errMsg = "Invalid use of single use parameter. A single use parameter can only be used once in a request.";
-                                return false;
-                            }
-                        }
-
-                        // Updaing the copy
-                        srcStrCpy = srcStrCpy.Remove(srcStrCpy.IndexOf(s_or_r_params[i]), s_or_r_params[i].Length);
+                        // Updating the copy by removing the accounted for singe use param
+                        srcStrCpy = srcStrCpy.Remove(srcStrCpy.IndexOf(rParams[i]), rParams[i].Length);
                     }
-                    else 
+                    else
                         break;
-                }                
+                }
             }
+
+            // Updaing the copy
+            //srcStrCpy = srcStrCpy.Remove(srcStrCpy.IndexOf(s_or_r_params[i]), s_or_r_params[i].Length);
             return true;
         }
 
@@ -237,15 +280,28 @@ namespace BlueQuery.Util
                     return false;
             })))
             {
-                string srcStrCpy = _srcStr;
+                string fullErrStr = _srcStr;
 
-                srcStrCpy = srcStrCpy.Insert(errParam.ParamValueStartIndex, "[");
-                srcStrCpy = srcStrCpy.Insert(errParam.ParamValueStartIndex + errParam.ParamValue.Length + 1, "]");
+                fullErrStr = fullErrStr.Insert(errParam.ParamValueStartIndex, "[");
+                fullErrStr = fullErrStr.Insert(errParam.ParamValueStartIndex + errParam.ParamValue.Length + 1, "]");
 
-                errMsg = "Formatting Error Detected.\n" + "**Error Text:**\n" + $"```css\n[{errParam.ParamValue}]``````fix\n{srcStrCpy}```";
+                errMsg = FormatError(errParam.ParamValue, fullErrStr);
                 return false;
             }
             return true;
+        }
+
+        /// <summary>
+        ///     Formats a formatting error to be returned to the user<br/>
+        ///     @param - onlyErrStr, Isolated error string
+        ///     @param - fullErrStr, Error in the entire context
+        /// </summary>
+        /// <param name="onlyErrStr"> Isolated error string </param>
+        /// <param name="fullErrStr"> Error string with full context </param>
+        /// <returns></returns>
+        private static string FormatError(in string onlyErrStr, in string fullErrStr)
+        {
+            return "Formatting Error Detected.\n" + "**Error Text:**\n" + $"```css\n[{onlyErrStr}]``````fix\n{fullErrStr}```";
         }
     }
 }
