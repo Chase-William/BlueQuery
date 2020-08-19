@@ -9,6 +9,7 @@ using System.IO;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Reflection.Metadata.Ecma335;
+using BlueQuery.ResponseTypes;
 
 namespace BlueQuery.Commands
 {
@@ -24,7 +25,7 @@ namespace BlueQuery.Commands
         [Command("Blueprint")]
         [Description("Base command for performing CRUD operations on blueprints.")]
         [Aliases("blueprint", "bp")]
-        public async Task OnSave(CommandContext _ctx)
+        public async Task OnBlueprint(CommandContext _ctx)
         {            
             if(!StrParseUtil.ParseRequestStr(_ctx.RawArgumentString, SINGLE_USE_PARAMS, null, out ParamInfo[] @params, out string errMsg))
             {
@@ -117,11 +118,46 @@ namespace BlueQuery.Commands
                     return;
                 }
 
-                await _ctx.RespondAsync($"Blueprint {bpNameOnly} created!");
+                await _ctx.RespondAsync($"Blueprint `{bpNameOnly}` created!");
                 return;
             }
 
-            await _ctx.RespondAsync("Save Command!");
+            // If the -name parameter has not been provided, error
+            if (!@params.Any(p => p.ParamType.Equals(NAME_PARAM)))
+            {
+                await _ctx.RespondAsync("Missing required parameter. You must provide the -name *<your blueprint name here>* parameter.");
+                return;
+            }
+
+            /* ----- Validating that the target blueprint exist ----- */
+            
+            // If a tribe was provided then use it to narrow our query
+            if (@params.Any(p => p.ParamType.Equals(TRIBE_PARAM)))
+            {
+                string tribeNameId = @params.Single(p => p.ParamType.Equals(TRIBE_PARAM)).ParamValue;
+
+                // Check to make sure that the provided tribe exist
+                if (!TribeDatabaseContext.Provider.DoesTribeExist(tribeNameId, out Tribe tribe, out errMsg))
+                {
+                    await _ctx.RespondAsync(errMsg);
+                    return;
+                }
+
+                // If any of the blueprints in the tribe are not equal to the target blueprint
+                if (!tribe.DoesBlueprintExist(@params.Single(p => p.ParamType.Equals(NAME_PARAM)).ParamValue, out BlueprintInfo blueprint, out errMsg))
+                {
+                    await _ctx.RespondAsync(errMsg);
+                    return;
+                }
+
+                await Messenger.Respond(_ctx, new BlueprintInfoResponse(_ctx.Client, blueprint));
+                return;
+            }
+            // If no tribe was provided then perform a wider search
+            else
+            {
+
+            }
         }
 
         /// <summary>

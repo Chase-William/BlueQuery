@@ -11,7 +11,7 @@ namespace BlueQuery.Util
         ///     @param - _ctx, the command context used by the DSharpPlus API
         ///     @param - _response, the generic instance of a response our bot has created that needs to be shown to the user 
         /// </summary>
-        public static async Task SendMessage(CommandContext _ctx, BlueQueryResponse _response)
+        public static async Task Respond(CommandContext _ctx, BlueQueryResponse _response)
         {
             // We send the header as its own message.
             await _ctx.RespondAsync(_response.GetFormattedHeader());

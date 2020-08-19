@@ -82,7 +82,7 @@ namespace BlueQuery.Commands.Crafting
                     {
                         // Getting all blueprint keys
                         keys = BlueQueryLibrary.Data.Blueprints.DefaultBlueprints.Keys.ToArray();
-                        await Messenger.SendMessage(_ctx, new SelectionListingResponse(keys, amount));
+                        await Messenger.Respond(_ctx, new SelectionListingResponse(keys, amount));
                     }
                     catch
                     {
@@ -116,11 +116,11 @@ namespace BlueQuery.Commands.Crafting
                             break;
                         // Only one blueprint was found so we can calculate immediately.
                         case 1:
-                            await Messenger.SendMessage(_ctx, new CraftingCostResponse(keys.First(), amount));
+                            await Messenger.Respond(_ctx, new CraftingCostResponse(keys.First(), amount));
                             break;
                         // Multiple blueprints were found.
                         default:
-                            await Messenger.SendMessage(_ctx, new SelectionListingResponse(keys, amount));
+                            await Messenger.Respond(_ctx, new SelectionListingResponse(keys, amount));
                             break;
                     }
                     break;
@@ -151,7 +151,7 @@ namespace BlueQuery.Commands.Crafting
                 return;
             }
 
-            await Messenger.SendMessage(_ctx, new CraftingCostResponse(selectedIndex, SavedCraftInstructions.Content.Amount));
+            await Messenger.Respond(_ctx, new CraftingCostResponse(selectedIndex, SavedCraftInstructions.Content.Amount));
 
             // Reseting the keyOptions to null so this cannot be called again.
             SavedCraftInstructions.Content = null;

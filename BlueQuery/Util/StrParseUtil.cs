@@ -95,13 +95,12 @@ namespace BlueQuery.Util
                 // If we are iterating on the last item we need to read until the end because their isn't another element in the array (index out of bounds incoming)
                 if (i == (pOrdered.Length - 1))
                 {
-                    pOrdered[i].ParamValue = srcStr.Substring(pOrdered[i].ParamValueStartIndex);
+                    pOrdered[i].ParamValue = srcStr.Substring(pOrdered[i].ParamValueStartIndex).Trim();
                     break;
                 }
                 // Reading from the start index of the current until the start index of the next minus 1
                 // This is assigned back into the array but to the ParamValue property
-                var test = (pOrdered[(i + 1)].ParamValueStartIndex - pOrdered[(i + 1)].ParamPropertyStartIndex);
-                pOrdered[i].ParamValue = srcStr.Substring(pOrdered[i].ParamValueStartIndex, pOrdered[(i + 1)].ParamPropertyStartIndex - pOrdered[i].ParamValueStartIndex);
+                pOrdered[i].ParamValue = srcStr.Substring(pOrdered[i].ParamValueStartIndex, pOrdered[(i + 1)].ParamPropertyStartIndex - pOrdered[i].ParamValueStartIndex).Trim();
             }
 
             /* ----- Formatting Error Checks ----- */
@@ -109,7 +108,7 @@ namespace BlueQuery.Util
             // If these return false then we want to propagate the error 
 
             // We need to check the beginning of the srcStr for format errors 
-            if (pOrdered[0].ParamPropertyStartIndex - pOrdered[0].ParamType.Length > 0)
+            if (pOrdered[0].ParamPropertyStartIndex - pOrdered[0].ParamType.Length > 0 && !string.IsNullOrWhiteSpace(srcStr.Substring(0, pOrdered[0].ParamPropertyStartIndex)))
             {                
                 string fullErrStr = srcStr.Trim();
 

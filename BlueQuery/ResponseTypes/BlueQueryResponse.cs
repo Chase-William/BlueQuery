@@ -35,5 +35,26 @@ namespace BlueQuery.ResponseTypes
         {
             return Formatter.BlockCode(Content[_index], "py");
         }
+
+        /// <summary>
+        ///     Appends the string content to the Content collection based off a set of conditions.<br/>
+        ///     @param - index, Index of Content collection which can be incremented based on circumstance.<br/>
+        ///     @param - content, String of content to be appended or added to Content collection, readonly
+        /// </summary>
+        /// <param name="index"> Index of content collection </param>
+        /// <param name="content"> String content to be appended </param>
+        protected void AppendContent(ref int index, in string content)
+        {
+            if ((Content[index].Length + content.Length) <= MESSAGE_LENGTH_LIMIT)
+            {
+                // Padding right allows the text after to be formatted neatly vertically.
+                Content[index] += content;
+            }
+            else
+            {
+                // Incrementing the content array and adding the content.
+                Content[++index] += content;
+            }
+        }
     }
 }

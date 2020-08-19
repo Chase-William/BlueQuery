@@ -109,7 +109,7 @@ namespace BlueQueryLibrary.Data
                     PermittedGuilds.Remove(toBeDeleted);                                       
                 }                              
             }            
-        }
+        }        
 
         public async Task<Tuple<bool, string>> CreateBlueprint(string bpNameOnly, string bpNameWithEx, string imgUrl)
         {
@@ -120,6 +120,8 @@ namespace BlueQueryLibrary.Data
 
                 Image img = Image.FromStream(imgStream);
                 img.Save($"{BASE_DIR}\\{FolderName}\\{bpNameWithEx}");
+                // adding the blueprint to this tribe
+                Blueprints.Add(new BlueprintInfo(bpNameWithEx));
             }
             catch (Exception ex)
             {
@@ -129,7 +131,28 @@ namespace BlueQueryLibrary.Data
             Blueprints.Add(new BlueprintInfo(bpNameOnly));
 
             return new Tuple<bool, string>(true, string.Empty);
-        }                
+        }
+
+        /// <summary>
+        ///     Checks to see
+        /// </summary>
+        /// <param name="blueprintName"></param>
+        /// <param name="errMsg"></param>
+        /// <returns></returns>
+        public bool DoesBlueprintExist(string blueprintName, out BlueprintInfo blueprint, out string errMsg)
+        {
+            blueprint = null;
+            errMsg = string.Empty;
+
+            bool state = Blueprints.Exists(p => p.NameId.Equals(blueprintName));
+
+            if (!state)
+                errMsg = $"Invalid blueprint name given. The blueprint name {blueprintName} doesn't exist.";
+            else
+                blueprint = Blueprints.Single(p => p.NameId.Equals(blueprintName));
+
+            return state;
+        }
     }
 
     /// <summary>
@@ -160,7 +183,7 @@ namespace BlueQueryLibrary.Data
     ///     @prop - NameId, Primary Key for the blueprint, also is the name of the image stored on disk<br/>
     ///     @prop - DateAdded, Date this blueprint was originally added to the tribe
     /// </summary>
-    public struct BlueprintInfo
+    public class BlueprintInfo
     {
         /// <summary>
         ///     Creates a blueprint using the given name<br/>

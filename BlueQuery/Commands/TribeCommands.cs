@@ -51,19 +51,18 @@ namespace BlueQuery.Commands
             List<TempGuild> guilds = new List<TempGuild>();
 
             // Checking for multiple uses of a single use parameter
-            {                
-                for (int i = 0; i < SINGLE_USE_PARAMS.Length; i++)
+                          
+            for (int i = 0; i < SINGLE_USE_PARAMS.Length; i++)
+            {
+                int paramCount = @params.Where(p => p.ParamType.Equals(SINGLE_USE_PARAMS[i])).Count();
+
+                if (paramCount > 1)
                 {
-                    int paramCount = @params.Where(p => p.ParamType.Equals(SINGLE_USE_PARAMS[i])).Count();
-
-                    if (paramCount > 1)
-                    {
-                        await _ctx.RespondAsync($"Single use parameter used too many times. The parameter {SINGLE_USE_PARAMS[i]} was provided more than once.");
-                        return;
-                    }
+                    await _ctx.RespondAsync($"Single use parameter used too many times. The parameter {SINGLE_USE_PARAMS[i]} was provided more than once.");
+                    return;
                 }
-            }            
-
+            }
+                     
 
             /* Validating / Processing -add parameters */
             
@@ -71,9 +70,9 @@ namespace BlueQuery.Commands
             if (@params.Any(p => p.ParamType.Equals(ADD_GUILD_PARAM) || p.ParamType.Equals(REMOVE_GUILD_PARAM)))
             {
                 // If an error ocurred during processing, propogate error to user & return from encapsulating function
-                if (!ProcessGuildIds(out var _guildIds, out string procErrorMsg))
+                if (!ProcessGuildIds(out var _guildIds, out errMsg))
                 {
-                    await _ctx.RespondAsync(procErrorMsg);
+                    await _ctx.RespondAsync(errMsg);
                     return;
                 }
                 guilds = _guildIds;
@@ -101,9 +100,9 @@ namespace BlueQuery.Commands
                     }
 
                     // If a tribe with the given name already exist, error
-                    if (TribeDatabaseContext.Provider.DoesTribeExist(tribeName, out _, out string tribeErrorMsg))
+                    if (TribeDatabaseContext.Provider.DoesTribeExist(tribeName, out _, out errMsg))
                     {
-                        await _ctx.RespondAsync(tribeErrorMsg);
+                        await _ctx.RespondAsync(errMsg);
                         return;
                     }
 
@@ -121,7 +120,7 @@ namespace BlueQuery.Commands
                     // Insert call
                     TribeDatabaseContext.Provider.InsertTribe(newTribe);
                    
-                    await Messenger.SendMessage(_ctx , new TribeInfoResponse(_ctx.Client, newTribe));
+                    await Messenger.Respond(_ctx , new TribeInfoResponse(_ctx.Client, newTribe));
                     return;
                 }
             }
@@ -129,9 +128,9 @@ namespace BlueQuery.Commands
             // If the -all param is present return
             if (@params.Any(p => p.ParamType.Equals(GET_ALL_TRIBES)))
             {
-                var tribes = TribeDatabaseContext.Provider.GetTribesFromGuild(_ctx.Guild.Id);
+                var tribes = TribeDatabaseContext.Provider.GetTribesFromGuild(_ctx.Guild.Id).ToArray();
 
-                await _ctx.RespondAsync(tribes.FirstOrDefault().NameId);
+                await Messenger.Respond(_ctx, new AllTribesResponse(_ctx.Client, tribes));
                 return;
             }
 
@@ -143,16 +142,12 @@ namespace BlueQuery.Commands
             }
 
             // Validating that the target tribe exist
-            Tribe tribe;
+            if (!TribeDatabaseContext.Provider.DoesTribeExist(@params.Single(p => p.ParamType.Equals(NAME_PARAM)).ParamValue, out Tribe tribe, out errMsg))
             {
-                // Checking to make sure the targe tribe exist
-                if (!TribeDatabaseContext.Provider.DoesTribeExist(@params.Single(p => p.ParamType.Equals(NAME_PARAM)).ParamValue, out Tribe _tribe, out string tribeErrorMsg))
-                {
-                    await _ctx.RespondAsync(tribeErrorMsg);
-                    return;
-                }
-                tribe = _tribe;
+                await _ctx.RespondAsync(errMsg);
+                return;
             }
+            
 
             // Add guilds if given
             if (guilds.Count != 0) tribe.ApplyGuilds(guilds.ToArray());
@@ -164,7 +159,7 @@ namespace BlueQuery.Commands
                 // If new guildIds were provided, perform an update
                 if (guilds.Count != 0) TribeDatabaseContext.Provider.UpdateTribe(tribe);
 
-                await Messenger.SendMessage(_ctx, new TribeInfoResponse(_ctx.Client, tribe));
+                await Messenger.Respond(_ctx, new TribeInfoResponse(_ctx.Client, tribe));
                 return;
             }
 
@@ -195,7 +190,7 @@ namespace BlueQuery.Commands
                 // Update call
                 TribeDatabaseContext.Provider.UpdateTribe(tribe);
               
-                await Messenger.SendMessage(_ctx, new TribeInfoResponse(_ctx.Client, tribe));
+                await Messenger.Respond(_ctx, new TribeInfoResponse(_ctx.Client, tribe));
                 return;
             }
            
